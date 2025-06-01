@@ -43,8 +43,8 @@ class InterviewAnalyzer:
         self.existing_df = self._load_existing_data()
 
         # Token and chunking settings
-        self.max_tokens_per_request = 8000  # Conservative limit to stay under 10k
-        self.chunk_overlap = 200  # Characters to overlap between chunks
+        self.max_tokens_per_request = 2000  # Ultra conservative - much smaller chunks
+        self.chunk_overlap = 50  # Minimal overlap to save space
         self.request_delay = 2  # Seconds to wait between API requests
 
     def _setup_openai_client(self) -> OpenAI:
@@ -241,35 +241,35 @@ class InterviewAnalyzer:
 
     def _create_analysis_prompt(self, interview_content: str, chunk_number: int = None, total_chunks: int = None) -> str:
         """Create the prompt for OpenAI analysis."""
-        column_mapping = self._get_existing_column_mapping()
-        categories_text = "\n".join([
-            f"- {excel_col}: {description}"
-            for internal_key, description in self.categories.items()
-            for excel_col in [column_mapping.get(internal_key, internal_key)]
-            if excel_col
-        ])
 
-        chunk_info = ""
-        if chunk_number is not None and total_chunks is not None:
-            chunk_info = f"\n\nNOTE: This is chunk {chunk_number} of {total_chunks} from a larger interview. Focus on extracting information relevant to each category from this portion."
+        # Ultra-compact categories list to save maximum tokens
+        categories = [
+            "Código Entrevista", "Área de atuação", "Hospital", "Nome - posição institucional - Projetos",
+            "Modelos para planos de trabalho e prestação de contas", "Avaliação geral Proadi e DesenvoIvimento Institucional",
+            "Relação Conass/Conasems/MS com HE e instituições parceiras", "Benefícios para instituição parceira",
+            "Desafios para a participação do HE no Proadi", "Sugestões",
+            "Origem dos projetos (quem demandou, tramitação e negociações)",
+            "Projetos colaborativos (participação de cada um, relacionamento HE e benefícios e desafios)",
+            "Expertise do hospital para o projeto e Inserção deste no HE", "Abrangência Territorial do Projeto (definição)",
+            "Seleção e envolvimento instituições participantes no projeto", "Avaliações sobre o Projeto",
+            "Monitoramento (HE e instituições participantes) e Indicadores",
+            "Riscos na implementação/dificuldades enfrentadas (adesão instituições ou profissionais, infraestrutura, outras)",
+            "Benefícios do projeto para o SUS", "Incorporação de bens materiais ao SUS?",
+            "Treinamento para profissionais?", "Publicações ou divulgação?",
+            "Incorporação resultados ao SUS", "Longevidade e sustentabilidade possível?"
+        ]
 
-        prompt = f"""
-Analyze the following PROADI-SUS interview transcript and provide insights for each category.
-For each category, provide a brief but specific assessment based on the interview content.
-If information is not available for a category, respond with "Não mencionado" or "Informação insuficiente".
-Keep the analysis in Portuguese.{chunk_info}
+        chunk_info = f" {chunk_number}/{total_chunks}" if chunk_number else ""
 
-IMPORTANT: Use the EXACT column names as keys in your JSON response. Do not modify or translate the column names.
+        prompt = f"""Analise esta entrevista PROADI-SUS{chunk_info} e extraia informações para as categorias listadas.
+Use os nomes EXATOS das categorias como chaves JSON. Se não houver info, use "Não mencionado".
 
-Categories to analyze:
-{categories_text}
+Categorias: {', '.join(categories)}
 
-Interview transcript:
+Texto:
 {interview_content}
 
-Please respond in JSON format with each EXACT category name as a key and your analysis as the value.
-Keep responses concise but informative (1-3 sentences per category) in Portuguese.
-"""
+Responda só em JSON válido com análise concisa (1 frase por categoria)."""
         return prompt
 
     def _combine_chunk_analyses(self, chunk_analyses: List[Dict[str, str]]) -> Dict[str, str]:
