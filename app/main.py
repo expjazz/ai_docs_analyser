@@ -454,12 +454,6 @@ FOQUE EM ENCONTRAR CONTEÚDO REAL DA ENTREVISTA."""
 
             if estimated_tokens <= self.max_tokens_per_request - 2000:  # Reserve space for the detailed prompt
                 # Content is small enough, process normally
-                logger.info(f"📄 PROCESSING FULL CONTENT (no chunking needed)")
-                logger.info(
-                    f"📝 Content preview: {interview_content[:500]}{'...' if len(interview_content) > 500 else ''}")
-                logger.info(
-                    f"📏 Full content length: {len(interview_content)} characters")
-
                 prompt = self._create_analysis_prompt(interview_content)
 
                 response = self.client.chat.completions.create(
@@ -506,13 +500,6 @@ FOQUE EM ENCONTRAR CONTEÚDO REAL DA ENTREVISTA."""
                     chunk_tokens = self._estimate_tokens(chunk)
                     logger.info(
                         f"Analyzing chunk {i+1}/{len(chunks)} for {filename} ({chunk_tokens} tokens)")
-
-                    # LOG THE CHUNK CONTENT BEING SENT
-                    logger.info(f"📄 CHUNK {i+1} CONTENT:")
-                    logger.info(
-                        f"📝 Content: {chunk[:500]}{'...' if len(chunk) > 500 else ''}")
-                    logger.info(
-                        f"📏 Full chunk length: {len(chunk)} characters")
 
                     prompt = self._create_analysis_prompt(
                         chunk, i+1, len(chunks))

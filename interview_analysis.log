@@ -958,3 +958,1373 @@ Nídia
 Bom, eu sou Nidia Souza, trabalho há quase 14 anos aqui no Hospital Osvaldo Cruz, estou como gerente de responsabilidade social aqui do HAOC. Desde a minha entrada sempre foi aqui, eu cheguei ...
 2025-06-01 11:27:48,814 - INFO - 📏 Full chunk length: 3925 characters
 2025-06-01 11:27:48,814 - INFO - Waiting 6 seconds to avoid rate limiting...
+2025-06-01 11:28:49,429 - INFO - Loaded existing file with 5 rows
+2025-06-01 11:28:49,429 - INFO - Starting interview analysis...
+2025-06-01 11:28:49,429 - INFO - Found 2 interview files
+2025-06-01 11:28:49,430 - INFO - Found 5 already processed interviews
+2025-06-01 11:28:49,430 - INFO - Processing Gravação da Entrevista - Gravador - 09_04_2025 - HAOC01 - Bruna e Nídia.docx...
+2025-06-01 11:28:49,558 - INFO - Read 70959 characters from Word document Gravação da Entrevista - Gravador - 09_04_2025 - HAOC01 - Bruna e Nídia.docx
+2025-06-01 11:28:49,558 - INFO - Estimated tokens for Gravação da Entrevista - Gravador - 09_04_2025 - HAOC01 - Bruna e Nídia.docx: 17739
+2025-06-01 11:28:49,558 - INFO - Content too large for Gravação da Entrevista - Gravador - 09_04_2025 - HAOC01 - Bruna e Nídia.docx, chunking...
+2025-06-01 11:28:49,558 - INFO - Split content into 20 chunks (max 1000 tokens each)
+2025-06-01 11:28:49,558 - INFO - Analyzing chunk 1/20 for Gravação da Entrevista - Gravador - 09_04_2025 - HAOC01 - Bruna e Nídia.docx (991 tokens)
+2025-06-01 11:28:54,430 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-01 11:28:54,438 - INFO - 🔍 Raw OpenAI response for chunk 1:
+2025-06-01 11:28:54,438 - INFO - 📝 Response: ```json
+{
+  "Código Entrevista": "Não encontrado neste trecho",
+  "Hospital": "Não encontrado neste trecho",
+  "Nome - posição institucional - Projetos": "Bruna, responsável pela gestão financeira e administrativa do escritório de projetos do PROADI SUS",
+  "Área de atuação": "Gestão",
+  "Avaliação geral Proadi e DesenvoIvimento Institucional": "Não encontrado neste trecho",
+  "Desafios para a participação do HE no Proadi": "Não encontrado neste trecho",
+  "Sugestões": "Não encontrado neste trecho",
+  "Benefícios do projeto para o SUS": "Não encontrado neste trecho",
+  "Origem dos projetos (quem demandou, tramitação e negociações)": "Não encontrado neste trecho",
+  "Projetos colaborativos (participação de cada um, relacionamento HE e benefícios e desafios)": "Não encontrado neste trecho"
+}
+```
+2025-06-01 11:28:54,439 - INFO - 🧹 Cleaned JSON for chunk 1: {
+  "Código Entrevista": "Não encontrado neste trecho",
+  "Hospital": "Não encontrado neste trecho",
+  "Nome - posição institucional - Projetos": "Bruna, responsável pela gestão financeira e administrativa do escritório de projetos do PROADI SUS",
+  "Área de atuação": "Gestão",
+  "Avaliação geral Proadi e DesenvoIvimento Institucional": "Não encontrado neste trecho",
+  "Desafios para a participação do HE no Proadi": "Não encontrado neste trecho",
+  "Sugestões": "Não encontrado neste trecho",
+  "Benefícios do projeto para o SUS": "Não encontrado neste trecho",
+  "Origem dos projetos (quem demandou, tramitação e negociações)": "Não encontrado neste trecho",
+  "Projetos colaborativos (participação de cada um, relacionamento HE e benefícios e desafios)": "Não encontrado neste trecho"
+}
+2025-06-01 11:28:54,439 - INFO - ✅ Successfully parsed JSON for chunk 1
+2025-06-01 11:28:54,439 - INFO - 📊 Extracted data keys: ['Código Entrevista', 'Hospital', 'Nome - posição institucional - Projetos', 'Área de atuação', 'Avaliação geral Proadi e DesenvoIvimento Institucional', 'Desafios para a participação do HE no Proadi', 'Sugestões', 'Benefícios do projeto para o SUS', 'Origem dos projetos (quem demandou, tramitação e negociações)', 'Projetos colaborativos (participação de cada um, relacionamento HE e benefícios e desafios)']
+2025-06-01 11:28:54,439 - INFO - Analyzing chunk 2/20 for Gravação da Entrevista - Gravador - 09_04_2025 - HAOC01 - Bruna e Nídia.docx (953 tokens)
+2025-06-01 11:28:54,439 - INFO - Waiting 6 seconds to avoid rate limiting...
+2025-06-01 11:29:06,234 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-01 11:29:06,240 - INFO - 🔍 Raw OpenAI response for chunk 2:
+2025-06-01 11:29:06,241 - INFO - 📝 Response: ```json
+{
+  "Código Entrevista": "Não encontrado neste trecho",
+  "Hospital": "Não encontrado neste trecho",
+  "Nome - posição institucional - Projetos": "Não encontrado neste trecho",
+  "Área de atuação": "Não encontrado neste trecho",
+  "Avaliação geral Proadi e DesenvoIvimento Institucional": "Não encontrado neste trecho",
+  "Desafios para a participação do HE no Proadi": "Primeira questão, isso já atrasa meu início de atividades e consequentemente uma reprogramação dos meus custos.",
+  "Sugestões": "Não encontrado neste trecho",
+  "Benefícios do projeto para o SUS": "Não encontrado neste trecho",
+  "Origem dos projetos (quem demandou, tramitação e negociações)": "Não encontrado neste trecho",
+  "Projetos colaborativos (participação de cada um, relacionamento HE e benefícios e desafios)": "Não encontrado neste trecho"
+}
+```
+2025-06-01 11:29:06,241 - INFO - 🧹 Cleaned JSON for chunk 2: {
+  "Código Entrevista": "Não encontrado neste trecho",
+  "Hospital": "Não encontrado neste trecho",
+  "Nome - posição institucional - Projetos": "Não encontrado neste trecho",
+  "Área de atuação": "Não encontrado neste trecho",
+  "Avaliação geral Proadi e DesenvoIvimento Institucional": "Não encontrado neste trecho",
+  "Desafios para a participação do HE no Proadi": "Primeira questão, isso já atrasa meu início de atividades e consequentemente uma reprogramação dos meus custos.",
+  "Sugestões": "Não encontrado neste trecho",
+  "Benefícios do projeto para o SUS": "Não encontrado neste trecho",
+  "Origem dos projetos (quem demandou, tramitação e negociações)": "Não encontrado neste trecho",
+  "Projetos colaborativos (participação de cada um, relacionamento HE e benefícios e desafios)": "Não encontrado neste trecho"
+}
+2025-06-01 11:29:06,241 - INFO - ✅ Successfully parsed JSON for chunk 2
+2025-06-01 11:29:06,241 - INFO - 📊 Extracted data keys: ['Código Entrevista', 'Hospital', 'Nome - posição institucional - Projetos', 'Área de atuação', 'Avaliação geral Proadi e DesenvoIvimento Institucional', 'Desafios para a participação do HE no Proadi', 'Sugestões', 'Benefícios do projeto para o SUS', 'Origem dos projetos (quem demandou, tramitação e negociações)', 'Projetos colaborativos (participação de cada um, relacionamento HE e benefícios e desafios)']
+2025-06-01 11:29:06,241 - INFO - Analyzing chunk 3/20 for Gravação da Entrevista - Gravador - 09_04_2025 - HAOC01 - Bruna e Nídia.docx (981 tokens)
+2025-06-01 11:29:06,241 - INFO - Waiting 6 seconds to avoid rate limiting...
+2025-06-01 11:29:17,632 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-01 11:29:17,636 - INFO - 🔍 Raw OpenAI response for chunk 3:
+2025-06-01 11:29:17,637 - INFO - 📝 Response: {
+  "Código Entrevista": "Não encontrado neste trecho",
+  "Hospital": "Hospital Osvaldo Cruz",
+  "Nome - posição institucional - Projetos": "Nidia Souza, gerente de responsabilidade social",
+  "Área de atuação": "Gestão",
+  "Avaliação geral Proadi e DesenvoIvimento Institucional": "Não encontrado neste trecho",
+  "Desafios para a participação do HE no Proadi": "Não encontrado neste trecho",
+  "Sugestões": "Não encontrado neste trecho",
+  "Benefícios do projeto para o SUS": "Não encontrado neste trecho",
+  "Origem dos projetos (quem demandou, tramitação e negociações)": "Não encontrado neste trecho",
+  "Projetos colaborativos (participação de cada um, relacionamento HE e benefícios e desafios)": "Não encontrado neste trecho"
+}
+2025-06-01 11:29:17,637 - INFO - 🧹 Cleaned JSON for chunk 3: {
+  "Código Entrevista": "Não encontrado neste trecho",
+  "Hospital": "Hospital Osvaldo Cruz",
+  "Nome - posição institucional - Projetos": "Nidia Souza, gerente de responsabilidade social",
+  "Área de atuação": "Gestão",
+  "Avaliação geral Proadi e DesenvoIvimento Institucional": "Não encontrado neste trecho",
+  "Desafios para a participação do HE no Proadi": "Não encontrado neste trecho",
+  "Sugestões": "Não encontrado neste trecho",
+  "Benefícios do projeto para o SUS": "Não encontrado neste trecho",
+  "Origem dos projetos (quem demandou, tramitação e negociações)": "Não encontrado neste trecho",
+  "Projetos colaborativos (participação de cada um, relacionamento HE e benefícios e desafios)": "Não encontrado neste trecho"
+}
+2025-06-01 11:29:17,637 - INFO - ✅ Successfully parsed JSON for chunk 3
+2025-06-01 11:29:17,637 - INFO - 📊 Extracted data keys: ['Código Entrevista', 'Hospital', 'Nome - posição institucional - Projetos', 'Área de atuação', 'Avaliação geral Proadi e DesenvoIvimento Institucional', 'Desafios para a participação do HE no Proadi', 'Sugestões', 'Benefícios do projeto para o SUS', 'Origem dos projetos (quem demandou, tramitação e negociações)', 'Projetos colaborativos (participação de cada um, relacionamento HE e benefícios e desafios)']
+2025-06-01 11:29:17,637 - INFO - Analyzing chunk 4/20 for Gravação da Entrevista - Gravador - 09_04_2025 - HAOC01 - Bruna e Nídia.docx (995 tokens)
+2025-06-01 11:29:17,637 - INFO - Waiting 6 seconds to avoid rate limiting...
+2025-06-01 11:29:36,003 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-01 11:29:36,007 - INFO - 🔍 Raw OpenAI response for chunk 4:
+2025-06-01 11:29:36,007 - INFO - 📝 Response: ```json
+{
+  "Código Entrevista": "Não encontrado neste trecho",
+  "Hospital": "Oswaldo Cruz",
+  "Nome - posição institucional - Projetos": "Não encontrado neste trecho",
+  "Área de atuação": "Não encontrado neste trecho",
+  "Avaliação geral Proadi e DesenvoIvimento Institucional": "Bom, eu acho que tudo tem a ver muito com o propósito da instituição, falando um pouco da instituição, que tem como compromisso social e tem como valor, tem como um dos seus valores, né, a vocação social. Então, eu acho que dentro do nosso compromisso social, que é apoiar o desenvolvimento do sistema de saúde brasileiro, isso tem muito a ver com o histórico, acho que, não sei se a senhora vai lembrar um pouco, até do que foi falado na abertura desde a construção do hospital, né, quando ele foi construído, isso desde a sua construção, a preocupação em apoiar e ajudar a sociedade, até pelo que os Os alemães na época e austríacos receberam. Então, muito de compartilhar o que a gente consegue fazer de melhor ou de exemplo, de expertise, mas como sinônimo de parceria mesmo, de troca, porque muitas coisas a gente também aprende lá fora. Mas eu acho que na visão do hospital é muito isso assim, quanto a vocação social está embutida dentro da instituição e não apoia o desenvolvimento ao sistema de saúde. E o PROADI, essa parceria, ela é um meio de favorecer isso. Acho que é sair do nosso muro aqui, do nosso mundo da região da Paulista e expandir isso com o que a gente conhece e compartilhar com o que a gente conhece.",
+  "Desafios para a participação do HE no Proadi": "Não encontrado neste trecho",
+  "Sugestões": "Não encontrado neste trecho",
+  "Benefícios do projeto para o SUS": "Eu acho que é um grande diferencial, eu acho que os hospitais que participam, além da questão social, é um diferencial ser reconhecido, trabalhar com o SUS, a visibilidade, eu acho que o impacto, trabalhar pro impacto social, eu acho que não tem... Na prática é isso, assim, é ver a diferença realmente da coisa acontecer não só no nosso nicho, mas no Brasil. Ou no nicho nacional.",
+  "Origem dos projetos (quem demandou, tramitação e negociações)": "Não encontrado neste trecho",
+  "Projetos colaborativos (participação de cada um, relacionamento HE e benefícios e desafios)": "Não encontrado neste trecho"
+}
+```
+2025-06-01 11:29:36,008 - INFO - 🧹 Cleaned JSON for chunk 4: {
+  "Código Entrevista": "Não encontrado neste trecho",
+  "Hospital": "Oswaldo Cruz",
+  "Nome - posição institucional - Projetos": "Não encontrado neste trecho",
+  "Área de atuação": "Não encontrado neste trecho",
+  "Avaliação geral Proadi e DesenvoIvimento Institucional": "Bom, eu acho que tudo tem a ver muito com o propósito da instituição, falando um pouco da instituição, que tem como compromisso social e tem como valor, tem como um dos seus valores, né, a vocação social. Então, eu acho que dentro do nosso compromisso social, que é apoiar o desenvolvimento do sistema de saúde brasileiro, isso tem muito a ver com o histórico, acho que, não sei se a senhora vai lembrar um pouco, até do que foi falado na abertura desde a construção do hospital, né, quando ele foi construído, isso desde a sua construção, a preocupação em apoiar e ajudar a sociedade, até pelo que os Os alemães na época e austríacos receberam. Então, muito de compartilhar o que a gente consegue fazer de melhor ou de exemplo, de expertise, mas como sinônimo de parceria mesmo, de troca, porque muitas coisas a gente também aprende lá fora. Mas eu acho que na visão do hospital é muito isso assim, quanto a vocação social está embutida dentro da instituição e não apoia o desenvolvimento ao sistema de saúde. E o PROADI, essa parceria, ela é um meio de favorecer isso. Acho que é sair do nosso muro aqui, do nosso mundo da região da Paulista e expandir isso com o que a gente conhece e compartilhar com o que a gente conhece.",
+  "Desafios para a participação do HE no Proadi": "Não encontrado neste trecho",
+  "Sugestões": "Não encontrado neste trecho",
+  "Benefícios do projeto para o SUS": "Eu acho que é um grande diferencial, eu acho que os hospitais que participam, além da questão social, é um diferencial ser reconhecido, trabalhar com o SUS, a visibilidade, eu acho que o impacto, trabalhar pro impacto social, eu acho que não tem... Na prática é isso, assim, é ver a diferença realmente da coisa acontecer não só no nosso nicho, mas no Brasil. Ou no nicho nacional.",
+  "Origem dos projetos (quem demandou, tramitação e negociações)": "Não encontrado neste trecho",
+  "Projetos colaborativos (participação de cada um, relacionamento HE e benefícios e desafios)": "Não encontrado neste trecho"
+}
+2025-06-01 11:29:36,008 - INFO - ✅ Successfully parsed JSON for chunk 4
+2025-06-01 11:29:36,008 - INFO - 📊 Extracted data keys: ['Código Entrevista', 'Hospital', 'Nome - posição institucional - Projetos', 'Área de atuação', 'Avaliação geral Proadi e DesenvoIvimento Institucional', 'Desafios para a participação do HE no Proadi', 'Sugestões', 'Benefícios do projeto para o SUS', 'Origem dos projetos (quem demandou, tramitação e negociações)', 'Projetos colaborativos (participação de cada um, relacionamento HE e benefícios e desafios)']
+2025-06-01 11:29:36,008 - INFO - Analyzing chunk 5/20 for Gravação da Entrevista - Gravador - 09_04_2025 - HAOC01 - Bruna e Nídia.docx (976 tokens)
+2025-06-01 11:29:36,008 - INFO - Waiting 6 seconds to avoid rate limiting...
+2025-06-01 11:29:50,535 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-01 11:29:50,545 - INFO - 🔍 Raw OpenAI response for chunk 5:
+2025-06-01 11:29:50,546 - INFO - 📝 Response: ```json
+{
+  "Código Entrevista": "Não encontrado neste trecho",
+  "Hospital": "Não encontrado neste trecho",
+  "Nome - posição institucional - Projetos": "Não encontrado neste trecho",
+  "Área de atuação": "Capacitação, Gestão",
+  "Avaliação geral Proadi e DesenvoIvimento Institucional": "O que eu acho do PROADI? Eu acho que ele tem um grande potencial. É um programa de capilaridade muito bacana a nível de projetos. Mas ainda ele não... a gente até conversou um pouquinho isso na reunião anterior com a DECOOP. Mas ele ainda não tem um conhecimento como um programa de governo, um programa federal a nível de Brasil.",
+  "Desafios para a participação do HE no Proadi": "Mas ele ainda não tem um conhecimento como um programa de governo, um programa federal a nível de Brasil.",
+  "Sugestões": "A gente precisa sair da onde a gente está. A gente tem que sair de dentro do Ministério, a gente tem que sair de dentro dos hospitais que fazem parte, a gente tem que sair de dentro do CONASS. Mas isso tem que expandir.",
+  "Benefícios do projeto para o SUS": "Não encontrado neste trecho",
+  "Origem dos projetos (quem demandou, tramitação e negociações)": "Não encontrado neste trecho",
+  "Projetos colaborativos (participação de cada um, relacionamento HE e benefícios e desafios)": "Não encontrado neste trecho"
+}
+```
+2025-06-01 11:29:50,546 - INFO - 🧹 Cleaned JSON for chunk 5: {
+  "Código Entrevista": "Não encontrado neste trecho",
+  "Hospital": "Não encontrado neste trecho",
+  "Nome - posição institucional - Projetos": "Não encontrado neste trecho",
+  "Área de atuação": "Capacitação, Gestão",
+  "Avaliação geral Proadi e DesenvoIvimento Institucional": "O que eu acho do PROADI? Eu acho que ele tem um grande potencial. É um programa de capilaridade muito bacana a nível de projetos. Mas ainda ele não... a gente até conversou um pouquinho isso na reunião anterior com a DECOOP. Mas ele ainda não tem um conhecimento como um programa de governo, um programa federal a nível de Brasil.",
+  "Desafios para a participação do HE no Proadi": "Mas ele ainda não tem um conhecimento como um programa de governo, um programa federal a nível de Brasil.",
+  "Sugestões": "A gente precisa sair da onde a gente está. A gente tem que sair de dentro do Ministério, a gente tem que sair de dentro dos hospitais que fazem parte, a gente tem que sair de dentro do CONASS. Mas isso tem que expandir.",
+  "Benefícios do projeto para o SUS": "Não encontrado neste trecho",
+  "Origem dos projetos (quem demandou, tramitação e negociações)": "Não encontrado neste trecho",
+  "Projetos colaborativos (participação de cada um, relacionamento HE e benefícios e desafios)": "Não encontrado neste trecho"
+}
+2025-06-01 11:29:50,546 - INFO - ✅ Successfully parsed JSON for chunk 5
+2025-06-01 11:29:50,546 - INFO - 📊 Extracted data keys: ['Código Entrevista', 'Hospital', 'Nome - posição institucional - Projetos', 'Área de atuação', 'Avaliação geral Proadi e DesenvoIvimento Institucional', 'Desafios para a participação do HE no Proadi', 'Sugestões', 'Benefícios do projeto para o SUS', 'Origem dos projetos (quem demandou, tramitação e negociações)', 'Projetos colaborativos (participação de cada um, relacionamento HE e benefícios e desafios)']
+2025-06-01 11:29:50,547 - INFO - Analyzing chunk 6/20 for Gravação da Entrevista - Gravador - 09_04_2025 - HAOC01 - Bruna e Nídia.docx (983 tokens)
+2025-06-01 11:29:50,547 - INFO - Waiting 6 seconds to avoid rate limiting...
+2025-06-01 11:30:09,268 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-01 11:30:09,276 - INFO - 🔍 Raw OpenAI response for chunk 6:
+2025-06-01 11:30:09,276 - INFO - 📝 Response: ```json
+{
+  "Código Entrevista": "Não encontrado neste trecho",
+  "Hospital": "Não encontrado neste trecho",
+  "Nome - posição institucional - Projetos": "Não encontrado neste trecho",
+  "Área de atuação": "Não encontrado neste trecho",
+  "Avaliação geral Proadi e DesenvoIvimento Institucional": "o programa é um programa jovem, que amadureceu, que dá resultado, mas a gente ainda não demonstrou o que ele faz",
+  "Desafios para a participação do HE no Proadi": "Da forma de uso, porque os hospitais que são hospitais, vamos dizer, Excelência, usam recurso federal. Então, há uma crítica nesse sentido.",
+  "Sugestões": "Não encontrado neste trecho",
+  "Benefícios do projeto para o SUS": "ele vai 100% para a saúde.Ele precisa ser usado...",
+  "Origem dos projetos (quem demandou, tramitação e negociações)": "Porque disseram que foram os hospitais que quiseram, que propuseram.",
+  "Projetos colaborativos (participação de cada um, relacionamento HE e benefícios e desafios)": "Não encontrado neste trecho"
+}
+```
+2025-06-01 11:30:09,276 - INFO - 🧹 Cleaned JSON for chunk 6: {
+  "Código Entrevista": "Não encontrado neste trecho",
+  "Hospital": "Não encontrado neste trecho",
+  "Nome - posição institucional - Projetos": "Não encontrado neste trecho",
+  "Área de atuação": "Não encontrado neste trecho",
+  "Avaliação geral Proadi e DesenvoIvimento Institucional": "o programa é um programa jovem, que amadureceu, que dá resultado, mas a gente ainda não demonstrou o que ele faz",
+  "Desafios para a participação do HE no Proadi": "Da forma de uso, porque os hospitais que são hospitais, vamos dizer, Excelência, usam recurso federal. Então, há uma crítica nesse sentido.",
+  "Sugestões": "Não encontrado neste trecho",
+  "Benefícios do projeto para o SUS": "ele vai 100% para a saúde.Ele precisa ser usado...",
+  "Origem dos projetos (quem demandou, tramitação e negociações)": "Porque disseram que foram os hospitais que quiseram, que propuseram.",
+  "Projetos colaborativos (participação de cada um, relacionamento HE e benefícios e desafios)": "Não encontrado neste trecho"
+}
+2025-06-01 11:30:09,277 - INFO - ✅ Successfully parsed JSON for chunk 6
+2025-06-01 11:30:09,278 - INFO - 📊 Extracted data keys: ['Código Entrevista', 'Hospital', 'Nome - posição institucional - Projetos', 'Área de atuação', 'Avaliação geral Proadi e DesenvoIvimento Institucional', 'Desafios para a participação do HE no Proadi', 'Sugestões', 'Benefícios do projeto para o SUS', 'Origem dos projetos (quem demandou, tramitação e negociações)', 'Projetos colaborativos (participação de cada um, relacionamento HE e benefícios e desafios)']
+2025-06-01 11:30:09,278 - INFO - Analyzing chunk 7/20 for Gravação da Entrevista - Gravador - 09_04_2025 - HAOC01 - Bruna e Nídia.docx (970 tokens)
+2025-06-01 11:30:09,278 - INFO - Waiting 6 seconds to avoid rate limiting...
+2025-06-01 11:30:21,218 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-01 11:30:21,221 - INFO - 🔍 Raw OpenAI response for chunk 7:
+2025-06-01 11:30:21,221 - INFO - 📝 Response: {
+  "Código Entrevista": "Não encontrado neste trecho",
+  "Hospital": "HC da UFMG",
+  "Nome - posição institucional - Projetos": "Não encontrado neste trecho",
+  "Área de atuação": "Não encontrado neste trecho",
+  "Avaliação geral Proadi e DesenvoIvimento Institucional": "Principalmente pela sociedade, não ser reconhecido, não ser conhecido pela população. Ele não é conhecido. Ele é reconhecido no ministério, mas ele não é conhecido na sociedade.",
+  "Desafios para a participação do HE no Proadi": "Uma dificuldade é porque cada área técnica pode, ela tem a alternativa de criar procedimentos a partir do que o DECOOP orientou. Então pode ter várias formas de fazer gestão de projetos, de acompanhar projetos.",
+  "Sugestões": "Não encontrado neste trecho",
+  "Benefícios do projeto para o SUS": "Não encontrado neste trecho",
+  "Origem dos projetos (quem demandou, tramitação e negociações)": "Não encontrado neste trecho",
+  "Projetos colaborativos (participação de cada um, relacionamento HE e benefícios e desafios)": "Não encontrado neste trecho"
+}
+2025-06-01 11:30:21,221 - INFO - 🧹 Cleaned JSON for chunk 7: {
+  "Código Entrevista": "Não encontrado neste trecho",
+  "Hospital": "HC da UFMG",
+  "Nome - posição institucional - Projetos": "Não encontrado neste trecho",
+  "Área de atuação": "Não encontrado neste trecho",
+  "Avaliação geral Proadi e DesenvoIvimento Institucional": "Principalmente pela sociedade, não ser reconhecido, não ser conhecido pela população. Ele não é conhecido. Ele é reconhecido no ministério, mas ele não é conhecido na sociedade.",
+  "Desafios para a participação do HE no Proadi": "Uma dificuldade é porque cada área técnica pode, ela tem a alternativa de criar procedimentos a partir do que o DECOOP orientou. Então pode ter várias formas de fazer gestão de projetos, de acompanhar projetos.",
+  "Sugestões": "Não encontrado neste trecho",
+  "Benefícios do projeto para o SUS": "Não encontrado neste trecho",
+  "Origem dos projetos (quem demandou, tramitação e negociações)": "Não encontrado neste trecho",
+  "Projetos colaborativos (participação de cada um, relacionamento HE e benefícios e desafios)": "Não encontrado neste trecho"
+}
+2025-06-01 11:30:21,221 - INFO - ✅ Successfully parsed JSON for chunk 7
+2025-06-01 11:30:21,221 - INFO - 📊 Extracted data keys: ['Código Entrevista', 'Hospital', 'Nome - posição institucional - Projetos', 'Área de atuação', 'Avaliação geral Proadi e DesenvoIvimento Institucional', 'Desafios para a participação do HE no Proadi', 'Sugestões', 'Benefícios do projeto para o SUS', 'Origem dos projetos (quem demandou, tramitação e negociações)', 'Projetos colaborativos (participação de cada um, relacionamento HE e benefícios e desafios)']
+2025-06-01 11:30:21,221 - INFO - Analyzing chunk 8/20 for Gravação da Entrevista - Gravador - 09_04_2025 - HAOC01 - Bruna e Nídia.docx (859 tokens)
+2025-06-01 11:30:21,221 - INFO - Waiting 6 seconds to avoid rate limiting...
+2025-06-01 11:30:35,180 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-01 11:30:35,182 - INFO - 🔍 Raw OpenAI response for chunk 8:
+2025-06-01 11:30:35,182 - INFO - 📝 Response: {
+  "Código Entrevista": "Não encontrado neste trecho",
+  "Hospital": "Não encontrado neste trecho",
+  "Nome - posição institucional - Projetos": "Nídia - não especificado - TeleNordeste, DECOOP",
+  "Área de atuação": "Não encontrado neste trecho",
+  "Avaliação geral Proadi e DesenvoIvimento Institucional": "Por isso que na primeira entrega a senhora viu temas parecidos em hospitais diferentes, em secretarias diferentes, por isso. Então, esse alinhamento estratégico dentro do ministério, essa gestão vem trabalhando realmente, de fato, para minimizar isso.",
+  "Desafios para a participação do HE no Proadi": "Não encontrado neste trecho",
+  "Sugestões": "Não encontrado neste trecho",
+  "Benefícios do projeto para o SUS": "Não encontrado neste trecho",
+  "Origem dos projetos (quem demandou, tramitação e negociações)": "Lá no início, em 2009, muitos projetos dos hospitais demandaram. Mas isso alinhado com o ministério. Em reuniões, em conversas. Hoje não é a realidade. Hoje o ministério tem uma matriz hoje e no triênio passado. Eles demandam os temas e os hospitais alinham com as áreas técnicas.",
+  "Projetos colaborativos (participação de cada um, relacionamento HE e benefícios e desafios)": "Não encontrado neste trecho"
+}
+2025-06-01 11:30:35,182 - INFO - 🧹 Cleaned JSON for chunk 8: {
+  "Código Entrevista": "Não encontrado neste trecho",
+  "Hospital": "Não encontrado neste trecho",
+  "Nome - posição institucional - Projetos": "Nídia - não especificado - TeleNordeste, DECOOP",
+  "Área de atuação": "Não encontrado neste trecho",
+  "Avaliação geral Proadi e DesenvoIvimento Institucional": "Por isso que na primeira entrega a senhora viu temas parecidos em hospitais diferentes, em secretarias diferentes, por isso. Então, esse alinhamento estratégico dentro do ministério, essa gestão vem trabalhando realmente, de fato, para minimizar isso.",
+  "Desafios para a participação do HE no Proadi": "Não encontrado neste trecho",
+  "Sugestões": "Não encontrado neste trecho",
+  "Benefícios do projeto para o SUS": "Não encontrado neste trecho",
+  "Origem dos projetos (quem demandou, tramitação e negociações)": "Lá no início, em 2009, muitos projetos dos hospitais demandaram. Mas isso alinhado com o ministério. Em reuniões, em conversas. Hoje não é a realidade. Hoje o ministério tem uma matriz hoje e no triênio passado. Eles demandam os temas e os hospitais alinham com as áreas técnicas.",
+  "Projetos colaborativos (participação de cada um, relacionamento HE e benefícios e desafios)": "Não encontrado neste trecho"
+}
+2025-06-01 11:30:35,183 - INFO - ✅ Successfully parsed JSON for chunk 8
+2025-06-01 11:30:35,183 - INFO - 📊 Extracted data keys: ['Código Entrevista', 'Hospital', 'Nome - posição institucional - Projetos', 'Área de atuação', 'Avaliação geral Proadi e DesenvoIvimento Institucional', 'Desafios para a participação do HE no Proadi', 'Sugestões', 'Benefícios do projeto para o SUS', 'Origem dos projetos (quem demandou, tramitação e negociações)', 'Projetos colaborativos (participação de cada um, relacionamento HE e benefícios e desafios)']
+2025-06-01 11:30:35,183 - INFO - Analyzing chunk 9/20 for Gravação da Entrevista - Gravador - 09_04_2025 - HAOC01 - Bruna e Nídia.docx (921 tokens)
+2025-06-01 11:30:35,183 - INFO - Waiting 6 seconds to avoid rate limiting...
+2025-06-01 11:30:47,190 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-01 11:30:47,191 - INFO - 🔍 Raw OpenAI response for chunk 9:
+2025-06-01 11:30:47,192 - INFO - 📝 Response: ```json
+{
+  "Código Entrevista": "Não encontrado neste trecho",
+  "Hospital": "Não encontrado neste trecho",
+  "Nome - posição institucional - Projetos": "Não encontrado neste trecho",
+  "Área de atuação": "Não encontrado neste trecho",
+  "Avaliação geral Proadi e DesenvoIvimento Institucional": "esse tema continuidade é péssimo para o PROADI. Uma das melhorias é mudar isso.",
+  "Desafios para a participação do HE no Proadi": "Nídia menciona que o projeto de continuidade é um problema, pois mesmo que o projeto seja o mesmo, não se faz a mesma coisa devido às mudanças feitas pelo ministério e áreas técnicas.",
+  "Sugestões": "Uma das melhorias é mudar isso.",
+  "Benefícios do projeto para o SUS": "os índices de redução, o quanto isso economizou para a sociedade, para a saúde",
+  "Origem dos projetos (quem demandou, tramitação e negociações)": "o hospital propôs",
+  "Projetos colaborativos (participação de cada um, relacionamento HE e benefícios e desafios)": "Não encontrado neste trecho"
+}
+```
+2025-06-01 11:30:47,192 - INFO - 🧹 Cleaned JSON for chunk 9: {
+  "Código Entrevista": "Não encontrado neste trecho",
+  "Hospital": "Não encontrado neste trecho",
+  "Nome - posição institucional - Projetos": "Não encontrado neste trecho",
+  "Área de atuação": "Não encontrado neste trecho",
+  "Avaliação geral Proadi e DesenvoIvimento Institucional": "esse tema continuidade é péssimo para o PROADI. Uma das melhorias é mudar isso.",
+  "Desafios para a participação do HE no Proadi": "Nídia menciona que o projeto de continuidade é um problema, pois mesmo que o projeto seja o mesmo, não se faz a mesma coisa devido às mudanças feitas pelo ministério e áreas técnicas.",
+  "Sugestões": "Uma das melhorias é mudar isso.",
+  "Benefícios do projeto para o SUS": "os índices de redução, o quanto isso economizou para a sociedade, para a saúde",
+  "Origem dos projetos (quem demandou, tramitação e negociações)": "o hospital propôs",
+  "Projetos colaborativos (participação de cada um, relacionamento HE e benefícios e desafios)": "Não encontrado neste trecho"
+}
+2025-06-01 11:30:47,192 - INFO - ✅ Successfully parsed JSON for chunk 9
+2025-06-01 11:30:47,192 - INFO - 📊 Extracted data keys: ['Código Entrevista', 'Hospital', 'Nome - posição institucional - Projetos', 'Área de atuação', 'Avaliação geral Proadi e DesenvoIvimento Institucional', 'Desafios para a participação do HE no Proadi', 'Sugestões', 'Benefícios do projeto para o SUS', 'Origem dos projetos (quem demandou, tramitação e negociações)', 'Projetos colaborativos (participação de cada um, relacionamento HE e benefícios e desafios)']
+2025-06-01 11:30:47,192 - INFO - Analyzing chunk 10/20 for Gravação da Entrevista - Gravador - 09_04_2025 - HAOC01 - Bruna e Nídia.docx (965 tokens)
+2025-06-01 11:30:47,192 - INFO - Waiting 6 seconds to avoid rate limiting...
+2025-06-01 11:31:00,234 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-01 11:31:00,238 - INFO - 🔍 Raw OpenAI response for chunk 10:
+2025-06-01 11:31:00,238 - INFO - 📝 Response: ```json
+{
+  "Código Entrevista": "Não encontrado neste trecho",
+  "Hospital": "Não encontrado neste trecho",
+  "Nome - posição institucional - Projetos": "Não encontrado neste trecho",
+  "Área de atuação": "Não encontrado neste trecho",
+  "Avaliação geral Proadi e DesenvoIvimento Institucional": "Isso vem evoluindo, mas ainda tem um caminho a ser trilhado.",
+  "Desafios para a participação do HE no Proadi": "os relatórios e os planos de trabalho não relatam de fato o que acontece na ponta. Não relatam.",
+  "Sugestões": "Não encontrado neste trecho",
+  "Benefícios do projeto para o SUS": "Pra mim o importante é, independente de onde veio a demanda, é necessidade do SUS, é prioridade do SUS, é isso que tem que ficar muito claro na execução.",
+  "Origem dos projetos (quem demandou, tramitação e negociações)": "No geral, hoje é do Ministério a partir dessa matriz que eles criaram. No passado era do Hospital.",
+  "Projetos colaborativos (participação de cada um, relacionamento HE e benefícios e desafios)": "Na verdade, ele fala... dar o que ele quer, quais são as áreas e aí cada hospital começa a alinhar em cima dos seus interesses, da sua expertise com as áreas técnicas sobre o que o Ministério demandou\u2026"
+}
+```
+2025-06-01 11:31:00,238 - INFO - 🧹 Cleaned JSON for chunk 10: {
+  "Código Entrevista": "Não encontrado neste trecho",
+  "Hospital": "Não encontrado neste trecho",
+  "Nome - posição institucional - Projetos": "Não encontrado neste trecho",
+  "Área de atuação": "Não encontrado neste trecho",
+  "Avaliação geral Proadi e DesenvoIvimento Institucional": "Isso vem evoluindo, mas ainda tem um caminho a ser trilhado.",
+  "Desafios para a participação do HE no Proadi": "os relatórios e os planos de trabalho não relatam de fato o que acontece na ponta. Não relatam.",
+  "Sugestões": "Não encontrado neste trecho",
+  "Benefícios do projeto para o SUS": "Pra mim o importante é, independente de onde veio a demanda, é necessidade do SUS, é prioridade do SUS, é isso que tem que ficar muito claro na execução.",
+  "Origem dos projetos (quem demandou, tramitação e negociações)": "No geral, hoje é do Ministério a partir dessa matriz que eles criaram. No passado era do Hospital.",
+  "Projetos colaborativos (participação de cada um, relacionamento HE e benefícios e desafios)": "Na verdade, ele fala... dar o que ele quer, quais são as áreas e aí cada hospital começa a alinhar em cima dos seus interesses, da sua expertise com as áreas técnicas sobre o que o Ministério demandou\u2026"
+}
+2025-06-01 11:31:00,238 - INFO - ✅ Successfully parsed JSON for chunk 10
+2025-06-01 11:31:00,239 - INFO - 📊 Extracted data keys: ['Código Entrevista', 'Hospital', 'Nome - posição institucional - Projetos', 'Área de atuação', 'Avaliação geral Proadi e DesenvoIvimento Institucional', 'Desafios para a participação do HE no Proadi', 'Sugestões', 'Benefícios do projeto para o SUS', 'Origem dos projetos (quem demandou, tramitação e negociações)', 'Projetos colaborativos (participação de cada um, relacionamento HE e benefícios e desafios)']
+2025-06-01 11:31:00,239 - INFO - Analyzing chunk 11/20 for Gravação da Entrevista - Gravador - 09_04_2025 - HAOC01 - Bruna e Nídia.docx (990 tokens)
+2025-06-01 11:31:00,239 - INFO - Waiting 6 seconds to avoid rate limiting...
+2025-06-01 11:31:16,264 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-01 11:31:16,265 - INFO - 🔍 Raw OpenAI response for chunk 11:
+2025-06-01 11:31:16,265 - INFO - 📝 Response: ```json
+{
+  "Código Entrevista": "Não encontrado neste trecho",
+  "Hospital": "Hospital Oswaldo Cruz",
+  "Nome - posição institucional - Projetos": "Não encontrado neste trecho",
+  "Área de atuação": "Não encontrado neste trecho",
+  "Avaliação geral Proadi e DesenvoIvimento Institucional": "Não encontrado neste trecho",
+  "Desafios para a participação do HE no Proadi": "Não encontrado neste trecho",
+  "Sugestões": "Não encontrado neste trecho",
+  "Benefícios do projeto para o SUS": "Não encontrado neste trecho",
+  "Origem dos projetos (quem demandou, tramitação e negociações)": "Na verdade, essas demandas que chegam é compartilhada entre as equipes, vem para a diretoria, a diretoria entende o que faz sentido ou não, passa para o escritório e para os gerentes",
+  "Projetos colaborativos (participação de cada um, relacionamento HE e benefícios e desafios)": "A gente tem exemplo de colaborativo que essa escrita, essa definição inicial foi... A concepção do projeto foi feita com seis. Ela é construída em conjunto. E existe colaborativo que eu tenho interesse e entrada do outro. Eu vou seguir a mesma metodologia, eu vou fazer a mesma coisa e aí eu entro, por exemplo, nós do Hospital Oswaldo Cruz, até o triênio passado não participamos do Lean. Este ano, este triênio, nós nos interessamos, porque vimos os resultados, é um projeto que tem resultado, vai agregar. A gente conversou com o Sírio, que é o líder, porque todo colaborativo tem um dos hospitais que é o líder, assim, né? Líder técnico, vamos dizer assim. Referência, referência técnica. E aí o Sírio, conversando com o Sírio, que a gente tinha interesse, ok, a gente conversou com o Sírio e com o Ministério junto, porque aí se o Ministério entendia que faria sentido, se entendia que a gente tem expertise para fazer, e ok. E então eu entro dentro do plano de trabalho, com o meu plano de trabalho para seguir."
+}
+```
+2025-06-01 11:31:16,266 - INFO - 🧹 Cleaned JSON for chunk 11: {
+  "Código Entrevista": "Não encontrado neste trecho",
+  "Hospital": "Hospital Oswaldo Cruz",
+  "Nome - posição institucional - Projetos": "Não encontrado neste trecho",
+  "Área de atuação": "Não encontrado neste trecho",
+  "Avaliação geral Proadi e DesenvoIvimento Institucional": "Não encontrado neste trecho",
+  "Desafios para a participação do HE no Proadi": "Não encontrado neste trecho",
+  "Sugestões": "Não encontrado neste trecho",
+  "Benefícios do projeto para o SUS": "Não encontrado neste trecho",
+  "Origem dos projetos (quem demandou, tramitação e negociações)": "Na verdade, essas demandas que chegam é compartilhada entre as equipes, vem para a diretoria, a diretoria entende o que faz sentido ou não, passa para o escritório e para os gerentes",
+  "Projetos colaborativos (participação de cada um, relacionamento HE e benefícios e desafios)": "A gente tem exemplo de colaborativo que essa escrita, essa definição inicial foi... A concepção do projeto foi feita com seis. Ela é construída em conjunto. E existe colaborativo que eu tenho interesse e entrada do outro. Eu vou seguir a mesma metodologia, eu vou fazer a mesma coisa e aí eu entro, por exemplo, nós do Hospital Oswaldo Cruz, até o triênio passado não participamos do Lean. Este ano, este triênio, nós nos interessamos, porque vimos os resultados, é um projeto que tem resultado, vai agregar. A gente conversou com o Sírio, que é o líder, porque todo colaborativo tem um dos hospitais que é o líder, assim, né? Líder técnico, vamos dizer assim. Referência, referência técnica. E aí o Sírio, conversando com o Sírio, que a gente tinha interesse, ok, a gente conversou com o Sírio e com o Ministério junto, porque aí se o Ministério entendia que faria sentido, se entendia que a gente tem expertise para fazer, e ok. E então eu entro dentro do plano de trabalho, com o meu plano de trabalho para seguir."
+}
+2025-06-01 11:31:16,266 - INFO - ✅ Successfully parsed JSON for chunk 11
+2025-06-01 11:31:16,266 - INFO - 📊 Extracted data keys: ['Código Entrevista', 'Hospital', 'Nome - posição institucional - Projetos', 'Área de atuação', 'Avaliação geral Proadi e DesenvoIvimento Institucional', 'Desafios para a participação do HE no Proadi', 'Sugestões', 'Benefícios do projeto para o SUS', 'Origem dos projetos (quem demandou, tramitação e negociações)', 'Projetos colaborativos (participação de cada um, relacionamento HE e benefícios e desafios)']
+2025-06-01 11:31:16,266 - INFO - Analyzing chunk 12/20 for Gravação da Entrevista - Gravador - 09_04_2025 - HAOC01 - Bruna e Nídia.docx (975 tokens)
+2025-06-01 11:31:16,266 - INFO - Waiting 6 seconds to avoid rate limiting...
+2025-06-01 11:31:33,808 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-01 11:31:33,811 - INFO - 🔍 Raw OpenAI response for chunk 12:
+2025-06-01 11:31:33,812 - INFO - 📝 Response: ```json
+{
+  "Código Entrevista": "Não encontrado neste trecho",
+  "Hospital": "HAOC",
+  "Nome - posição institucional - Projetos": "Não encontrado neste trecho",
+  "Área de atuação": "Não encontrado neste trecho",
+  "Avaliação geral Proadi e DesenvoIvimento Institucional": "isso é bem interessante, porque nós somos concorrentes enquanto instituição privada, na área da saúde, mas nós somos parceiros para o programa PROADI SUS.",
+  "Desafios para a participação do HE no Proadi": "Não encontrado neste trecho",
+  "Sugestões": "Não encontrado neste trecho",
+  "Benefícios do projeto para o SUS": "Não encontrado neste trecho",
+  "Origem dos projetos (quem demandou, tramitação e negociações)": "Por exemplo, nós temos o projeto de reestruturação de hospitais públicos. Só o HAOC executou desde 2009, ele foi crescendo, a gente já atuou em mais de cento e poucos hospitais, e aí dois hospitais se manifestaram interesse pro Ministério em participar do RHP. E aí eles conversaram com o Ministério, é esse o fluxoi, se o Ministério fazia sentido, se ele tem expertise, e eles se incorporaram.",
+  "Projetos colaborativos (participação de cada um, relacionamento HE e benefícios e desafios)": "E aí a gente treina igual a gente entrou no lean, eles nos treinam, falando como funciona, mostrando como é o plano de trabalho, como funciona na prática, e a gente fez a mesma coisa com os dois hospitais que entraram no RHP. E aí eles têm que seguir a nossa metodologia, porque o nosso plano de trabalho é o direcionador, é aquela metodologia, tem que mudar, tem que seguir. E aí nós, a HAOC, somos a referência técnica do RHP."
+}
+```
+2025-06-01 11:31:33,813 - INFO - 🧹 Cleaned JSON for chunk 12: {
+  "Código Entrevista": "Não encontrado neste trecho",
+  "Hospital": "HAOC",
+  "Nome - posição institucional - Projetos": "Não encontrado neste trecho",
+  "Área de atuação": "Não encontrado neste trecho",
+  "Avaliação geral Proadi e DesenvoIvimento Institucional": "isso é bem interessante, porque nós somos concorrentes enquanto instituição privada, na área da saúde, mas nós somos parceiros para o programa PROADI SUS.",
+  "Desafios para a participação do HE no Proadi": "Não encontrado neste trecho",
+  "Sugestões": "Não encontrado neste trecho",
+  "Benefícios do projeto para o SUS": "Não encontrado neste trecho",
+  "Origem dos projetos (quem demandou, tramitação e negociações)": "Por exemplo, nós temos o projeto de reestruturação de hospitais públicos. Só o HAOC executou desde 2009, ele foi crescendo, a gente já atuou em mais de cento e poucos hospitais, e aí dois hospitais se manifestaram interesse pro Ministério em participar do RHP. E aí eles conversaram com o Ministério, é esse o fluxoi, se o Ministério fazia sentido, se ele tem expertise, e eles se incorporaram.",
+  "Projetos colaborativos (participação de cada um, relacionamento HE e benefícios e desafios)": "E aí a gente treina igual a gente entrou no lean, eles nos treinam, falando como funciona, mostrando como é o plano de trabalho, como funciona na prática, e a gente fez a mesma coisa com os dois hospitais que entraram no RHP. E aí eles têm que seguir a nossa metodologia, porque o nosso plano de trabalho é o direcionador, é aquela metodologia, tem que mudar, tem que seguir. E aí nós, a HAOC, somos a referência técnica do RHP."
+}
+2025-06-01 11:31:33,813 - INFO - ✅ Successfully parsed JSON for chunk 12
+2025-06-01 11:31:33,813 - INFO - 📊 Extracted data keys: ['Código Entrevista', 'Hospital', 'Nome - posição institucional - Projetos', 'Área de atuação', 'Avaliação geral Proadi e DesenvoIvimento Institucional', 'Desafios para a participação do HE no Proadi', 'Sugestões', 'Benefícios do projeto para o SUS', 'Origem dos projetos (quem demandou, tramitação e negociações)', 'Projetos colaborativos (participação de cada um, relacionamento HE e benefícios e desafios)']
+2025-06-01 11:31:33,813 - INFO - Analyzing chunk 13/20 for Gravação da Entrevista - Gravador - 09_04_2025 - HAOC01 - Bruna e Nídia.docx (997 tokens)
+2025-06-01 11:31:33,813 - INFO - Waiting 6 seconds to avoid rate limiting...
+2025-06-01 11:31:45,217 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-01 11:31:45,221 - INFO - 🔍 Raw OpenAI response for chunk 13:
+2025-06-01 11:31:45,221 - INFO - 📝 Response: {
+  "Código Entrevista": "Não encontrado neste trecho",
+  "Hospital": "Hospital Alemão Oswaldo Cruz",
+  "Nome - posição institucional - Projetos": "Não encontrado neste trecho",
+  "Área de atuação": "Não encontrado neste trecho",
+  "Avaliação geral Proadi e DesenvoIvimento Institucional": "Eu vejo benefício. Eu acho que é uma forma de trabalhar integrado.",
+  "Desafios para a participação do HE no Proadi": "Não encontrado neste trecho",
+  "Sugestões": "Não encontrado neste trecho",
+  "Benefícios do projeto para o SUS": "Não encontrado neste trecho",
+  "Origem dos projetos (quem demandou, tramitação e negociações)": "O secretário executivo. Então, o PROADI, o portfólio PROADI teria que atender todos aqueles temas, de alguma forma.",
+  "Projetos colaborativos (participação de cada um, relacionamento HE e benefícios e desafios)": "Não, não todos os hospitais. O grupo dos hospitais tem que atender 148 temas."
+}
+2025-06-01 11:31:45,221 - INFO - 🧹 Cleaned JSON for chunk 13: {
+  "Código Entrevista": "Não encontrado neste trecho",
+  "Hospital": "Hospital Alemão Oswaldo Cruz",
+  "Nome - posição institucional - Projetos": "Não encontrado neste trecho",
+  "Área de atuação": "Não encontrado neste trecho",
+  "Avaliação geral Proadi e DesenvoIvimento Institucional": "Eu vejo benefício. Eu acho que é uma forma de trabalhar integrado.",
+  "Desafios para a participação do HE no Proadi": "Não encontrado neste trecho",
+  "Sugestões": "Não encontrado neste trecho",
+  "Benefícios do projeto para o SUS": "Não encontrado neste trecho",
+  "Origem dos projetos (quem demandou, tramitação e negociações)": "O secretário executivo. Então, o PROADI, o portfólio PROADI teria que atender todos aqueles temas, de alguma forma.",
+  "Projetos colaborativos (participação de cada um, relacionamento HE e benefícios e desafios)": "Não, não todos os hospitais. O grupo dos hospitais tem que atender 148 temas."
+}
+2025-06-01 11:31:45,222 - INFO - ✅ Successfully parsed JSON for chunk 13
+2025-06-01 11:31:45,222 - INFO - 📊 Extracted data keys: ['Código Entrevista', 'Hospital', 'Nome - posição institucional - Projetos', 'Área de atuação', 'Avaliação geral Proadi e DesenvoIvimento Institucional', 'Desafios para a participação do HE no Proadi', 'Sugestões', 'Benefícios do projeto para o SUS', 'Origem dos projetos (quem demandou, tramitação e negociações)', 'Projetos colaborativos (participação de cada um, relacionamento HE e benefícios e desafios)']
+2025-06-01 11:31:45,223 - INFO - Analyzing chunk 14/20 for Gravação da Entrevista - Gravador - 09_04_2025 - HAOC01 - Bruna e Nídia.docx (971 tokens)
+2025-06-01 11:31:45,223 - INFO - Waiting 6 seconds to avoid rate limiting...
+2025-06-01 11:31:59,152 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-01 11:31:59,155 - INFO - 🔍 Raw OpenAI response for chunk 14:
+2025-06-01 11:31:59,156 - INFO - 📝 Response: ```json
+{
+  "Código Entrevista": "Não encontrado neste trecho",
+  "Hospital": "Não encontrado neste trecho",
+  "Nome - posição institucional - Projetos": "Não encontrado neste trecho",
+  "Área de atuação": "Não encontrado neste trecho",
+  "Avaliação geral Proadi e DesenvoIvimento Institucional": "Não encontrado neste trecho",
+  "Desafios para a participação do HE no Proadi": "Inclusive, essa é uma questão, não sei se tem alguma dificuldade, porque a lógica de gestão da coisa pública é muito diferente da gestão privada. Como é que esse encontro. Como é que ele é? Difícil?",
+  "Sugestões": "Não encontrado neste trecho",
+  "Benefícios do projeto para o SUS": "Levar a expertise é fazer com que o SUS, e aí o gestor local, enfim, vou falar SUS de um modo geral, entenda que ela é um facilitador.",
+  "Origem dos projetos (quem demandou, tramitação e negociações)": "Não encontrado neste trecho",
+  "Projetos colaborativos (participação de cada um, relacionamento HE e benefícios e desafios)": "Não encontrado neste trecho"
+}
+```
+2025-06-01 11:31:59,156 - INFO - 🧹 Cleaned JSON for chunk 14: {
+  "Código Entrevista": "Não encontrado neste trecho",
+  "Hospital": "Não encontrado neste trecho",
+  "Nome - posição institucional - Projetos": "Não encontrado neste trecho",
+  "Área de atuação": "Não encontrado neste trecho",
+  "Avaliação geral Proadi e DesenvoIvimento Institucional": "Não encontrado neste trecho",
+  "Desafios para a participação do HE no Proadi": "Inclusive, essa é uma questão, não sei se tem alguma dificuldade, porque a lógica de gestão da coisa pública é muito diferente da gestão privada. Como é que esse encontro. Como é que ele é? Difícil?",
+  "Sugestões": "Não encontrado neste trecho",
+  "Benefícios do projeto para o SUS": "Levar a expertise é fazer com que o SUS, e aí o gestor local, enfim, vou falar SUS de um modo geral, entenda que ela é um facilitador.",
+  "Origem dos projetos (quem demandou, tramitação e negociações)": "Não encontrado neste trecho",
+  "Projetos colaborativos (participação de cada um, relacionamento HE e benefícios e desafios)": "Não encontrado neste trecho"
+}
+2025-06-01 11:31:59,156 - INFO - ✅ Successfully parsed JSON for chunk 14
+2025-06-01 11:31:59,156 - INFO - 📊 Extracted data keys: ['Código Entrevista', 'Hospital', 'Nome - posição institucional - Projetos', 'Área de atuação', 'Avaliação geral Proadi e DesenvoIvimento Institucional', 'Desafios para a participação do HE no Proadi', 'Sugestões', 'Benefícios do projeto para o SUS', 'Origem dos projetos (quem demandou, tramitação e negociações)', 'Projetos colaborativos (participação de cada um, relacionamento HE e benefícios e desafios)']
+2025-06-01 11:31:59,156 - INFO - Analyzing chunk 15/20 for Gravação da Entrevista - Gravador - 09_04_2025 - HAOC01 - Bruna e Nídia.docx (980 tokens)
+2025-06-01 11:31:59,156 - INFO - Waiting 6 seconds to avoid rate limiting...
+2025-06-01 11:32:10,678 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-01 11:32:10,683 - INFO - 🔍 Raw OpenAI response for chunk 15:
+2025-06-01 11:32:10,683 - INFO - 📝 Response: ```json
+{
+  "Código Entrevista": "Não encontrado neste trecho",
+  "Hospital": "Não encontrado neste trecho",
+  "Nome - posição institucional - Projetos": "Não encontrado neste trecho",
+  "Área de atuação": "Não encontrado neste trecho",
+  "Avaliação geral Proadi e DesenvoIvimento Institucional": "a gente segue 100% do que a legislação exige",
+  "Desafios para a participação do HE no Proadi": "as condições de trabalho são muito difíceis, muito diferentes",
+  "Sugestões": "Não encontrado neste trecho",
+  "Benefícios do projeto para o SUS": "melhora a fila, agiliza atendimento",
+  "Origem dos projetos (quem demandou, tramitação e negociações)": "o Ministério convida, por exemplo, a instituição para participar, ela pode ou não aceitar",
+  "Projetos colaborativos (participação de cada um, relacionamento HE e benefícios e desafios)": "Não encontrado neste trecho"
+}
+```
+2025-06-01 11:32:10,683 - INFO - 🧹 Cleaned JSON for chunk 15: {
+  "Código Entrevista": "Não encontrado neste trecho",
+  "Hospital": "Não encontrado neste trecho",
+  "Nome - posição institucional - Projetos": "Não encontrado neste trecho",
+  "Área de atuação": "Não encontrado neste trecho",
+  "Avaliação geral Proadi e DesenvoIvimento Institucional": "a gente segue 100% do que a legislação exige",
+  "Desafios para a participação do HE no Proadi": "as condições de trabalho são muito difíceis, muito diferentes",
+  "Sugestões": "Não encontrado neste trecho",
+  "Benefícios do projeto para o SUS": "melhora a fila, agiliza atendimento",
+  "Origem dos projetos (quem demandou, tramitação e negociações)": "o Ministério convida, por exemplo, a instituição para participar, ela pode ou não aceitar",
+  "Projetos colaborativos (participação de cada um, relacionamento HE e benefícios e desafios)": "Não encontrado neste trecho"
+}
+2025-06-01 11:32:10,684 - INFO - ✅ Successfully parsed JSON for chunk 15
+2025-06-01 11:32:10,684 - INFO - 📊 Extracted data keys: ['Código Entrevista', 'Hospital', 'Nome - posição institucional - Projetos', 'Área de atuação', 'Avaliação geral Proadi e DesenvoIvimento Institucional', 'Desafios para a participação do HE no Proadi', 'Sugestões', 'Benefícios do projeto para o SUS', 'Origem dos projetos (quem demandou, tramitação e negociações)', 'Projetos colaborativos (participação de cada um, relacionamento HE e benefícios e desafios)']
+2025-06-01 11:32:10,684 - INFO - Analyzing chunk 16/20 for Gravação da Entrevista - Gravador - 09_04_2025 - HAOC01 - Bruna e Nídia.docx (997 tokens)
+2025-06-01 11:32:10,684 - INFO - Waiting 6 seconds to avoid rate limiting...
+2025-06-01 11:32:21,747 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-01 11:32:21,751 - INFO - 🔍 Raw OpenAI response for chunk 16:
+2025-06-01 11:32:21,751 - INFO - 📝 Response: ```json
+{
+  "Código Entrevista": "Não encontrado neste trecho",
+  "Hospital": "Oswaldo Cruz",
+  "Nome - posição institucional - Projetos": "Não encontrado neste trecho",
+  "Área de atuação": "Gestão em saúde",
+  "Avaliação geral Proadi e DesenvoIvimento Institucional": "E não dá certo nos projetos PROADI.",
+  "Desafios para a participação do HE no Proadi": "em muitos lugares você tem que ensinar o beabá, você tem que dar 10 passos pra trás pra conseguir começar",
+  "Sugestões": "Não, ele tem que ser adequado.",
+  "Benefícios do projeto para o SUS": "Não encontrado neste trecho",
+  "Origem dos projetos (quem demandou, tramitação e negociações)": "os projetos são escritos em cima de uma necessidade",
+  "Projetos colaborativos (participação de cada um, relacionamento HE e benefícios e desafios)": "Não encontrado neste trecho"
+}
+```
+2025-06-01 11:32:21,752 - INFO - 🧹 Cleaned JSON for chunk 16: {
+  "Código Entrevista": "Não encontrado neste trecho",
+  "Hospital": "Oswaldo Cruz",
+  "Nome - posição institucional - Projetos": "Não encontrado neste trecho",
+  "Área de atuação": "Gestão em saúde",
+  "Avaliação geral Proadi e DesenvoIvimento Institucional": "E não dá certo nos projetos PROADI.",
+  "Desafios para a participação do HE no Proadi": "em muitos lugares você tem que ensinar o beabá, você tem que dar 10 passos pra trás pra conseguir começar",
+  "Sugestões": "Não, ele tem que ser adequado.",
+  "Benefícios do projeto para o SUS": "Não encontrado neste trecho",
+  "Origem dos projetos (quem demandou, tramitação e negociações)": "os projetos são escritos em cima de uma necessidade",
+  "Projetos colaborativos (participação de cada um, relacionamento HE e benefícios e desafios)": "Não encontrado neste trecho"
+}
+2025-06-01 11:32:21,752 - INFO - ✅ Successfully parsed JSON for chunk 16
+2025-06-01 11:32:21,752 - INFO - 📊 Extracted data keys: ['Código Entrevista', 'Hospital', 'Nome - posição institucional - Projetos', 'Área de atuação', 'Avaliação geral Proadi e DesenvoIvimento Institucional', 'Desafios para a participação do HE no Proadi', 'Sugestões', 'Benefícios do projeto para o SUS', 'Origem dos projetos (quem demandou, tramitação e negociações)', 'Projetos colaborativos (participação de cada um, relacionamento HE e benefícios e desafios)']
+2025-06-01 11:32:21,752 - INFO - Analyzing chunk 17/20 for Gravação da Entrevista - Gravador - 09_04_2025 - HAOC01 - Bruna e Nídia.docx (995 tokens)
+2025-06-01 11:32:21,753 - INFO - Waiting 6 seconds to avoid rate limiting...
+2025-06-01 11:32:34,964 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-01 11:32:34,966 - INFO - 🔍 Raw OpenAI response for chunk 17:
+2025-06-01 11:32:34,966 - INFO - 📝 Response: {
+  "Código Entrevista": "Não encontrado neste trecho",
+  "Hospital": "Hospital X",
+  "Nome - posição institucional - Projetos": "Não encontrado neste trecho",
+  "Área de atuação": "Não encontrado neste trecho",
+  "Avaliação geral Proadi e DesenvoIvimento Institucional": "Os conselhos hoje são muito atuantes, né? Desde 2016 para 2017 eles começaram a participar e a demandar projetos. Eles são muito atuantes e eles de fato são os que conhecem... Eles veem, de fato, assim como o Ministério, o PROADI como um grande parceiro público-privado e uma grande ferramenta para conseguir a capilaridade que ele tem, de fato. Chegar nos municípios, nos 5.580 municípios.",
+  "Desafios para a participação do HE no Proadi": "Eu não sei se é um risco, mas acho que as mudanças de gestão é um desafio real para o programa… Por causa das mudanças de rota do governo.",
+  "Sugestões": "Não encontrado neste trecho",
+  "Benefícios do projeto para o SUS": "Não encontrado neste trecho",
+  "Origem dos projetos (quem demandou, tramitação e negociações)": "Não encontrado neste trecho",
+  "Projetos colaborativos (participação de cada um, relacionamento HE e benefícios e desafios)": "Não encontrado neste trecho"
+}
+2025-06-01 11:32:34,966 - INFO - 🧹 Cleaned JSON for chunk 17: {
+  "Código Entrevista": "Não encontrado neste trecho",
+  "Hospital": "Hospital X",
+  "Nome - posição institucional - Projetos": "Não encontrado neste trecho",
+  "Área de atuação": "Não encontrado neste trecho",
+  "Avaliação geral Proadi e DesenvoIvimento Institucional": "Os conselhos hoje são muito atuantes, né? Desde 2016 para 2017 eles começaram a participar e a demandar projetos. Eles são muito atuantes e eles de fato são os que conhecem... Eles veem, de fato, assim como o Ministério, o PROADI como um grande parceiro público-privado e uma grande ferramenta para conseguir a capilaridade que ele tem, de fato. Chegar nos municípios, nos 5.580 municípios.",
+  "Desafios para a participação do HE no Proadi": "Eu não sei se é um risco, mas acho que as mudanças de gestão é um desafio real para o programa… Por causa das mudanças de rota do governo.",
+  "Sugestões": "Não encontrado neste trecho",
+  "Benefícios do projeto para o SUS": "Não encontrado neste trecho",
+  "Origem dos projetos (quem demandou, tramitação e negociações)": "Não encontrado neste trecho",
+  "Projetos colaborativos (participação de cada um, relacionamento HE e benefícios e desafios)": "Não encontrado neste trecho"
+}
+2025-06-01 11:32:34,966 - INFO - ✅ Successfully parsed JSON for chunk 17
+2025-06-01 11:32:34,966 - INFO - 📊 Extracted data keys: ['Código Entrevista', 'Hospital', 'Nome - posição institucional - Projetos', 'Área de atuação', 'Avaliação geral Proadi e DesenvoIvimento Institucional', 'Desafios para a participação do HE no Proadi', 'Sugestões', 'Benefícios do projeto para o SUS', 'Origem dos projetos (quem demandou, tramitação e negociações)', 'Projetos colaborativos (participação de cada um, relacionamento HE e benefícios e desafios)']
+2025-06-01 11:32:34,966 - INFO - Analyzing chunk 18/20 for Gravação da Entrevista - Gravador - 09_04_2025 - HAOC01 - Bruna e Nídia.docx (919 tokens)
+2025-06-01 11:32:34,966 - INFO - Waiting 6 seconds to avoid rate limiting...
+2025-06-01 11:32:57,547 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-01 11:32:57,549 - INFO - 🔍 Raw OpenAI response for chunk 18:
+2025-06-01 11:32:57,550 - INFO - 📝 Response: ```json
+{
+  "Código Entrevista": "Não encontrado neste trecho",
+  "Hospital": "Não encontrado neste trecho",
+  "Nome - posição institucional - Projetos": "Não encontrado neste trecho",
+  "Área de atuação": "Não encontrado neste trecho",
+  "Avaliação geral Proadi e DesenvoIvimento Institucional": "A única coisa que nós tínhamos eram os planos de trabalho e os relatórios com os anexos, né?. E aí eu descobri que os hospitais já faziam muita coisa, inclusive de avaliação.",
+  "Desafios para a participação do HE no Proadi": "De 75 municípios, eu tô em 73 municípios. Teve eleição no ano passado. De prefeito, de prefeito. Mudou 40, dos nossos 73, 40 e poucos prefeitos mudaram automaticamente seus secretários, automaticamente sua diretoria.",
+  "Sugestões": "Não encontrado neste trecho",
+  "Benefícios do projeto para o SUS": "Não encontrado neste trecho",
+  "Origem dos projetos (quem demandou, tramitação e negociações)": "Não encontrado neste trecho",
+  "Projetos colaborativos (participação de cada um, relacionamento HE e benefícios e desafios)": "Não encontrado neste trecho"
+}
+```
+2025-06-01 11:32:57,550 - INFO - 🧹 Cleaned JSON for chunk 18: {
+  "Código Entrevista": "Não encontrado neste trecho",
+  "Hospital": "Não encontrado neste trecho",
+  "Nome - posição institucional - Projetos": "Não encontrado neste trecho",
+  "Área de atuação": "Não encontrado neste trecho",
+  "Avaliação geral Proadi e DesenvoIvimento Institucional": "A única coisa que nós tínhamos eram os planos de trabalho e os relatórios com os anexos, né?. E aí eu descobri que os hospitais já faziam muita coisa, inclusive de avaliação.",
+  "Desafios para a participação do HE no Proadi": "De 75 municípios, eu tô em 73 municípios. Teve eleição no ano passado. De prefeito, de prefeito. Mudou 40, dos nossos 73, 40 e poucos prefeitos mudaram automaticamente seus secretários, automaticamente sua diretoria.",
+  "Sugestões": "Não encontrado neste trecho",
+  "Benefícios do projeto para o SUS": "Não encontrado neste trecho",
+  "Origem dos projetos (quem demandou, tramitação e negociações)": "Não encontrado neste trecho",
+  "Projetos colaborativos (participação de cada um, relacionamento HE e benefícios e desafios)": "Não encontrado neste trecho"
+}
+2025-06-01 11:32:57,550 - INFO - ✅ Successfully parsed JSON for chunk 18
+2025-06-01 11:32:57,550 - INFO - 📊 Extracted data keys: ['Código Entrevista', 'Hospital', 'Nome - posição institucional - Projetos', 'Área de atuação', 'Avaliação geral Proadi e DesenvoIvimento Institucional', 'Desafios para a participação do HE no Proadi', 'Sugestões', 'Benefícios do projeto para o SUS', 'Origem dos projetos (quem demandou, tramitação e negociações)', 'Projetos colaborativos (participação de cada um, relacionamento HE e benefícios e desafios)']
+2025-06-01 11:32:57,550 - INFO - Analyzing chunk 19/20 for Gravação da Entrevista - Gravador - 09_04_2025 - HAOC01 - Bruna e Nídia.docx (772 tokens)
+2025-06-01 11:32:57,550 - INFO - Waiting 6 seconds to avoid rate limiting...
+2025-06-01 11:33:12,793 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-01 11:33:12,796 - INFO - 🔍 Raw OpenAI response for chunk 19:
+2025-06-01 11:33:12,796 - INFO - 📝 Response: ```json
+{
+  "Código Entrevista": "Não encontrado neste trecho",
+  "Hospital": "Não encontrado neste trecho",
+  "Nome - posição institucional - Projetos": "Não encontrado neste trecho",
+  "Área de atuação": "Não encontrado neste trecho",
+  "Avaliação geral Proadi e DesenvoIvimento Institucional": "a gente faz o que faz parte da nossa vocação social. Então, quando a gente fala de benefício, é um benefício amarrado no nosso propósito, que é poder contribuir com a população, baseado naquilo que a gente tem conhecimento. E por isso ser bom para a  saúde, até aquilo que a gente falou também no início, a gente tem hoje uma imunidade, que se não fosse por meio desse programa, não estaria direcionada à saúde.",
+  "Desafios para a participação do HE no Proadi": "Isso aí é uma coisa mais importante. E como vocês veem, por exemplo, que uma grande preocupação é os projetos não serem sustentáveis. Sem PROADI, morre.",
+  "Sugestões": "Por isso que eu falei que é uma melhoria, porque antes também tinha solicitações dadas de pessoas e as coisas ficavam na gaveta.",
+  "Benefícios do projeto para o SUS": "a gente tem hoje uma imunidade, que se não fosse por meio desse programa, não estaria direcionada à saúde.",
+  "Origem dos projetos (quem demandou, tramitação e negociações)": "Não encontrado neste trecho",
+  "Projetos colaborativos (participação de cada um, relacionamento HE e benefícios e desafios)": "Não encontrado neste trecho"
+}
+```
+2025-06-01 11:33:12,796 - INFO - 🧹 Cleaned JSON for chunk 19: {
+  "Código Entrevista": "Não encontrado neste trecho",
+  "Hospital": "Não encontrado neste trecho",
+  "Nome - posição institucional - Projetos": "Não encontrado neste trecho",
+  "Área de atuação": "Não encontrado neste trecho",
+  "Avaliação geral Proadi e DesenvoIvimento Institucional": "a gente faz o que faz parte da nossa vocação social. Então, quando a gente fala de benefício, é um benefício amarrado no nosso propósito, que é poder contribuir com a população, baseado naquilo que a gente tem conhecimento. E por isso ser bom para a  saúde, até aquilo que a gente falou também no início, a gente tem hoje uma imunidade, que se não fosse por meio desse programa, não estaria direcionada à saúde.",
+  "Desafios para a participação do HE no Proadi": "Isso aí é uma coisa mais importante. E como vocês veem, por exemplo, que uma grande preocupação é os projetos não serem sustentáveis. Sem PROADI, morre.",
+  "Sugestões": "Por isso que eu falei que é uma melhoria, porque antes também tinha solicitações dadas de pessoas e as coisas ficavam na gaveta.",
+  "Benefícios do projeto para o SUS": "a gente tem hoje uma imunidade, que se não fosse por meio desse programa, não estaria direcionada à saúde.",
+  "Origem dos projetos (quem demandou, tramitação e negociações)": "Não encontrado neste trecho",
+  "Projetos colaborativos (participação de cada um, relacionamento HE e benefícios e desafios)": "Não encontrado neste trecho"
+}
+2025-06-01 11:33:12,796 - INFO - ✅ Successfully parsed JSON for chunk 19
+2025-06-01 11:33:12,796 - INFO - 📊 Extracted data keys: ['Código Entrevista', 'Hospital', 'Nome - posição institucional - Projetos', 'Área de atuação', 'Avaliação geral Proadi e DesenvoIvimento Institucional', 'Desafios para a participação do HE no Proadi', 'Sugestões', 'Benefícios do projeto para o SUS', 'Origem dos projetos (quem demandou, tramitação e negociações)', 'Projetos colaborativos (participação de cada um, relacionamento HE e benefícios e desafios)']
+2025-06-01 11:33:12,796 - INFO - Analyzing chunk 20/20 for Gravação da Entrevista - Gravador - 09_04_2025 - HAOC01 - Bruna e Nídia.docx (964 tokens)
+2025-06-01 11:33:12,796 - INFO - Waiting 6 seconds to avoid rate limiting...
+2025-06-01 11:33:24,057 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-01 11:33:26,726 - INFO - 🔍 Raw OpenAI response for chunk 20:
+2025-06-01 11:33:26,726 - INFO - 📝 Response: ```json
+{
+  "Código Entrevista": "Não encontrado neste trecho",
+  "Hospital": "HAOC",
+  "Nome - posição institucional - Projetos": "Não encontrado neste trecho",
+  "Área de atuação": "Não encontrado neste trecho",
+  "Avaliação geral Proadi e DesenvoIvimento Institucional": "E PROADI hoje tem, mas a gente não sabe até quando. E aí tem que ter um jeito de seguir.",
+  "Desafios para a participação do HE no Proadi": "Não tem um projeto pós-projeto.",
+  "Sugestões": "Essa é uma possibilidade e as áreas técnicas também tem que criar ferramentas internas de acompanhamento.",
+  "Benefícios do projeto para o SUS": "Essa ideia de desenvolvimento institucional.",
+  "Origem dos projetos (quem demandou, tramitação e negociações)": "Não encontrado neste trecho",
+  "Projetos colaborativos (participação de cada um, relacionamento HE e benefícios e desafios)": "Não encontrado neste trecho"
+}
+```
+2025-06-01 11:33:26,726 - INFO - 🧹 Cleaned JSON for chunk 20: {
+  "Código Entrevista": "Não encontrado neste trecho",
+  "Hospital": "HAOC",
+  "Nome - posição institucional - Projetos": "Não encontrado neste trecho",
+  "Área de atuação": "Não encontrado neste trecho",
+  "Avaliação geral Proadi e DesenvoIvimento Institucional": "E PROADI hoje tem, mas a gente não sabe até quando. E aí tem que ter um jeito de seguir.",
+  "Desafios para a participação do HE no Proadi": "Não tem um projeto pós-projeto.",
+  "Sugestões": "Essa é uma possibilidade e as áreas técnicas também tem que criar ferramentas internas de acompanhamento.",
+  "Benefícios do projeto para o SUS": "Essa ideia de desenvolvimento institucional.",
+  "Origem dos projetos (quem demandou, tramitação e negociações)": "Não encontrado neste trecho",
+  "Projetos colaborativos (participação de cada um, relacionamento HE e benefícios e desafios)": "Não encontrado neste trecho"
+}
+2025-06-01 11:33:26,727 - INFO - ✅ Successfully parsed JSON for chunk 20
+2025-06-01 11:33:26,727 - INFO - 📊 Extracted data keys: ['Código Entrevista', 'Hospital', 'Nome - posição institucional - Projetos', 'Área de atuação', 'Avaliação geral Proadi e DesenvoIvimento Institucional', 'Desafios para a participação do HE no Proadi', 'Sugestões', 'Benefícios do projeto para o SUS', 'Origem dos projetos (quem demandou, tramitação e negociações)', 'Projetos colaborativos (participação de cada um, relacionamento HE e benefícios e desafios)']
+2025-06-01 11:33:26,730 - INFO - Successfully analyzed Gravação da Entrevista - Gravador - 09_04_2025 - HAOC01 - Bruna e Nídia.docx using 20 chunks
+2025-06-01 11:33:26,731 - INFO - Processing Transcrição da entrevista corrigida 08_04_2025 - HIAE02 - Renato Tanjoni e Fernanda Pahim.docx...
+2025-06-01 11:33:26,842 - INFO - Read 78343 characters from Word document Transcrição da entrevista corrigida 08_04_2025 - HIAE02 - Renato Tanjoni e Fernanda Pahim.docx
+2025-06-01 11:33:26,842 - INFO - Estimated tokens for Transcrição da entrevista corrigida 08_04_2025 - HIAE02 - Renato Tanjoni e Fernanda Pahim.docx: 19585
+2025-06-01 11:33:26,842 - INFO - Content too large for Transcrição da entrevista corrigida 08_04_2025 - HIAE02 - Renato Tanjoni e Fernanda Pahim.docx, chunking...
+2025-06-01 11:33:26,842 - INFO - Split content into 23 chunks (max 1000 tokens each)
+2025-06-01 11:33:26,842 - INFO - Analyzing chunk 1/23 for Transcrição da entrevista corrigida 08_04_2025 - HIAE02 - Renato Tanjoni e Fernanda Pahim.docx (904 tokens)
+2025-06-01 11:33:31,915 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-01 11:33:31,927 - INFO - 🔍 Raw OpenAI response for chunk 1:
+2025-06-01 11:33:31,927 - INFO - 📝 Response: ```json
+{
+  "Código Entrevista": "Não encontrado neste trecho",
+  "Hospital": "Hospital Albert Einstein",
+  "Nome - posição institucional - Projetos": "Renato Tanjoni - superintendente do Escritório de Projetos Proadi SUS",
+  "Área de atuação": "Gestão",
+  "Avaliação geral Proadi e DesenvoIvimento Institucional": "Não encontrado neste trecho",
+  "Desafios para a participação do HE no Proadi": "Não encontrado neste trecho",
+  "Sugestões": "Não encontrado neste trecho",
+  "Benefícios do projeto para o SUS": "Não encontrado neste trecho",
+  "Origem dos projetos (quem demandou, tramitação e negociações)": "Não encontrado neste trecho",
+  "Projetos colaborativos (participação de cada um, relacionamento HE e benefícios e desafios)": "Não encontrado neste trecho"
+}
+```
+2025-06-01 11:33:31,927 - INFO - 🧹 Cleaned JSON for chunk 1: {
+  "Código Entrevista": "Não encontrado neste trecho",
+  "Hospital": "Hospital Albert Einstein",
+  "Nome - posição institucional - Projetos": "Renato Tanjoni - superintendente do Escritório de Projetos Proadi SUS",
+  "Área de atuação": "Gestão",
+  "Avaliação geral Proadi e DesenvoIvimento Institucional": "Não encontrado neste trecho",
+  "Desafios para a participação do HE no Proadi": "Não encontrado neste trecho",
+  "Sugestões": "Não encontrado neste trecho",
+  "Benefícios do projeto para o SUS": "Não encontrado neste trecho",
+  "Origem dos projetos (quem demandou, tramitação e negociações)": "Não encontrado neste trecho",
+  "Projetos colaborativos (participação de cada um, relacionamento HE e benefícios e desafios)": "Não encontrado neste trecho"
+}
+2025-06-01 11:33:31,927 - INFO - ✅ Successfully parsed JSON for chunk 1
+2025-06-01 11:33:31,927 - INFO - 📊 Extracted data keys: ['Código Entrevista', 'Hospital', 'Nome - posição institucional - Projetos', 'Área de atuação', 'Avaliação geral Proadi e DesenvoIvimento Institucional', 'Desafios para a participação do HE no Proadi', 'Sugestões', 'Benefícios do projeto para o SUS', 'Origem dos projetos (quem demandou, tramitação e negociações)', 'Projetos colaborativos (participação de cada um, relacionamento HE e benefícios e desafios)']
+2025-06-01 11:33:31,927 - INFO - Analyzing chunk 2/23 for Transcrição da entrevista corrigida 08_04_2025 - HIAE02 - Renato Tanjoni e Fernanda Pahim.docx (985 tokens)
+2025-06-01 11:33:31,927 - INFO - Waiting 6 seconds to avoid rate limiting...
+2025-06-01 11:33:43,275 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-01 11:33:43,281 - INFO - 🔍 Raw OpenAI response for chunk 2:
+2025-06-01 11:33:43,281 - INFO - 📝 Response: ```json
+{
+  "Código Entrevista": "Não encontrado neste trecho",
+  "Hospital": "Hospital Albert Einstein",
+  "Nome - posição institucional - Projetos": "Renato Tanjoni - Não especificado",
+  "Área de atuação": "Não encontrado neste trecho",
+  "Avaliação geral Proadi e DesenvoIvimento Institucional": "Não encontrado neste trecho",
+  "Desafios para a participação do HE no Proadi": "Não encontrado neste trecho",
+  "Sugestões": "Não encontrado neste trecho",
+  "Benefícios do projeto para o SUS": "Não encontrado neste trecho",
+  "Origem dos projetos (quem demandou, tramitação e negociações)": "Na verdade, nasce de uma conversa dos hospitais com o Ministério da Saúde.",
+  "Projetos colaborativos (participação de cada um, relacionamento HE e benefícios e desafios)": "Não encontrado neste trecho"
+}
+```
+2025-06-01 11:33:43,282 - INFO - 🧹 Cleaned JSON for chunk 2: {
+  "Código Entrevista": "Não encontrado neste trecho",
+  "Hospital": "Hospital Albert Einstein",
+  "Nome - posição institucional - Projetos": "Renato Tanjoni - Não especificado",
+  "Área de atuação": "Não encontrado neste trecho",
+  "Avaliação geral Proadi e DesenvoIvimento Institucional": "Não encontrado neste trecho",
+  "Desafios para a participação do HE no Proadi": "Não encontrado neste trecho",
+  "Sugestões": "Não encontrado neste trecho",
+  "Benefícios do projeto para o SUS": "Não encontrado neste trecho",
+  "Origem dos projetos (quem demandou, tramitação e negociações)": "Na verdade, nasce de uma conversa dos hospitais com o Ministério da Saúde.",
+  "Projetos colaborativos (participação de cada um, relacionamento HE e benefícios e desafios)": "Não encontrado neste trecho"
+}
+2025-06-01 11:33:43,282 - INFO - ✅ Successfully parsed JSON for chunk 2
+2025-06-01 11:33:43,282 - INFO - 📊 Extracted data keys: ['Código Entrevista', 'Hospital', 'Nome - posição institucional - Projetos', 'Área de atuação', 'Avaliação geral Proadi e DesenvoIvimento Institucional', 'Desafios para a participação do HE no Proadi', 'Sugestões', 'Benefícios do projeto para o SUS', 'Origem dos projetos (quem demandou, tramitação e negociações)', 'Projetos colaborativos (participação de cada um, relacionamento HE e benefícios e desafios)']
+2025-06-01 11:33:43,282 - INFO - Analyzing chunk 3/23 for Transcrição da entrevista corrigida 08_04_2025 - HIAE02 - Renato Tanjoni e Fernanda Pahim.docx (974 tokens)
+2025-06-01 11:33:43,282 - INFO - Waiting 6 seconds to avoid rate limiting...
+2025-06-01 11:33:56,278 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-01 11:33:56,280 - INFO - 🔍 Raw OpenAI response for chunk 3:
+2025-06-01 11:33:56,281 - INFO - 📝 Response: ```json
+{
+  "Código Entrevista": "Não encontrado neste trecho",
+  "Hospital": "Hospital Albert Einstein",
+  "Nome - posição institucional - Projetos": "Renato Tanjoni - Não especificado - Projetos do Einstein presentes em todos os estados brasileiros, mais o Distrito Federal",
+  "Área de atuação": "Gestão",
+  "Avaliação geral Proadi e DesenvoIvimento Institucional": "A grande discussão do PROADI é que é levar a excelência dos hospitais para o SUS, para outras regiões do país.",
+  "Desafios para a participação do HE no Proadi": "Não encontrado neste trecho",
+  "Sugestões": "Não encontrado neste trecho",
+  "Benefícios do projeto para o SUS": "Levar aquilo que o Einstein acumulou durante esses quase 70 anos de legado, ou seja, aquilo que a gente tem de expertise para o Sistema Único de Saúde.",
+  "Origem dos projetos (quem demandou, tramitação e negociações)": "Não encontrado neste trecho",
+  "Projetos colaborativos (participação de cada um, relacionamento HE e benefícios e desafios)": "Não encontrado neste trecho"
+}
+```
+2025-06-01 11:33:56,281 - INFO - 🧹 Cleaned JSON for chunk 3: {
+  "Código Entrevista": "Não encontrado neste trecho",
+  "Hospital": "Hospital Albert Einstein",
+  "Nome - posição institucional - Projetos": "Renato Tanjoni - Não especificado - Projetos do Einstein presentes em todos os estados brasileiros, mais o Distrito Federal",
+  "Área de atuação": "Gestão",
+  "Avaliação geral Proadi e DesenvoIvimento Institucional": "A grande discussão do PROADI é que é levar a excelência dos hospitais para o SUS, para outras regiões do país.",
+  "Desafios para a participação do HE no Proadi": "Não encontrado neste trecho",
+  "Sugestões": "Não encontrado neste trecho",
+  "Benefícios do projeto para o SUS": "Levar aquilo que o Einstein acumulou durante esses quase 70 anos de legado, ou seja, aquilo que a gente tem de expertise para o Sistema Único de Saúde.",
+  "Origem dos projetos (quem demandou, tramitação e negociações)": "Não encontrado neste trecho",
+  "Projetos colaborativos (participação de cada um, relacionamento HE e benefícios e desafios)": "Não encontrado neste trecho"
+}
+2025-06-01 11:33:56,281 - INFO - ✅ Successfully parsed JSON for chunk 3
+2025-06-01 11:33:56,281 - INFO - 📊 Extracted data keys: ['Código Entrevista', 'Hospital', 'Nome - posição institucional - Projetos', 'Área de atuação', 'Avaliação geral Proadi e DesenvoIvimento Institucional', 'Desafios para a participação do HE no Proadi', 'Sugestões', 'Benefícios do projeto para o SUS', 'Origem dos projetos (quem demandou, tramitação e negociações)', 'Projetos colaborativos (participação de cada um, relacionamento HE e benefícios e desafios)']
+2025-06-01 11:33:56,281 - INFO - Analyzing chunk 4/23 for Transcrição da entrevista corrigida 08_04_2025 - HIAE02 - Renato Tanjoni e Fernanda Pahim.docx (945 tokens)
+2025-06-01 11:33:56,281 - INFO - Waiting 6 seconds to avoid rate limiting...
+2025-06-01 11:34:07,587 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-01 11:34:07,592 - INFO - 🔍 Raw OpenAI response for chunk 4:
+2025-06-01 11:34:07,592 - INFO - 📝 Response: {
+  "Código Entrevista": "Não encontrado neste trecho",
+  "Hospital": "Hospital Municipal do M Boimirim, Hospital Vila Santa Catarina, Hospital Municipal de Aparecida de Goiânia (GAMAP), Hospital de Urgências de Goiânia (UGO)",
+  "Nome - posição institucional - Projetos": "Renato Tanjoni",
+  "Área de atuação": "Gestão",
+  "Avaliação geral Proadi e DesenvoIvimento Institucional": "Não encontrado neste trecho",
+  "Desafios para a participação do HE no Proadi": "Não encontrado neste trecho",
+  "Sugestões": "Não encontrado neste trecho",
+  "Benefícios do projeto para o SUS": "Não encontrado neste trecho",
+  "Origem dos projetos (quem demandou, tramitação e negociações)": "Não encontrado neste trecho",
+  "Projetos colaborativos (participação de cada um, relacionamento HE e benefícios e desafios)": "Não encontrado neste trecho"
+}
+2025-06-01 11:34:07,592 - INFO - 🧹 Cleaned JSON for chunk 4: {
+  "Código Entrevista": "Não encontrado neste trecho",
+  "Hospital": "Hospital Municipal do M Boimirim, Hospital Vila Santa Catarina, Hospital Municipal de Aparecida de Goiânia (GAMAP), Hospital de Urgências de Goiânia (UGO)",
+  "Nome - posição institucional - Projetos": "Renato Tanjoni",
+  "Área de atuação": "Gestão",
+  "Avaliação geral Proadi e DesenvoIvimento Institucional": "Não encontrado neste trecho",
+  "Desafios para a participação do HE no Proadi": "Não encontrado neste trecho",
+  "Sugestões": "Não encontrado neste trecho",
+  "Benefícios do projeto para o SUS": "Não encontrado neste trecho",
+  "Origem dos projetos (quem demandou, tramitação e negociações)": "Não encontrado neste trecho",
+  "Projetos colaborativos (participação de cada um, relacionamento HE e benefícios e desafios)": "Não encontrado neste trecho"
+}
+2025-06-01 11:34:07,592 - INFO - ✅ Successfully parsed JSON for chunk 4
+2025-06-01 11:34:07,592 - INFO - 📊 Extracted data keys: ['Código Entrevista', 'Hospital', 'Nome - posição institucional - Projetos', 'Área de atuação', 'Avaliação geral Proadi e DesenvoIvimento Institucional', 'Desafios para a participação do HE no Proadi', 'Sugestões', 'Benefícios do projeto para o SUS', 'Origem dos projetos (quem demandou, tramitação e negociações)', 'Projetos colaborativos (participação de cada um, relacionamento HE e benefícios e desafios)']
+2025-06-01 11:34:07,593 - INFO - Analyzing chunk 5/23 for Transcrição da entrevista corrigida 08_04_2025 - HIAE02 - Renato Tanjoni e Fernanda Pahim.docx (1000 tokens)
+2025-06-01 11:34:07,593 - INFO - Waiting 6 seconds to avoid rate limiting...
+2025-06-01 11:34:19,709 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-01 11:34:19,714 - INFO - 🔍 Raw OpenAI response for chunk 5:
+2025-06-01 11:34:19,714 - INFO - 📝 Response: {
+  "Código Entrevista": "Não encontrado neste trecho",
+  "Hospital": "Einstein",
+  "Nome - posição institucional - Projetos": "Renato Tanjoni",
+  "Área de atuação": "Não encontrado neste trecho",
+  "Avaliação geral Proadi e DesenvoIvimento Institucional": "Não encontrado neste trecho",
+  "Desafios para a participação do HE no Proadi": "Não encontrado neste trecho",
+  "Sugestões": "Não encontrado neste trecho",
+  "Benefícios do projeto para o SUS": "Não encontrado neste trecho",
+  "Origem dos projetos (quem demandou, tramitação e negociações)": "Conforme é preconizado pela legislação, o Ministério da Saúde, por meio das suas secretarias, dos seus institutos e das suas agências, eles podem propor projetos. O CONASS e o CONASEMS podem propor projetos. E os hospitais de excelência também podem.",
+  "Projetos colaborativos (participação de cada um, relacionamento HE e benefícios e desafios)": "Não encontrado neste trecho"
+}
+2025-06-01 11:34:19,714 - INFO - 🧹 Cleaned JSON for chunk 5: {
+  "Código Entrevista": "Não encontrado neste trecho",
+  "Hospital": "Einstein",
+  "Nome - posição institucional - Projetos": "Renato Tanjoni",
+  "Área de atuação": "Não encontrado neste trecho",
+  "Avaliação geral Proadi e DesenvoIvimento Institucional": "Não encontrado neste trecho",
+  "Desafios para a participação do HE no Proadi": "Não encontrado neste trecho",
+  "Sugestões": "Não encontrado neste trecho",
+  "Benefícios do projeto para o SUS": "Não encontrado neste trecho",
+  "Origem dos projetos (quem demandou, tramitação e negociações)": "Conforme é preconizado pela legislação, o Ministério da Saúde, por meio das suas secretarias, dos seus institutos e das suas agências, eles podem propor projetos. O CONASS e o CONASEMS podem propor projetos. E os hospitais de excelência também podem.",
+  "Projetos colaborativos (participação de cada um, relacionamento HE e benefícios e desafios)": "Não encontrado neste trecho"
+}
+2025-06-01 11:34:19,714 - INFO - ✅ Successfully parsed JSON for chunk 5
+2025-06-01 11:34:19,714 - INFO - 📊 Extracted data keys: ['Código Entrevista', 'Hospital', 'Nome - posição institucional - Projetos', 'Área de atuação', 'Avaliação geral Proadi e DesenvoIvimento Institucional', 'Desafios para a participação do HE no Proadi', 'Sugestões', 'Benefícios do projeto para o SUS', 'Origem dos projetos (quem demandou, tramitação e negociações)', 'Projetos colaborativos (participação de cada um, relacionamento HE e benefícios e desafios)']
+2025-06-01 11:34:19,714 - INFO - Analyzing chunk 6/23 for Transcrição da entrevista corrigida 08_04_2025 - HIAE02 - Renato Tanjoni e Fernanda Pahim.docx (946 tokens)
+2025-06-01 11:34:19,715 - INFO - Waiting 6 seconds to avoid rate limiting...
+2025-06-01 11:34:33,464 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-01 11:34:33,468 - INFO - 🔍 Raw OpenAI response for chunk 6:
+2025-06-01 11:34:33,468 - INFO - 📝 Response: ```json
+{
+  "Código Entrevista": "Não encontrado neste trecho",
+  "Hospital": "Hospital Sírio-Libanês",
+  "Nome - posição institucional - Projetos": "Renato Tanjoni: Não especificado",
+  "Área de atuação": "Não encontrado neste trecho",
+  "Avaliação geral Proadi e DesenvoIvimento Institucional": "Muito pacificado, muito construtivo, muito profículo, muito colaborativo.",
+  "Desafios para a participação do HE no Proadi": "Não encontrado neste trecho",
+  "Sugestões": "Não encontrado neste trecho",
+  "Benefícios do projeto para o SUS": "Não encontrado neste trecho",
+  "Origem dos projetos (quem demandou, tramitação e negociações)": "o Einstein concorda, o Ministério concorda, Conass e Conasems concordam, aí a gente submete isso para o comitê gestor.",
+  "Projetos colaborativos (participação de cada um, relacionamento HE e benefícios e desafios)": "Um exemplo é o Saúde em Nossas Mãos, que tá dentro desse triênio 21-23. Então esse projeto já nasceu colaborativo com a participação, à época, dos cinco hospitais, depois a BP entrou, e pegou o barco aí andando."
+}
+```
+2025-06-01 11:34:33,468 - INFO - 🧹 Cleaned JSON for chunk 6: {
+  "Código Entrevista": "Não encontrado neste trecho",
+  "Hospital": "Hospital Sírio-Libanês",
+  "Nome - posição institucional - Projetos": "Renato Tanjoni: Não especificado",
+  "Área de atuação": "Não encontrado neste trecho",
+  "Avaliação geral Proadi e DesenvoIvimento Institucional": "Muito pacificado, muito construtivo, muito profículo, muito colaborativo.",
+  "Desafios para a participação do HE no Proadi": "Não encontrado neste trecho",
+  "Sugestões": "Não encontrado neste trecho",
+  "Benefícios do projeto para o SUS": "Não encontrado neste trecho",
+  "Origem dos projetos (quem demandou, tramitação e negociações)": "o Einstein concorda, o Ministério concorda, Conass e Conasems concordam, aí a gente submete isso para o comitê gestor.",
+  "Projetos colaborativos (participação de cada um, relacionamento HE e benefícios e desafios)": "Um exemplo é o Saúde em Nossas Mãos, que tá dentro desse triênio 21-23. Então esse projeto já nasceu colaborativo com a participação, à época, dos cinco hospitais, depois a BP entrou, e pegou o barco aí andando."
+}
+2025-06-01 11:34:33,468 - INFO - ✅ Successfully parsed JSON for chunk 6
+2025-06-01 11:34:33,468 - INFO - 📊 Extracted data keys: ['Código Entrevista', 'Hospital', 'Nome - posição institucional - Projetos', 'Área de atuação', 'Avaliação geral Proadi e DesenvoIvimento Institucional', 'Desafios para a participação do HE no Proadi', 'Sugestões', 'Benefícios do projeto para o SUS', 'Origem dos projetos (quem demandou, tramitação e negociações)', 'Projetos colaborativos (participação de cada um, relacionamento HE e benefícios e desafios)']
+2025-06-01 11:34:33,468 - INFO - Analyzing chunk 7/23 for Transcrição da entrevista corrigida 08_04_2025 - HIAE02 - Renato Tanjoni e Fernanda Pahim.docx (948 tokens)
+2025-06-01 11:34:33,468 - INFO - Waiting 6 seconds to avoid rate limiting...
+2025-06-01 11:34:45,441 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-01 11:34:45,445 - INFO - 🔍 Raw OpenAI response for chunk 7:
+2025-06-01 11:34:45,445 - INFO - 📝 Response: {
+  "Código Entrevista": "Não encontrado neste trecho",
+  "Hospital": "Hospital Albert Einstein",
+  "Nome - posição institucional - Projetos": "Guilherme Schettino, representante do G6; Maria Alice, suplente do representante do G6",
+  "Área de atuação": "Não encontrado neste trecho",
+  "Avaliação geral Proadi e DesenvoIvimento Institucional": "Muito, muito. Fortalece os assuntos comuns, todo mundo tem o mesmo objetivo, que é o programa em si. Então, não existe competição, existe ali... uma ação mútua, colaborativa, apesar de sermos concorrentes, o PROAD, todos estão juntos.",
+  "Desafios para a participação do HE no Proadi": "Não encontrado neste trecho",
+  "Sugestões": "Não encontrado neste trecho",
+  "Benefícios do projeto para o SUS": "Não encontrado neste trecho",
+  "Origem dos projetos (quem demandou, tramitação e negociações)": "Não encontrado neste trecho",
+  "Projetos colaborativos (participação de cada um, relacionamento HE e benefícios e desafios)": "Não encontrado neste trecho"
+}
+2025-06-01 11:34:45,445 - INFO - 🧹 Cleaned JSON for chunk 7: {
+  "Código Entrevista": "Não encontrado neste trecho",
+  "Hospital": "Hospital Albert Einstein",
+  "Nome - posição institucional - Projetos": "Guilherme Schettino, representante do G6; Maria Alice, suplente do representante do G6",
+  "Área de atuação": "Não encontrado neste trecho",
+  "Avaliação geral Proadi e DesenvoIvimento Institucional": "Muito, muito. Fortalece os assuntos comuns, todo mundo tem o mesmo objetivo, que é o programa em si. Então, não existe competição, existe ali... uma ação mútua, colaborativa, apesar de sermos concorrentes, o PROAD, todos estão juntos.",
+  "Desafios para a participação do HE no Proadi": "Não encontrado neste trecho",
+  "Sugestões": "Não encontrado neste trecho",
+  "Benefícios do projeto para o SUS": "Não encontrado neste trecho",
+  "Origem dos projetos (quem demandou, tramitação e negociações)": "Não encontrado neste trecho",
+  "Projetos colaborativos (participação de cada um, relacionamento HE e benefícios e desafios)": "Não encontrado neste trecho"
+}
+2025-06-01 11:34:45,445 - INFO - ✅ Successfully parsed JSON for chunk 7
+2025-06-01 11:34:45,445 - INFO - 📊 Extracted data keys: ['Código Entrevista', 'Hospital', 'Nome - posição institucional - Projetos', 'Área de atuação', 'Avaliação geral Proadi e DesenvoIvimento Institucional', 'Desafios para a participação do HE no Proadi', 'Sugestões', 'Benefícios do projeto para o SUS', 'Origem dos projetos (quem demandou, tramitação e negociações)', 'Projetos colaborativos (participação de cada um, relacionamento HE e benefícios e desafios)']
+2025-06-01 11:34:45,446 - INFO - Analyzing chunk 8/23 for Transcrição da entrevista corrigida 08_04_2025 - HIAE02 - Renato Tanjoni e Fernanda Pahim.docx (965 tokens)
+2025-06-01 11:34:45,446 - INFO - Waiting 6 seconds to avoid rate limiting...
+2025-06-01 11:34:56,168 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-01 11:34:56,172 - INFO - 🔍 Raw OpenAI response for chunk 8:
+2025-06-01 11:34:56,173 - INFO - 📝 Response: ```json
+{
+  "Código Entrevista": "Não encontrado neste trecho",
+  "Hospital": "Não encontrado neste trecho",
+  "Nome - posição institucional - Projetos": "Não encontrado neste trecho",
+  "Área de atuação": "gestão, capacitação, pesquisa e incorporação de tecnologia",
+  "Avaliação geral Proadi e DesenvoIvimento Institucional": "Não encontrado neste trecho",
+  "Desafios para a participação do HE no Proadi": "Não encontrado neste trecho",
+  "Sugestões": "Não encontrado neste trecho",
+  "Benefícios do projeto para o SUS": "Não encontrado neste trecho",
+  "Origem dos projetos (quem demandou, tramitação e negociações)": "Não encontrado neste trecho",
+  "Projetos colaborativos (participação de cada um, relacionamento HE e benefícios e desafios)": "Não encontrado neste trecho"
+}
+```
+2025-06-01 11:34:56,173 - INFO - 🧹 Cleaned JSON for chunk 8: {
+  "Código Entrevista": "Não encontrado neste trecho",
+  "Hospital": "Não encontrado neste trecho",
+  "Nome - posição institucional - Projetos": "Não encontrado neste trecho",
+  "Área de atuação": "gestão, capacitação, pesquisa e incorporação de tecnologia",
+  "Avaliação geral Proadi e DesenvoIvimento Institucional": "Não encontrado neste trecho",
+  "Desafios para a participação do HE no Proadi": "Não encontrado neste trecho",
+  "Sugestões": "Não encontrado neste trecho",
+  "Benefícios do projeto para o SUS": "Não encontrado neste trecho",
+  "Origem dos projetos (quem demandou, tramitação e negociações)": "Não encontrado neste trecho",
+  "Projetos colaborativos (participação de cada um, relacionamento HE e benefícios e desafios)": "Não encontrado neste trecho"
+}
+2025-06-01 11:34:56,173 - INFO - ✅ Successfully parsed JSON for chunk 8
+2025-06-01 11:34:56,173 - INFO - 📊 Extracted data keys: ['Código Entrevista', 'Hospital', 'Nome - posição institucional - Projetos', 'Área de atuação', 'Avaliação geral Proadi e DesenvoIvimento Institucional', 'Desafios para a participação do HE no Proadi', 'Sugestões', 'Benefícios do projeto para o SUS', 'Origem dos projetos (quem demandou, tramitação e negociações)', 'Projetos colaborativos (participação de cada um, relacionamento HE e benefícios e desafios)']
+2025-06-01 11:34:56,173 - INFO - Analyzing chunk 9/23 for Transcrição da entrevista corrigida 08_04_2025 - HIAE02 - Renato Tanjoni e Fernanda Pahim.docx (928 tokens)
+2025-06-01 11:34:56,173 - INFO - Waiting 6 seconds to avoid rate limiting...
+2025-06-01 11:35:07,396 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-01 11:35:07,398 - INFO - 🔍 Raw OpenAI response for chunk 9:
+2025-06-01 11:35:07,398 - INFO - 📝 Response: {
+  "Código Entrevista": "Não encontrado neste trecho",
+  "Hospital": "Hospital Israelita Albert Einstein",
+  "Nome - posição institucional - Projetos": "Não encontrado neste trecho",
+  "Área de atuação": "Não encontrado neste trecho",
+  "Avaliação geral Proadi e DesenvoIvimento Institucional": "Não encontrado neste trecho",
+  "Desafios para a participação do HE no Proadi": "Não encontrado neste trecho",
+  "Sugestões": "Não encontrado neste trecho",
+  "Benefícios do projeto para o SUS": "Não encontrado neste trecho",
+  "Origem dos projetos (quem demandou, tramitação e negociações)": "Não encontrado neste trecho",
+  "Projetos colaborativos (participação de cada um, relacionamento HE e benefícios e desafios)": "Não encontrado neste trecho"
+}
+2025-06-01 11:35:07,398 - INFO - 🧹 Cleaned JSON for chunk 9: {
+  "Código Entrevista": "Não encontrado neste trecho",
+  "Hospital": "Hospital Israelita Albert Einstein",
+  "Nome - posição institucional - Projetos": "Não encontrado neste trecho",
+  "Área de atuação": "Não encontrado neste trecho",
+  "Avaliação geral Proadi e DesenvoIvimento Institucional": "Não encontrado neste trecho",
+  "Desafios para a participação do HE no Proadi": "Não encontrado neste trecho",
+  "Sugestões": "Não encontrado neste trecho",
+  "Benefícios do projeto para o SUS": "Não encontrado neste trecho",
+  "Origem dos projetos (quem demandou, tramitação e negociações)": "Não encontrado neste trecho",
+  "Projetos colaborativos (participação de cada um, relacionamento HE e benefícios e desafios)": "Não encontrado neste trecho"
+}
+2025-06-01 11:35:07,398 - INFO - ✅ Successfully parsed JSON for chunk 9
+2025-06-01 11:35:07,398 - INFO - 📊 Extracted data keys: ['Código Entrevista', 'Hospital', 'Nome - posição institucional - Projetos', 'Área de atuação', 'Avaliação geral Proadi e DesenvoIvimento Institucional', 'Desafios para a participação do HE no Proadi', 'Sugestões', 'Benefícios do projeto para o SUS', 'Origem dos projetos (quem demandou, tramitação e negociações)', 'Projetos colaborativos (participação de cada um, relacionamento HE e benefícios e desafios)']
+2025-06-01 11:35:07,398 - INFO - Analyzing chunk 10/23 for Transcrição da entrevista corrigida 08_04_2025 - HIAE02 - Renato Tanjoni e Fernanda Pahim.docx (827 tokens)
+2025-06-01 11:35:07,398 - INFO - Waiting 6 seconds to avoid rate limiting...
+2025-06-01 11:35:18,342 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-01 11:35:18,343 - INFO - 🔍 Raw OpenAI response for chunk 10:
+2025-06-01 11:35:18,344 - INFO - 📝 Response: ```json
+{
+  "Código Entrevista": "Não encontrado neste trecho",
+  "Hospital": "Não encontrado neste trecho",
+  "Nome - posição institucional - Projetos": "Não encontrado neste trecho",
+  "Área de atuação": "Não encontrado neste trecho",
+  "Avaliação geral Proadi e DesenvoIvimento Institucional": "A gente acredita que sim, atende a PNS.",
+  "Desafios para a participação do HE no Proadi": "Não encontrado neste trecho",
+  "Sugestões": "Não encontrado neste trecho",
+  "Benefícios do projeto para o SUS": "Não encontrado neste trecho",
+  "Origem dos projetos (quem demandou, tramitação e negociações)": "Existe uma lista de prioridades que o Ministério elencou de 140... Cerca de 150 projetos. ou ideias de projetos.",
+  "Projetos colaborativos (participação de cada um, relacionamento HE e benefícios e desafios)": "Não encontrado neste trecho"
+}
+```
+2025-06-01 11:35:18,344 - INFO - 🧹 Cleaned JSON for chunk 10: {
+  "Código Entrevista": "Não encontrado neste trecho",
+  "Hospital": "Não encontrado neste trecho",
+  "Nome - posição institucional - Projetos": "Não encontrado neste trecho",
+  "Área de atuação": "Não encontrado neste trecho",
+  "Avaliação geral Proadi e DesenvoIvimento Institucional": "A gente acredita que sim, atende a PNS.",
+  "Desafios para a participação do HE no Proadi": "Não encontrado neste trecho",
+  "Sugestões": "Não encontrado neste trecho",
+  "Benefícios do projeto para o SUS": "Não encontrado neste trecho",
+  "Origem dos projetos (quem demandou, tramitação e negociações)": "Existe uma lista de prioridades que o Ministério elencou de 140... Cerca de 150 projetos. ou ideias de projetos.",
+  "Projetos colaborativos (participação de cada um, relacionamento HE e benefícios e desafios)": "Não encontrado neste trecho"
+}
+2025-06-01 11:35:18,344 - INFO - ✅ Successfully parsed JSON for chunk 10
+2025-06-01 11:35:18,344 - INFO - 📊 Extracted data keys: ['Código Entrevista', 'Hospital', 'Nome - posição institucional - Projetos', 'Área de atuação', 'Avaliação geral Proadi e DesenvoIvimento Institucional', 'Desafios para a participação do HE no Proadi', 'Sugestões', 'Benefícios do projeto para o SUS', 'Origem dos projetos (quem demandou, tramitação e negociações)', 'Projetos colaborativos (participação de cada um, relacionamento HE e benefícios e desafios)']
+2025-06-01 11:35:18,344 - INFO - Analyzing chunk 11/23 for Transcrição da entrevista corrigida 08_04_2025 - HIAE02 - Renato Tanjoni e Fernanda Pahim.docx (988 tokens)
+2025-06-01 11:35:18,344 - INFO - Waiting 6 seconds to avoid rate limiting...
+2025-06-01 11:35:31,963 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-01 11:35:31,968 - INFO - 🔍 Raw OpenAI response for chunk 11:
+2025-06-01 11:35:31,968 - INFO - 📝 Response: ```json
+{
+  "Código Entrevista": "Não encontrado neste trecho",
+  "Hospital": "Instituto Nacional de Cardiologia",
+  "Nome - posição institucional - Projetos": "Não encontrado neste trecho",
+  "Área de atuação": "Capacitação, Gestão",
+  "Avaliação geral Proadi e DesenvoIvimento Institucional": "Eu acho que a maioria se sustenta, n\u00e9, por exemplo, as pesquisas que a gente faz... \u00e9 \u00f3bvio que a\u00ed... depende muito do minist\u00e9rio colocar em pr\u00e1tica, n\u00e9... mas... eu acho que... muito daquilo que os hospitais... eles transferem... Eu acredito que fica no Sistema \u00danico de Sa\u00fade.",
+  "Desafios para a participação do HE no Proadi": "\u00c9 um desafio.",
+  "Sugestões": "\u00c9, eu acho que \u00e9 muito mais a quest\u00e3o de como o Minist\u00e9rio da Sa\u00fade, a partir do momento que um projeto se encerra, dele se apropriar e colocar isso em pr\u00e1tica.",
+  "Benefícios do projeto para o SUS": "Eu acredito que fica no Sistema \u00danico de Sa\u00fade.",
+  "Origem dos projetos (quem demandou, tramitação e negociações)": "Não encontrado neste trecho",
+  "Projetos colaborativos (participação de cada um, relacionamento HE e benefícios e desafios)": "Não encontrado neste trecho"
+}
+```
+2025-06-01 11:35:31,969 - INFO - 🧹 Cleaned JSON for chunk 11: {
+  "Código Entrevista": "Não encontrado neste trecho",
+  "Hospital": "Instituto Nacional de Cardiologia",
+  "Nome - posição institucional - Projetos": "Não encontrado neste trecho",
+  "Área de atuação": "Capacitação, Gestão",
+  "Avaliação geral Proadi e DesenvoIvimento Institucional": "Eu acho que a maioria se sustenta, n\u00e9, por exemplo, as pesquisas que a gente faz... \u00e9 \u00f3bvio que a\u00ed... depende muito do minist\u00e9rio colocar em pr\u00e1tica, n\u00e9... mas... eu acho que... muito daquilo que os hospitais... eles transferem... Eu acredito que fica no Sistema \u00danico de Sa\u00fade.",
+  "Desafios para a participação do HE no Proadi": "\u00c9 um desafio.",
+  "Sugestões": "\u00c9, eu acho que \u00e9 muito mais a quest\u00e3o de como o Minist\u00e9rio da Sa\u00fade, a partir do momento que um projeto se encerra, dele se apropriar e colocar isso em pr\u00e1tica.",
+  "Benefícios do projeto para o SUS": "Eu acredito que fica no Sistema \u00danico de Sa\u00fade.",
+  "Origem dos projetos (quem demandou, tramitação e negociações)": "Não encontrado neste trecho",
+  "Projetos colaborativos (participação de cada um, relacionamento HE e benefícios e desafios)": "Não encontrado neste trecho"
+}
+2025-06-01 11:35:31,969 - INFO - ✅ Successfully parsed JSON for chunk 11
+2025-06-01 11:35:31,969 - INFO - 📊 Extracted data keys: ['Código Entrevista', 'Hospital', 'Nome - posição institucional - Projetos', 'Área de atuação', 'Avaliação geral Proadi e DesenvoIvimento Institucional', 'Desafios para a participação do HE no Proadi', 'Sugestões', 'Benefícios do projeto para o SUS', 'Origem dos projetos (quem demandou, tramitação e negociações)', 'Projetos colaborativos (participação de cada um, relacionamento HE e benefícios e desafios)']
+2025-06-01 11:35:31,969 - INFO - Analyzing chunk 12/23 for Transcrição da entrevista corrigida 08_04_2025 - HIAE02 - Renato Tanjoni e Fernanda Pahim.docx (984 tokens)
+2025-06-01 11:35:31,969 - INFO - Waiting 6 seconds to avoid rate limiting...
+2025-06-01 11:35:43,706 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-01 11:35:43,711 - INFO - 🔍 Raw OpenAI response for chunk 12:
+2025-06-01 11:35:43,711 - INFO - 📝 Response: {
+  "Código Entrevista": "Não encontrado neste trecho",
+  "Hospital": "Einstein",
+  "Nome - posição institucional - Projetos": "Renato; Telma Menicucci; Guilherme - Não especificado",
+  "Área de atuação": "jurídica, prática assistencial, cuidado público, inovação, área de TI, área de dados, excelência em saúde",
+  "Avaliação geral Proadi e DesenvoIvimento Institucional": "É diferente. Esta interface, quem faz com o coordenador do projeto, é o escritório Proadi. Mas ele, e ele, esta pessoa, ela não está dentro do projeto. Ela não está dentro do escritório. Ela não responde pra mim. Mas eu faço toda a interlocução com este coordenador dentro daquilo que o PROADI preconiza.",
+  "Desafios para a participação do HE no Proadi": "Não encontrado neste trecho",
+  "Sugestões": "Não encontrado neste trecho",
+  "Benefícios do projeto para o SUS": "Não encontrado neste trecho",
+  "Origem dos projetos (quem demandou, tramitação e negociações)": "Não encontrado neste trecho",
+  "Projetos colaborativos (participação de cada um, relacionamento HE e benefícios e desafios)": "Não encontrado neste trecho"
+}
+2025-06-01 11:35:43,711 - INFO - 🧹 Cleaned JSON for chunk 12: {
+  "Código Entrevista": "Não encontrado neste trecho",
+  "Hospital": "Einstein",
+  "Nome - posição institucional - Projetos": "Renato; Telma Menicucci; Guilherme - Não especificado",
+  "Área de atuação": "jurídica, prática assistencial, cuidado público, inovação, área de TI, área de dados, excelência em saúde",
+  "Avaliação geral Proadi e DesenvoIvimento Institucional": "É diferente. Esta interface, quem faz com o coordenador do projeto, é o escritório Proadi. Mas ele, e ele, esta pessoa, ela não está dentro do projeto. Ela não está dentro do escritório. Ela não responde pra mim. Mas eu faço toda a interlocução com este coordenador dentro daquilo que o PROADI preconiza.",
+  "Desafios para a participação do HE no Proadi": "Não encontrado neste trecho",
+  "Sugestões": "Não encontrado neste trecho",
+  "Benefícios do projeto para o SUS": "Não encontrado neste trecho",
+  "Origem dos projetos (quem demandou, tramitação e negociações)": "Não encontrado neste trecho",
+  "Projetos colaborativos (participação de cada um, relacionamento HE e benefícios e desafios)": "Não encontrado neste trecho"
+}
+2025-06-01 11:35:43,712 - INFO - ✅ Successfully parsed JSON for chunk 12
+2025-06-01 11:35:43,712 - INFO - 📊 Extracted data keys: ['Código Entrevista', 'Hospital', 'Nome - posição institucional - Projetos', 'Área de atuação', 'Avaliação geral Proadi e DesenvoIvimento Institucional', 'Desafios para a participação do HE no Proadi', 'Sugestões', 'Benefícios do projeto para o SUS', 'Origem dos projetos (quem demandou, tramitação e negociações)', 'Projetos colaborativos (participação de cada um, relacionamento HE e benefícios e desafios)']
+2025-06-01 11:35:43,712 - INFO - Analyzing chunk 13/23 for Transcrição da entrevista corrigida 08_04_2025 - HIAE02 - Renato Tanjoni e Fernanda Pahim.docx (998 tokens)
+2025-06-01 11:35:43,712 - INFO - Waiting 6 seconds to avoid rate limiting...
+2025-06-01 11:35:55,158 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-01 11:35:55,160 - INFO - 🔍 Raw OpenAI response for chunk 13:
+2025-06-01 11:35:55,160 - INFO - 📝 Response: ```json
+{
+  "Código Entrevista": "Não encontrado neste trecho",
+  "Hospital": "UFMG",
+  "Nome - posição institucional - Projetos": "Não encontrado neste trecho",
+  "Área de atuação": "Não encontrado neste trecho",
+  "Avaliação geral Proadi e DesenvoIvimento Institucional": "Não encontrado neste trecho",
+  "Desafios para a participação do HE no Proadi": "Se na última hora não aparece na agenda, porque início não é fácil não, e da saúde é complicado.",
+  "Sugestões": "Não encontrado neste trecho",
+  "Benefícios do projeto para o SUS": "Mas estava fazendo a fila andar.",
+  "Origem dos projetos (quem demandou, tramitação e negociações)": "Não encontrado neste trecho",
+  "Projetos colaborativos (participação de cada um, relacionamento HE e benefícios e desafios)": "Não encontrado neste trecho"
+}
+```
+2025-06-01 11:35:55,160 - INFO - 🧹 Cleaned JSON for chunk 13: {
+  "Código Entrevista": "Não encontrado neste trecho",
+  "Hospital": "UFMG",
+  "Nome - posição institucional - Projetos": "Não encontrado neste trecho",
+  "Área de atuação": "Não encontrado neste trecho",
+  "Avaliação geral Proadi e DesenvoIvimento Institucional": "Não encontrado neste trecho",
+  "Desafios para a participação do HE no Proadi": "Se na última hora não aparece na agenda, porque início não é fácil não, e da saúde é complicado.",
+  "Sugestões": "Não encontrado neste trecho",
+  "Benefícios do projeto para o SUS": "Mas estava fazendo a fila andar.",
+  "Origem dos projetos (quem demandou, tramitação e negociações)": "Não encontrado neste trecho",
+  "Projetos colaborativos (participação de cada um, relacionamento HE e benefícios e desafios)": "Não encontrado neste trecho"
+}
+2025-06-01 11:35:55,161 - INFO - ✅ Successfully parsed JSON for chunk 13
+2025-06-01 11:35:55,161 - INFO - 📊 Extracted data keys: ['Código Entrevista', 'Hospital', 'Nome - posição institucional - Projetos', 'Área de atuação', 'Avaliação geral Proadi e DesenvoIvimento Institucional', 'Desafios para a participação do HE no Proadi', 'Sugestões', 'Benefícios do projeto para o SUS', 'Origem dos projetos (quem demandou, tramitação e negociações)', 'Projetos colaborativos (participação de cada um, relacionamento HE e benefícios e desafios)']
+2025-06-01 11:35:55,161 - INFO - Analyzing chunk 14/23 for Transcrição da entrevista corrigida 08_04_2025 - HIAE02 - Renato Tanjoni e Fernanda Pahim.docx (989 tokens)
+2025-06-01 11:35:55,161 - INFO - Waiting 6 seconds to avoid rate limiting...
+2025-06-01 11:36:06,443 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-01 11:36:06,445 - INFO - 🔍 Raw OpenAI response for chunk 14:
+2025-06-01 11:36:06,446 - INFO - 📝 Response: ```json
+{
+  "Código Entrevista": "Não encontrado neste trecho",
+  "Hospital": "Einstein",
+  "Nome - posição institucional - Projetos": "Não encontrado neste trecho",
+  "Área de atuação": "Não encontrado neste trecho",
+  "Avaliação geral Proadi e DesenvoIvimento Institucional": "O que eu sei de PROAD eu aprendi com ele.",
+  "Desafios para a participação do HE no Proadi": "É trabalho demais, hein? A gente trabalha muito.",
+  "Sugestões": "Não encontrado neste trecho",
+  "Benefícios do projeto para o SUS": "Não encontrado neste trecho",
+  "Origem dos projetos (quem demandou, tramitação e negociações)": "Não encontrado neste trecho",
+  "Projetos colaborativos (participação de cada um, relacionamento HE e benefícios e desafios)": "Não encontrado neste trecho"
+}
+```
+2025-06-01 11:36:06,446 - INFO - 🧹 Cleaned JSON for chunk 14: {
+  "Código Entrevista": "Não encontrado neste trecho",
+  "Hospital": "Einstein",
+  "Nome - posição institucional - Projetos": "Não encontrado neste trecho",
+  "Área de atuação": "Não encontrado neste trecho",
+  "Avaliação geral Proadi e DesenvoIvimento Institucional": "O que eu sei de PROAD eu aprendi com ele.",
+  "Desafios para a participação do HE no Proadi": "É trabalho demais, hein? A gente trabalha muito.",
+  "Sugestões": "Não encontrado neste trecho",
+  "Benefícios do projeto para o SUS": "Não encontrado neste trecho",
+  "Origem dos projetos (quem demandou, tramitação e negociações)": "Não encontrado neste trecho",
+  "Projetos colaborativos (participação de cada um, relacionamento HE e benefícios e desafios)": "Não encontrado neste trecho"
+}
+2025-06-01 11:36:06,446 - INFO - ✅ Successfully parsed JSON for chunk 14
+2025-06-01 11:36:06,446 - INFO - 📊 Extracted data keys: ['Código Entrevista', 'Hospital', 'Nome - posição institucional - Projetos', 'Área de atuação', 'Avaliação geral Proadi e DesenvoIvimento Institucional', 'Desafios para a participação do HE no Proadi', 'Sugestões', 'Benefícios do projeto para o SUS', 'Origem dos projetos (quem demandou, tramitação e negociações)', 'Projetos colaborativos (participação de cada um, relacionamento HE e benefícios e desafios)']
+2025-06-01 11:36:06,446 - INFO - Analyzing chunk 15/23 for Transcrição da entrevista corrigida 08_04_2025 - HIAE02 - Renato Tanjoni e Fernanda Pahim.docx (837 tokens)
+2025-06-01 11:36:06,446 - INFO - Waiting 6 seconds to avoid rate limiting...
+2025-06-01 11:36:18,653 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-01 11:36:18,657 - INFO - 🔍 Raw OpenAI response for chunk 15:
+2025-06-01 11:36:18,657 - INFO - 📝 Response: ```json
+{
+  "Código Entrevista": "Não encontrado neste trecho",
+  "Hospital": "Não encontrado neste trecho",
+  "Nome - posição institucional - Projetos": "Não encontrado neste trecho",
+  "Área de atuação": "Não encontrado neste trecho",
+  "Avaliação geral Proadi e DesenvoIvimento Institucional": "Proadi é uma coisa grande.",
+  "Desafios para a participação do HE no Proadi": "Porque nós estamos tendo uma dificuldade, até fizemos essa demanda para os hospitais, porque no ministério não consiga essa relação. Porque o nosso trabalho de campo envolve ir em algumas instituições de cada município, vamos correr o Brasil inteiro.",
+  "Sugestões": "Não encontrado neste trecho",
+  "Benefícios do projeto para o SUS": "Não encontrado neste trecho",
+  "Origem dos projetos (quem demandou, tramitação e negociações)": "Foi o G6.",
+  "Projetos colaborativos (participação de cada um, relacionamento HE e benefícios e desafios)": "Não encontrado neste trecho"
+}
+```
+2025-06-01 11:36:18,657 - INFO - 🧹 Cleaned JSON for chunk 15: {
+  "Código Entrevista": "Não encontrado neste trecho",
+  "Hospital": "Não encontrado neste trecho",
+  "Nome - posição institucional - Projetos": "Não encontrado neste trecho",
+  "Área de atuação": "Não encontrado neste trecho",
+  "Avaliação geral Proadi e DesenvoIvimento Institucional": "Proadi é uma coisa grande.",
+  "Desafios para a participação do HE no Proadi": "Porque nós estamos tendo uma dificuldade, até fizemos essa demanda para os hospitais, porque no ministério não consiga essa relação. Porque o nosso trabalho de campo envolve ir em algumas instituições de cada município, vamos correr o Brasil inteiro.",
+  "Sugestões": "Não encontrado neste trecho",
+  "Benefícios do projeto para o SUS": "Não encontrado neste trecho",
+  "Origem dos projetos (quem demandou, tramitação e negociações)": "Foi o G6.",
+  "Projetos colaborativos (participação de cada um, relacionamento HE e benefícios e desafios)": "Não encontrado neste trecho"
+}
+2025-06-01 11:36:18,657 - INFO - ✅ Successfully parsed JSON for chunk 15
+2025-06-01 11:36:18,657 - INFO - 📊 Extracted data keys: ['Código Entrevista', 'Hospital', 'Nome - posição institucional - Projetos', 'Área de atuação', 'Avaliação geral Proadi e DesenvoIvimento Institucional', 'Desafios para a participação do HE no Proadi', 'Sugestões', 'Benefícios do projeto para o SUS', 'Origem dos projetos (quem demandou, tramitação e negociações)', 'Projetos colaborativos (participação de cada um, relacionamento HE e benefícios e desafios)']
+2025-06-01 11:36:18,657 - INFO - Analyzing chunk 16/23 for Transcrição da entrevista corrigida 08_04_2025 - HIAE02 - Renato Tanjoni e Fernanda Pahim.docx (966 tokens)
+2025-06-01 11:36:18,658 - INFO - Waiting 6 seconds to avoid rate limiting...
+2025-06-01 11:36:29,453 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-01 11:36:29,469 - INFO - 🔍 Raw OpenAI response for chunk 16:
+2025-06-01 11:36:29,469 - INFO - 📝 Response: {
+  "Código Entrevista": "Não encontrado neste trecho",
+  "Hospital": "Não encontrado neste trecho",
+  "Nome - posição institucional - Projetos": "Não encontrado neste trecho",
+  "Área de atuação": "Avaliação de impacto",
+  "Avaliação geral Proadi e DesenvoIvimento Institucional": "Sim, sim.",
+  "Desafios para a participação do HE no Proadi": "Não encontrado neste trecho",
+  "Sugestões": "Não encontrado neste trecho",
+  "Benefícios do projeto para o SUS": "Não encontrado neste trecho",
+  "Origem dos projetos (quem demandou, tramitação e negociações)": "Não encontrado neste trecho",
+  "Projetos colaborativos (participação de cada um, relacionamento HE e benefícios e desafios)": "Não encontrado neste trecho"
+}
+2025-06-01 11:36:29,469 - INFO - 🧹 Cleaned JSON for chunk 16: {
+  "Código Entrevista": "Não encontrado neste trecho",
+  "Hospital": "Não encontrado neste trecho",
+  "Nome - posição institucional - Projetos": "Não encontrado neste trecho",
+  "Área de atuação": "Avaliação de impacto",
+  "Avaliação geral Proadi e DesenvoIvimento Institucional": "Sim, sim.",
+  "Desafios para a participação do HE no Proadi": "Não encontrado neste trecho",
+  "Sugestões": "Não encontrado neste trecho",
+  "Benefícios do projeto para o SUS": "Não encontrado neste trecho",
+  "Origem dos projetos (quem demandou, tramitação e negociações)": "Não encontrado neste trecho",
+  "Projetos colaborativos (participação de cada um, relacionamento HE e benefícios e desafios)": "Não encontrado neste trecho"
+}
+2025-06-01 11:36:29,469 - INFO - ✅ Successfully parsed JSON for chunk 16
+2025-06-01 11:36:29,470 - INFO - 📊 Extracted data keys: ['Código Entrevista', 'Hospital', 'Nome - posição institucional - Projetos', 'Área de atuação', 'Avaliação geral Proadi e DesenvoIvimento Institucional', 'Desafios para a participação do HE no Proadi', 'Sugestões', 'Benefícios do projeto para o SUS', 'Origem dos projetos (quem demandou, tramitação e negociações)', 'Projetos colaborativos (participação de cada um, relacionamento HE e benefícios e desafios)']
+2025-06-01 11:36:29,470 - INFO - Analyzing chunk 17/23 for Transcrição da entrevista corrigida 08_04_2025 - HIAE02 - Renato Tanjoni e Fernanda Pahim.docx (960 tokens)
+2025-06-01 11:36:29,470 - INFO - Waiting 6 seconds to avoid rate limiting...
+2025-06-01 11:36:43,043 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-01 11:36:43,046 - INFO - 🔍 Raw OpenAI response for chunk 17:
+2025-06-01 11:36:43,046 - INFO - 📝 Response: ```json
+{
+  "Código Entrevista": "Não encontrado neste trecho",
+  "Hospital": "Não encontrado neste trecho",
+  "Nome - posição institucional - Projetos": "Não encontrado neste trecho",
+  "Área de atuação": "Não encontrado neste trecho",
+  "Avaliação geral Proadi e DesenvoIvimento Institucional": "Por meio dos projetos, obviamente né, dentro dessas áreas de atuação, uma vez que quando a gente faz a discussão do projeto, esse projeto leva em consideração as prioridades do Ministério, as prioridades de cada uma das áreas finalísticas do Ministério, o Plano Nacional de Saúde, mas agora fortemente os Objetivos do Desenvolvimento Sustentável, as ODS, também estão relacionadas.",
+  "Desafios para a participação do HE no Proadi": "Nós temos que fazer muitas sugestões sobre o template.",
+  "Sugestões": "Nós fizemos sugestões nesse sentido, mas o Renato tem falado que muito daquilo que a gente sugeriu está sendo feito ou já vinha sendo feito.",
+  "Benefícios do projeto para o SUS": "Você entregou, por exemplo, transplantes. Por que isso contribuiu resolveu uma ação importante, meritória por ela mesma.",
+  "Origem dos projetos (quem demandou, tramitação e negociações)": "Não encontrado neste trecho",
+  "Projetos colaborativos (participação de cada um, relacionamento HE e benefícios e desafios)": "Não encontrado neste trecho"
+}
+```
+2025-06-01 11:36:43,046 - INFO - 🧹 Cleaned JSON for chunk 17: {
+  "Código Entrevista": "Não encontrado neste trecho",
+  "Hospital": "Não encontrado neste trecho",
+  "Nome - posição institucional - Projetos": "Não encontrado neste trecho",
+  "Área de atuação": "Não encontrado neste trecho",
+  "Avaliação geral Proadi e DesenvoIvimento Institucional": "Por meio dos projetos, obviamente né, dentro dessas áreas de atuação, uma vez que quando a gente faz a discussão do projeto, esse projeto leva em consideração as prioridades do Ministério, as prioridades de cada uma das áreas finalísticas do Ministério, o Plano Nacional de Saúde, mas agora fortemente os Objetivos do Desenvolvimento Sustentável, as ODS, também estão relacionadas.",
+  "Desafios para a participação do HE no Proadi": "Nós temos que fazer muitas sugestões sobre o template.",
+  "Sugestões": "Nós fizemos sugestões nesse sentido, mas o Renato tem falado que muito daquilo que a gente sugeriu está sendo feito ou já vinha sendo feito.",
+  "Benefícios do projeto para o SUS": "Você entregou, por exemplo, transplantes. Por que isso contribuiu resolveu uma ação importante, meritória por ela mesma.",
+  "Origem dos projetos (quem demandou, tramitação e negociações)": "Não encontrado neste trecho",
+  "Projetos colaborativos (participação de cada um, relacionamento HE e benefícios e desafios)": "Não encontrado neste trecho"
+}
+2025-06-01 11:36:43,046 - INFO - ✅ Successfully parsed JSON for chunk 17
+2025-06-01 11:36:43,047 - INFO - 📊 Extracted data keys: ['Código Entrevista', 'Hospital', 'Nome - posição institucional - Projetos', 'Área de atuação', 'Avaliação geral Proadi e DesenvoIvimento Institucional', 'Desafios para a participação do HE no Proadi', 'Sugestões', 'Benefícios do projeto para o SUS', 'Origem dos projetos (quem demandou, tramitação e negociações)', 'Projetos colaborativos (participação de cada um, relacionamento HE e benefícios e desafios)']
+2025-06-01 11:36:43,047 - INFO - Analyzing chunk 18/23 for Transcrição da entrevista corrigida 08_04_2025 - HIAE02 - Renato Tanjoni e Fernanda Pahim.docx (928 tokens)
+2025-06-01 11:36:43,047 - INFO - Waiting 6 seconds to avoid rate limiting...
+2025-06-01 11:36:55,580 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-01 11:36:55,582 - INFO - 🔍 Raw OpenAI response for chunk 18:
+2025-06-01 11:36:55,582 - INFO - 📝 Response: ```json
+{
+  "Código Entrevista": "Não encontrado neste trecho",
+  "Hospital": "Hospital Israelita Albert Einstein, BP, Sírio",
+  "Nome - posição institucional - Projetos": "Não encontrado neste trecho",
+  "Área de atuação": "Capacitação, Gestão",
+  "Avaliação geral Proadi e DesenvoIvimento Institucional": "este é um ganho fantástico para o PROADI",
+  "Desafios para a participação do HE no Proadi": "Eventualmente mudança de legislação? Seja as questões tributárias, ou seja, as próprias mudanças de legislação intrínseca do PROADI.",
+  "Sugestões": "Não encontrado neste trecho",
+  "Benefícios do projeto para o SUS": "Incrível, para atender inclusive o objetivo do desenvolvimento institucional.",
+  "Origem dos projetos (quem demandou, tramitação e negociações)": "As propostas... daquilo que o ministério falou... olha... esta daqui são as minhas prioridades... para a apresentação de projetos...",
+  "Projetos colaborativos (participação de cada um, relacionamento HE e benefícios e desafios)": "Esse é um projeto de cooperação. Então é aquilo que se faz dentro dos hospitais, é aquilo que a gente leva para os hospitais que o Ministério da Saúde indicou."
+}
+```
+2025-06-01 11:36:55,582 - INFO - 🧹 Cleaned JSON for chunk 18: {
+  "Código Entrevista": "Não encontrado neste trecho",
+  "Hospital": "Hospital Israelita Albert Einstein, BP, Sírio",
+  "Nome - posição institucional - Projetos": "Não encontrado neste trecho",
+  "Área de atuação": "Capacitação, Gestão",
+  "Avaliação geral Proadi e DesenvoIvimento Institucional": "este é um ganho fantástico para o PROADI",
+  "Desafios para a participação do HE no Proadi": "Eventualmente mudança de legislação? Seja as questões tributárias, ou seja, as próprias mudanças de legislação intrínseca do PROADI.",
+  "Sugestões": "Não encontrado neste trecho",
+  "Benefícios do projeto para o SUS": "Incrível, para atender inclusive o objetivo do desenvolvimento institucional.",
+  "Origem dos projetos (quem demandou, tramitação e negociações)": "As propostas... daquilo que o ministério falou... olha... esta daqui são as minhas prioridades... para a apresentação de projetos...",
+  "Projetos colaborativos (participação de cada um, relacionamento HE e benefícios e desafios)": "Esse é um projeto de cooperação. Então é aquilo que se faz dentro dos hospitais, é aquilo que a gente leva para os hospitais que o Ministério da Saúde indicou."
+}
+2025-06-01 11:36:55,583 - INFO - ✅ Successfully parsed JSON for chunk 18
+2025-06-01 11:36:55,583 - INFO - 📊 Extracted data keys: ['Código Entrevista', 'Hospital', 'Nome - posição institucional - Projetos', 'Área de atuação', 'Avaliação geral Proadi e DesenvoIvimento Institucional', 'Desafios para a participação do HE no Proadi', 'Sugestões', 'Benefícios do projeto para o SUS', 'Origem dos projetos (quem demandou, tramitação e negociações)', 'Projetos colaborativos (participação de cada um, relacionamento HE e benefícios e desafios)']
+2025-06-01 11:36:55,583 - INFO - Analyzing chunk 19/23 for Transcrição da entrevista corrigida 08_04_2025 - HIAE02 - Renato Tanjoni e Fernanda Pahim.docx (939 tokens)
+2025-06-01 11:36:55,583 - INFO - Waiting 6 seconds to avoid rate limiting...
+2025-06-01 11:37:09,525 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-01 11:37:09,529 - INFO - 🔍 Raw OpenAI response for chunk 19:
+2025-06-01 11:37:09,529 - INFO - 📝 Response: ```json
+{
+  "Código Entrevista": "Não encontrado neste trecho",
+  "Hospital": "Einstein",
+  "Nome - posição institucional - Projetos": "Não encontrado neste trecho",
+  "Área de atuação": "Pesquisa, telemedicina",
+  "Avaliação geral Proadi e DesenvoIvimento Institucional": "É um ganho não só para o Ministério da Saúde, para o SUS, mas para o próprio hospital, onde a interação é muito mais frequente.",
+  "Desafios para a participação do HE no Proadi": "muitas vezes existe uma dificuldade para eu desenvolver um projeto de pesquisa em três anos.",
+  "Sugestões": "A proposta de ser quinquênio, ela traz... as discussões elas estão evoluindo, mas... muitos projetos, por exemplo, o projeto de pesquisa, muitas vezes existe uma dificuldade para eu desenvolver um projeto de pesquisa em três anos. Que sai em cinco, mas com certeza de três para cinco já é algo substancial.",
+  "Benefícios do projeto para o SUS": "É um ganho não só para o Ministério da Saúde, para o SUS, mas para o próprio hospital, onde a interação é muito mais frequente.",
+  "Origem dos projetos (quem demandou, tramitação e negociações)": "Esse projeto foi demandado pelo CONASS e ele é desenvolvido, a área finalística é a SEIDIG.",
+  "Projetos colaborativos (participação de cada um, relacionamento HE e benefícios e desafios)": "para que a gente, enquanto G6, a gente tenha mais projetos colaborativos, porque aí ganha em projeção, escala, abrangência, os projetos colaborativos."
+}
+```
+2025-06-01 11:37:09,529 - INFO - 🧹 Cleaned JSON for chunk 19: {
+  "Código Entrevista": "Não encontrado neste trecho",
+  "Hospital": "Einstein",
+  "Nome - posição institucional - Projetos": "Não encontrado neste trecho",
+  "Área de atuação": "Pesquisa, telemedicina",
+  "Avaliação geral Proadi e DesenvoIvimento Institucional": "É um ganho não só para o Ministério da Saúde, para o SUS, mas para o próprio hospital, onde a interação é muito mais frequente.",
+  "Desafios para a participação do HE no Proadi": "muitas vezes existe uma dificuldade para eu desenvolver um projeto de pesquisa em três anos.",
+  "Sugestões": "A proposta de ser quinquênio, ela traz... as discussões elas estão evoluindo, mas... muitos projetos, por exemplo, o projeto de pesquisa, muitas vezes existe uma dificuldade para eu desenvolver um projeto de pesquisa em três anos. Que sai em cinco, mas com certeza de três para cinco já é algo substancial.",
+  "Benefícios do projeto para o SUS": "É um ganho não só para o Ministério da Saúde, para o SUS, mas para o próprio hospital, onde a interação é muito mais frequente.",
+  "Origem dos projetos (quem demandou, tramitação e negociações)": "Esse projeto foi demandado pelo CONASS e ele é desenvolvido, a área finalística é a SEIDIG.",
+  "Projetos colaborativos (participação de cada um, relacionamento HE e benefícios e desafios)": "para que a gente, enquanto G6, a gente tenha mais projetos colaborativos, porque aí ganha em projeção, escala, abrangência, os projetos colaborativos."
+}
+2025-06-01 11:37:09,530 - INFO - ✅ Successfully parsed JSON for chunk 19
+2025-06-01 11:37:09,530 - INFO - 📊 Extracted data keys: ['Código Entrevista', 'Hospital', 'Nome - posição institucional - Projetos', 'Área de atuação', 'Avaliação geral Proadi e DesenvoIvimento Institucional', 'Desafios para a participação do HE no Proadi', 'Sugestões', 'Benefícios do projeto para o SUS', 'Origem dos projetos (quem demandou, tramitação e negociações)', 'Projetos colaborativos (participação de cada um, relacionamento HE e benefícios e desafios)']
+2025-06-01 11:37:09,530 - INFO - Analyzing chunk 20/23 for Transcrição da entrevista corrigida 08_04_2025 - HIAE02 - Renato Tanjoni e Fernanda Pahim.docx (980 tokens)
+2025-06-01 11:37:09,530 - INFO - Waiting 6 seconds to avoid rate limiting...
+2025-06-01 11:37:22,490 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-01 11:37:22,493 - INFO - 🔍 Raw OpenAI response for chunk 20:
+2025-06-01 11:37:22,494 - INFO - 📝 Response: ```json
+{
+  "Código Entrevista": "Não encontrado neste trecho",
+  "Hospital": "Einstein",
+  "Nome - posição institucional - Projetos": "Renato - Não especificado - Projeto de telemedicina das regiões Norte e Centro-Oeste, projeto de materno infantil com a SESAI",
+  "Área de atuação": "Gestão",
+  "Avaliação geral Proadi e DesenvoIvimento Institucional": "Não encontrado neste trecho",
+  "Desafios para a participação do HE no Proadi": "fazer o planejamento, fazer o desenvolvimento, que é a execução do projeto, monitoramento, controle, e depois o encerramento desse projeto",
+  "Sugestões": "Não encontrado neste trecho",
+  "Benefícios do projeto para o SUS": "Não encontrado neste trecho",
+  "Origem dos projetos (quem demandou, tramitação e negociações)": "CONASS",
+  "Projetos colaborativos (participação de cada um, relacionamento HE e benefícios e desafios)": "Não encontrado neste trecho"
+}
+```
+2025-06-01 11:37:22,494 - INFO - 🧹 Cleaned JSON for chunk 20: {
+  "Código Entrevista": "Não encontrado neste trecho",
+  "Hospital": "Einstein",
+  "Nome - posição institucional - Projetos": "Renato - Não especificado - Projeto de telemedicina das regiões Norte e Centro-Oeste, projeto de materno infantil com a SESAI",
+  "Área de atuação": "Gestão",
+  "Avaliação geral Proadi e DesenvoIvimento Institucional": "Não encontrado neste trecho",
+  "Desafios para a participação do HE no Proadi": "fazer o planejamento, fazer o desenvolvimento, que é a execução do projeto, monitoramento, controle, e depois o encerramento desse projeto",
+  "Sugestões": "Não encontrado neste trecho",
+  "Benefícios do projeto para o SUS": "Não encontrado neste trecho",
+  "Origem dos projetos (quem demandou, tramitação e negociações)": "CONASS",
+  "Projetos colaborativos (participação de cada um, relacionamento HE e benefícios e desafios)": "Não encontrado neste trecho"
+}
+2025-06-01 11:37:22,494 - INFO - ✅ Successfully parsed JSON for chunk 20
+2025-06-01 11:37:22,494 - INFO - 📊 Extracted data keys: ['Código Entrevista', 'Hospital', 'Nome - posição institucional - Projetos', 'Área de atuação', 'Avaliação geral Proadi e DesenvoIvimento Institucional', 'Desafios para a participação do HE no Proadi', 'Sugestões', 'Benefícios do projeto para o SUS', 'Origem dos projetos (quem demandou, tramitação e negociações)', 'Projetos colaborativos (participação de cada um, relacionamento HE e benefícios e desafios)']
+2025-06-01 11:37:22,494 - INFO - Analyzing chunk 21/23 for Transcrição da entrevista corrigida 08_04_2025 - HIAE02 - Renato Tanjoni e Fernanda Pahim.docx (996 tokens)
+2025-06-01 11:37:22,494 - INFO - Waiting 6 seconds to avoid rate limiting...
+2025-06-01 11:37:33,392 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-01 11:37:33,396 - INFO - 🔍 Raw OpenAI response for chunk 21:
+2025-06-01 11:37:33,396 - INFO - 📝 Response: ```json
+{
+  "Código Entrevista": "Não encontrado neste trecho",
+  "Hospital": "Einstein",
+  "Nome - posição institucional - Projetos": "Renato - Não especificado - Projeto de materno infantil, prevenção de colo de útero e redução da mortalidade materna",
+  "Área de atuação": "Pesquisa",
+  "Avaliação geral Proadi e DesenvoIvimento Institucional": "Não encontrado neste trecho",
+  "Desafios para a participação do HE no Proadi": "a questão principal é o entendimento daquilo que está se propondo",
+  "Sugestões": "Não. Então, isso teria que mudar a legislação.",
+  "Benefícios do projeto para o SUS": "Não encontrado neste trecho",
+  "Origem dos projetos (quem demandou, tramitação e negociações)": "Não encontrado neste trecho",
+  "Projetos colaborativos (participação de cada um, relacionamento HE e benefícios e desafios)": "Não encontrado neste trecho"
+}
+```
+2025-06-01 11:37:33,396 - INFO - 🧹 Cleaned JSON for chunk 21: {
+  "Código Entrevista": "Não encontrado neste trecho",
+  "Hospital": "Einstein",
+  "Nome - posição institucional - Projetos": "Renato - Não especificado - Projeto de materno infantil, prevenção de colo de útero e redução da mortalidade materna",
+  "Área de atuação": "Pesquisa",
+  "Avaliação geral Proadi e DesenvoIvimento Institucional": "Não encontrado neste trecho",
+  "Desafios para a participação do HE no Proadi": "a questão principal é o entendimento daquilo que está se propondo",
+  "Sugestões": "Não. Então, isso teria que mudar a legislação.",
+  "Benefícios do projeto para o SUS": "Não encontrado neste trecho",
+  "Origem dos projetos (quem demandou, tramitação e negociações)": "Não encontrado neste trecho",
+  "Projetos colaborativos (participação de cada um, relacionamento HE e benefícios e desafios)": "Não encontrado neste trecho"
+}
+2025-06-01 11:37:33,396 - INFO - ✅ Successfully parsed JSON for chunk 21
+2025-06-01 11:37:33,396 - INFO - 📊 Extracted data keys: ['Código Entrevista', 'Hospital', 'Nome - posição institucional - Projetos', 'Área de atuação', 'Avaliação geral Proadi e DesenvoIvimento Institucional', 'Desafios para a participação do HE no Proadi', 'Sugestões', 'Benefícios do projeto para o SUS', 'Origem dos projetos (quem demandou, tramitação e negociações)', 'Projetos colaborativos (participação de cada um, relacionamento HE e benefícios e desafios)']
+2025-06-01 11:37:33,396 - INFO - Analyzing chunk 22/23 for Transcrição da entrevista corrigida 08_04_2025 - HIAE02 - Renato Tanjoni e Fernanda Pahim.docx (995 tokens)
+2025-06-01 11:37:33,396 - INFO - Waiting 6 seconds to avoid rate limiting...
+2025-06-01 11:37:44,967 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-01 11:37:44,970 - INFO - 🔍 Raw OpenAI response for chunk 22:
+2025-06-01 11:37:44,970 - INFO - 📝 Response: {
+  "Código Entrevista": "Não encontrado neste trecho",
+  "Hospital": "Não encontrado neste trecho",
+  "Nome - posição institucional - Projetos": "Não encontrado neste trecho",
+  "Área de atuação": "Não encontrado neste trecho",
+  "Avaliação geral Proadi e DesenvoIvimento Institucional": "Não encontrado neste trecho",
+  "Desafios para a participação do HE no Proadi": "Por conta de que o projeto, dentro do PROADI, ele tem que se encerrar dentro do triênio.",
+  "Sugestões": "Talvez a questão do quinquênio ela possa amenizar um pouco essa... aí é prazo mesmo, é tempo",
+  "Benefícios do projeto para o SUS": "Não encontrado neste trecho",
+  "Origem dos projetos (quem demandou, tramitação e negociações)": "Não encontrado neste trecho",
+  "Projetos colaborativos (participação de cada um, relacionamento HE e benefícios e desafios)": "Não encontrado neste trecho"
+}
+2025-06-01 11:37:44,970 - INFO - 🧹 Cleaned JSON for chunk 22: {
+  "Código Entrevista": "Não encontrado neste trecho",
+  "Hospital": "Não encontrado neste trecho",
+  "Nome - posição institucional - Projetos": "Não encontrado neste trecho",
+  "Área de atuação": "Não encontrado neste trecho",
+  "Avaliação geral Proadi e DesenvoIvimento Institucional": "Não encontrado neste trecho",
+  "Desafios para a participação do HE no Proadi": "Por conta de que o projeto, dentro do PROADI, ele tem que se encerrar dentro do triênio.",
+  "Sugestões": "Talvez a questão do quinquênio ela possa amenizar um pouco essa... aí é prazo mesmo, é tempo",
+  "Benefícios do projeto para o SUS": "Não encontrado neste trecho",
+  "Origem dos projetos (quem demandou, tramitação e negociações)": "Não encontrado neste trecho",
+  "Projetos colaborativos (participação de cada um, relacionamento HE e benefícios e desafios)": "Não encontrado neste trecho"
+}
+2025-06-01 11:37:44,970 - INFO - ✅ Successfully parsed JSON for chunk 22
+2025-06-01 11:37:44,970 - INFO - 📊 Extracted data keys: ['Código Entrevista', 'Hospital', 'Nome - posição institucional - Projetos', 'Área de atuação', 'Avaliação geral Proadi e DesenvoIvimento Institucional', 'Desafios para a participação do HE no Proadi', 'Sugestões', 'Benefícios do projeto para o SUS', 'Origem dos projetos (quem demandou, tramitação e negociações)', 'Projetos colaborativos (participação de cada um, relacionamento HE e benefícios e desafios)']
+2025-06-01 11:37:44,971 - INFO - Analyzing chunk 23/23 for Transcrição da entrevista corrigida 08_04_2025 - HIAE02 - Renato Tanjoni e Fernanda Pahim.docx (243 tokens)
+2025-06-01 11:37:44,971 - INFO - Waiting 6 seconds to avoid rate limiting...
+2025-06-01 11:37:54,878 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-01 11:37:54,882 - INFO - 🔍 Raw OpenAI response for chunk 23:
+2025-06-01 11:37:54,883 - INFO - 📝 Response: ```json
+{
+  "Código Entrevista": "Não encontrado neste trecho",
+  "Hospital": "Não encontrado neste trecho",
+  "Nome - posição institucional - Projetos": "Não encontrado neste trecho",
+  "Área de atuação": "Avaliação",
+  "Avaliação geral Proadi e DesenvoIvimento Institucional": "Não encontrado neste trecho",
+  "Desafios para a participação do HE no Proadi": "Não encontrado neste trecho",
+  "Sugestões": "Não encontrado neste trecho",
+  "Benefícios do projeto para o SUS": "Não encontrado neste trecho",
+  "Origem dos projetos (quem demandou, tramitação e negociações)": "Não encontrado neste trecho",
+  "Projetos colaborativos (participação de cada um, relacionamento HE e benefícios e desafios)": "Não encontrado neste trecho"
+}
+```
+2025-06-01 11:37:54,883 - INFO - 🧹 Cleaned JSON for chunk 23: {
+  "Código Entrevista": "Não encontrado neste trecho",
+  "Hospital": "Não encontrado neste trecho",
+  "Nome - posição institucional - Projetos": "Não encontrado neste trecho",
+  "Área de atuação": "Avaliação",
+  "Avaliação geral Proadi e DesenvoIvimento Institucional": "Não encontrado neste trecho",
+  "Desafios para a participação do HE no Proadi": "Não encontrado neste trecho",
+  "Sugestões": "Não encontrado neste trecho",
+  "Benefícios do projeto para o SUS": "Não encontrado neste trecho",
+  "Origem dos projetos (quem demandou, tramitação e negociações)": "Não encontrado neste trecho",
+  "Projetos colaborativos (participação de cada um, relacionamento HE e benefícios e desafios)": "Não encontrado neste trecho"
+}
+2025-06-01 11:37:54,883 - INFO - ✅ Successfully parsed JSON for chunk 23
+2025-06-01 11:37:54,883 - INFO - 📊 Extracted data keys: ['Código Entrevista', 'Hospital', 'Nome - posição institucional - Projetos', 'Área de atuação', 'Avaliação geral Proadi e DesenvoIvimento Institucional', 'Desafios para a participação do HE no Proadi', 'Sugestões', 'Benefícios do projeto para o SUS', 'Origem dos projetos (quem demandou, tramitação e negociações)', 'Projetos colaborativos (participação de cada um, relacionamento HE e benefícios e desafios)']
+2025-06-01 11:37:54,885 - INFO - Successfully analyzed Transcrição da entrevista corrigida 08_04_2025 - HIAE02 - Renato Tanjoni e Fernanda Pahim.docx using 23 chunks
+2025-06-01 11:37:54,885 - INFO - Processed 2 new interviews successfully
+2025-06-01 11:37:55,016 - INFO - Results exported to Entrevistas Hospitais_Rosi.xlsx
+2025-06-01 11:37:55,017 - INFO - Added 2 new interviews. Total: 7 interviews
+2025-06-01 11:37:55,017 - INFO - Interview analysis completed successfully!
