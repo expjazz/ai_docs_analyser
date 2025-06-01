@@ -43,9 +43,10 @@ class InterviewAnalyzer:
         self.existing_df = self._load_existing_data()
 
         # Token and chunking settings
-        self.max_tokens_per_request = 2000  # Ultra conservative - much smaller chunks
-        self.chunk_overlap = 50  # Minimal overlap to save space
-        self.request_delay = 2  # Seconds to wait between API requests
+        self.max_tokens_per_request = 500  # Even smaller chunks
+        self.chunk_overlap = 30  # Minimal overlap to save space
+        self.request_delay = 10  # Longer delay to respect rate limits
+        self.max_output_tokens = 800  # Reduce output tokens
 
     def _setup_openai_client(self) -> OpenAI:
         """Setup OpenAI client with API key."""
@@ -242,34 +243,42 @@ class InterviewAnalyzer:
     def _create_analysis_prompt(self, interview_content: str, chunk_number: int = None, total_chunks: int = None) -> str:
         """Create the prompt for OpenAI analysis."""
 
-        # Ultra-compact categories list to save maximum tokens
-        categories = [
-            "Código Entrevista", "Área de atuação", "Hospital", "Nome - posição institucional - Projetos",
-            "Modelos para planos de trabalho e prestação de contas", "Avaliação geral Proadi e DesenvoIvimento Institucional",
-            "Relação Conass/Conasems/MS com HE e instituições parceiras", "Benefícios para instituição parceira",
-            "Desafios para a participação do HE no Proadi", "Sugestões",
+        # Abbreviated but complete categories
+        cats = [
+            "Código Entrevista", "Área de atuação", "Hospital",
+            "Nome - posição institucional - Projetos",
+            "Modelos para planos de trabalho e prestação de contas",
+            "Avaliação geral Proadi e DesenvoIvimento Institucional",
+            "Relação Conass/Conasems/MS com HE e instituições parceiras",
+            "Benefícios para instituição parceira",
+            "Desafios para a participação do HE no Proadi",
+            "Sugestões",
             "Origem dos projetos (quem demandou, tramitação e negociações)",
             "Projetos colaborativos (participação de cada um, relacionamento HE e benefícios e desafios)",
-            "Expertise do hospital para o projeto e Inserção deste no HE", "Abrangência Territorial do Projeto (definição)",
-            "Seleção e envolvimento instituições participantes no projeto", "Avaliações sobre o Projeto",
+            "Expertise do hospital para o projeto e Inserção deste no HE",
+            "Abrangência Territorial do Projeto (definição)",
+            "Seleção e envolvimento instituições participantes no projeto",
+            "Avaliações sobre o Projeto",
             "Monitoramento (HE e instituições participantes) e Indicadores",
             "Riscos na implementação/dificuldades enfrentadas (adesão instituições ou profissionais, infraestrutura, outras)",
-            "Benefícios do projeto para o SUS", "Incorporação de bens materiais ao SUS?",
-            "Treinamento para profissionais?", "Publicações ou divulgação?",
-            "Incorporação resultados ao SUS", "Longevidade e sustentabilidade possível?"
+            "Benefícios do projeto para o SUS",
+            "Incorporação de bens materiais ao SUS?",
+            "Treinamento para profissionais?",
+            "Publicações ou divulgação?",
+            "Incorporação resultados ao SUS",
+            "Longevidade e sustentabilidade possível?"
         ]
 
-        chunk_info = f" {chunk_number}/{total_chunks}" if chunk_number else ""
+        chunk_info = f"({chunk_number}/{total_chunks})" if chunk_number else ""
 
-        prompt = f"""Analise esta entrevista PROADI-SUS{chunk_info} e extraia informações para as categorias listadas.
-Use os nomes EXATOS das categorias como chaves JSON. Se não houver info, use "Não mencionado".
+        prompt = f"""Analise entrevista PROADI-SUS{chunk_info}.
+Extraia info para categorias. Use nomes EXATOS como chaves JSON.
 
-Categorias: {', '.join(categories)}
-
-Texto:
 {interview_content}
 
-Responda só em JSON válido com análise concisa (1 frase por categoria)."""
+Categorias: {', '.join(cats)}
+
+JSON válido, 1 frase/categoria, "N/A" se ausente:"""
         return prompt
 
     def _combine_chunk_analyses(self, chunk_analyses: List[Dict[str, str]]) -> Dict[str, str]:
@@ -330,18 +339,19 @@ Responda só em JSON válido com análise concisa (1 frase por categoria)."""
             estimated_tokens = self._estimate_tokens(interview_content)
             logger.info(f"Estimated tokens for {filename}: {estimated_tokens}")
 
-            if estimated_tokens <= self.max_tokens_per_request - 2000:  # Reserve space for prompt
+            if estimated_tokens <= self.max_tokens_per_request - 500:  # Reserve more space for prompt
                 # Content is small enough, process normally
                 prompt = self._create_analysis_prompt(interview_content)
 
                 response = self.client.chat.completions.create(
                     model="gpt-4",
                     messages=[
-                        {"role": "system", "content": "You are an expert HR analyst specializing in technical interviews. Provide objective, detailed analysis."},
+                        {"role": "system",
+                            "content": "You are an expert analyst. Provide concise analysis."},
                         {"role": "user", "content": prompt}
                     ],
                     temperature=0.3,
-                    max_tokens=2000
+                    max_tokens=self.max_output_tokens
                 )
 
                 analysis_text = response.choices[0].message.content.strip()
@@ -378,11 +388,12 @@ Responda só em JSON válido com análise concisa (1 frase por categoria)."""
                         response = self.client.chat.completions.create(
                             model="gpt-4",
                             messages=[
-                                {"role": "system", "content": "You are an expert HR analyst specializing in technical interviews. Provide objective, detailed analysis."},
+                                {"role": "system",
+                                    "content": "You are an expert analyst. Provide concise analysis."},
                                 {"role": "user", "content": prompt}
                             ],
                             temperature=0.3,
-                            max_tokens=2000
+                            max_tokens=self.max_output_tokens
                         )
 
                         analysis_text = response.choices[0].message.content.strip(
@@ -398,10 +409,52 @@ Responda só em JSON válido com análise concisa (1 frase por categoria)."""
                                 {"general_analysis": analysis_text})
 
                     except Exception as e:
+                        error_msg = str(e)
                         logger.error(
                             f"Error analyzing chunk {i+1} of {filename}: {e}")
-                        chunk_analyses.append(
-                            {"error": f"Chunk analysis failed: {str(e)}"})
+
+                        # Check if it's a rate limit error
+                        if "rate_limit_exceeded" in error_msg or "429" in error_msg:
+                            logger.info(
+                                f"Rate limit hit, waiting {self.request_delay * 3} seconds...")
+                            time.sleep(self.request_delay * 3)
+                            # Try one more time with shorter content
+                            try:
+                                # Use only first half of chunk if rate limited
+                                shorter_chunk = chunk[:len(chunk)//2]
+                                shorter_prompt = self._create_analysis_prompt(
+                                    shorter_chunk, i+1, len(chunks))
+
+                                response = self.client.chat.completions.create(
+                                    model="gpt-4",
+                                    messages=[
+                                        {"role": "system",
+                                            "content": "You are an expert analyst. Provide concise analysis."},
+                                        {"role": "user", "content": shorter_prompt}
+                                    ],
+                                    temperature=0.3,
+                                    max_tokens=self.max_output_tokens
+                                )
+
+                                analysis_text = response.choices[0].message.content.strip(
+                                )
+                                try:
+                                    chunk_analysis = json.loads(analysis_text)
+                                    chunk_analyses.append(chunk_analysis)
+                                    logger.info(
+                                        f"Successfully analyzed chunk {i+1} with shorter content")
+                                except json.JSONDecodeError:
+                                    chunk_analyses.append(
+                                        {"general_analysis": analysis_text})
+
+                            except Exception as retry_e:
+                                logger.error(
+                                    f"Retry failed for chunk {i+1}: {retry_e}")
+                                chunk_analyses.append(
+                                    {"error": f"Chunk analysis failed: {str(retry_e)}"})
+                        else:
+                            chunk_analyses.append(
+                                {"error": f"Chunk analysis failed: {str(e)}"})
 
                 # Combine all chunk analyses
                 combined_analysis = self._combine_chunk_analyses(
