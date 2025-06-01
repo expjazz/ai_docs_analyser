@@ -366,29 +366,57 @@ INSTRUÇÕES IMPORTANTES:
 CATEGORIAS PARA EXTRAIR:
 
 1. Código/Identificador da entrevista - Busque códigos como HIAE01, HEBPP01, etc.
-2. Hospital mencionado - Nome completo do hospital de excelência
-3. Nome e cargo do entrevistado - Quem está sendo entrevistado e sua função
-4. Área de atuação do projeto - Se é Pesquisa, Capacitação, Avaliação ou Gestão
-5. Avaliação do PROADI-SUS - Opiniões sobre o programa, impactos, benefícios
-6. Desafios enfrentados - Dificuldades, obstáculos, problemas mencionados
-7. Sugestões de melhoria - Recomendações feitas pelo entrevistado
-8. Benefícios para o SUS - Ganhos mencionados para o sistema público
-9. Projetos específicos - Nomes e descrições de projetos mencionados
-10. Parcerias e colaborações - Outros hospitais ou instituições envolvidas
+2. Área de atuação - Se é Pesquisa, Capacitação, Avaliação ou Gestão
+3. Hospital mencionado - Nome completo do hospital de excelência
+4. Nome e cargo do entrevistado - Quem está sendo entrevistado, sua função e projetos
+5. Modelos para planos de trabalho - Como o hospital estrutura documentos para planos de trabalho e prestação de contas
+6. Avaliação geral do PROADI-SUS - Percepções sobre impacto no hospital e SUS, ganhos institucionais
+7. Relação CONASS/CONASEMS/MS - Articulação entre Ministério, CONASS, CONASEMS e hospitais
+8. Benefícios para instituição parceira - Vantagens para entidades executoras ou beneficiárias
+9. Desafios para participação do HE - Obstáculos internos e externos enfrentados
+10. Sugestões de melhoria - Recomendações para aprimorar o programa
+11. Origem dos projetos - Gênese do projeto, demandante e percurso burocrático
+12. Projetos colaborativos - Iniciativas com múltiplos HEs ou parceiros
+13. Expertise do hospital - Competência técnica e alinhamento com missão institucional
+14. Abrangência territorial - Alcance geográfico e critérios de escolha dos locais
+15. Seleção de instituições participantes - Critérios para convidar unidades de saúde
+16. Avaliações sobre o projeto - Resultados preliminares, impacto e lições aprendidas
+17. Monitoramento e indicadores - Métodos de acompanhamento e indicadores utilizados
+18. Riscos e dificuldades - Problemas práticos como rotatividade, infraestrutura
+19. Benefícios para o SUS - Ganhos para a rede pública de saúde
+20. Incorporação de bens materiais - Compra ou doação de equipamentos ao SUS
+21. Treinamento para profissionais - Estratégias de capacitação mencionadas
+22. Publicações e divulgação - Artigos, relatórios ou comunicação de resultados
+23. Incorporação de resultados ao SUS - Como produtos são integrados às rotinas do SUS
+24. Longevidade e sustentabilidade - Continuidade após financiamento PROADI-SUS
 
 Responda em formato JSON válido com as chaves exatas do Excel:
 
 {{
   "Código Entrevista": "informação encontrada",
+  "Área de atuação": "informação encontrada",
   "Hospital": "informação encontrada",
   "Nome - posição institucional - Projetos": "informação encontrada",
-  "Área de atuação": "informação encontrada",
+  "Modelos para planos de trabalho e prestação de contas": "informação encontrada",
   "Avaliação geral Proadi e DesenvoIvimento Institucional": "informação encontrada",
+  "Relação Conass/Conasems/MS com HE e instituições parceiras": "informação encontrada",
+  "Benefícios para instituição parceira": "informação encontrada",
   "Desafios para a participação do HE no Proadi": "informação encontrada",
   "Sugestões": "informação encontrada",
-  "Benefícios do projeto para o SUS": "informação encontrada",
   "Origem dos projetos (quem demandou, tramitação e negociações)": "informação encontrada",
-  "Projetos colaborativos (participação de cada um, relacionamento HE e benefícios e desafios)": "informação encontrada"
+  "Projetos colaborativos (participação de cada um, relacionamento HE e benefícios e desafios)": "informação encontrada",
+  "Expertise do hospital para o projeto e Inserção deste no HE": "informação encontrada",
+  "Abrangência Territorial do Projeto (definição)": "informação encontrada",
+  "Seleção e envolvimento instituições participantes no projeto": "informação encontrada",
+  "Avaliações sobre o Projeto": "informação encontrada",
+  "Monitoramento (HE e instituições participantes) e Indicadores": "informação encontrada",
+  "Riscos na implementação/dificuldades enfrentadas (adesão instituições ou profissionais, infraestrutura, outras)": "informação encontrada",
+  "Benefícios do projeto para o SUS": "informação encontrada",
+  "Incorporação de bens materiais ao SUS?": "informação encontrada",
+  "Treinamento para profissionais?": "informação encontrada",
+  "Publicações ou divulgação?": "informação encontrada",
+  "Incorporação resultados ao SUS": "informação encontrada",
+  "Longevidade e sustentabilidade possível?": "informação encontrada"
 }}
 
 FOQUE EM ENCONTRAR CONTEÚDO REAL DA ENTREVISTA."""
