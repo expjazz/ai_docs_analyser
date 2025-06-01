@@ -1,6 +1,6 @@
-# Interview Analysis Tool
+# PROADI-SUS Interview Analysis Tool
 
-Automatically analyzes interview transcripts using OpenAI API and exports categorized insights to Excel.
+Automatically analyzes PROADI-SUS healthcare interviews using OpenAI API and exports categorized insights to Excel.
 
 ## Features
 
@@ -8,7 +8,7 @@ Automatically analyzes interview transcripts using OpenAI API and exports catego
 - 🤖 Uses OpenAI GPT-4 for intelligent analysis
 - 📊 Exports results to Excel with interviews as rows, categories as columns
 - 📝 Supports multiple file formats (.txt, .md, .doc, .docx)
-- 🔍 Analyzes 10 key categories automatically
+- 🔍 Analyzes 24 PROADI-SUS specific categories automatically
 - 📋 Detailed logging and error handling
 - 🐍 Self-contained virtual environment with pipenv
 
@@ -86,18 +86,32 @@ The project includes development tools:
 
 ## Analysis Categories
 
-The tool analyzes interviews across these categories:
+The tool analyzes PROADI-SUS interviews across these categories:
 
-- **Technical Skills**: Programming languages, frameworks, tools
-- **Soft Skills**: Communication, teamwork, leadership
-- **Experience Level**: Years of experience, seniority
-- **Problem Solving**: Troubleshooting, debugging approaches
-- **Team Collaboration**: Teamwork, mentoring experience
-- **Learning Attitude**: Adaptability, curiosity
-- **Project Examples**: Specific projects and achievements
-- **Cultural Fit**: Values alignment, work style
-- **Questions Asked**: Quality of candidate questions
-- **Overall Impression**: General assessment
+- **Código Entrevista**: Identificador único da entrevista (HE + número sequencial)
+- **Área de Atuação**: Eixo temático (Pesquisa, Capacitação, Avaliação, Gestão)
+- **Hospital**: Nome completo do hospital de excelência responsável
+- **Nome - Posição - Projetos**: Informações do entrevistado e projetos PROADI-SUS
+- **Modelos para Planos de Trabalho**: Estruturação de documentos e prestação de contas
+- **Avaliação Geral PROADI**: Percepções sobre impacto no hospital e SUS
+- **Relação CONASS/CONASEMS/MS**: Articulação entre entidades federativas
+- **Benefícios para Instituição Parceira**: Vantagens percebidas pelos executores
+- **Desafios para Participação HE**: Obstáculos internos e externos enfrentados
+- **Sugestões**: Recomendações para aprimorar o programa
+- **Origem dos Projetos**: Gênese e tramitação dos projetos
+- **Projetos Colaborativos**: Iniciativas multi-institucionais
+- **Expertise do Hospital**: Competência técnica e alinhamento institucional
+- **Abrangência Territorial**: Alcance geográfico e critérios de seleção
+- **Seleção de Instituições**: Critérios e estratégias de engajamento
+- **Avaliações sobre o Projeto**: Resultados e lições aprendidas
+- **Monitoramento e Indicadores**: Métodos de acompanhamento
+- **Riscos e Dificuldades**: Problemas práticos observados
+- **Benefícios para o SUS**: Ganhos esperados ou percebidos
+- **Incorporação de Bens Materiais**: Equipamentos/insumos doados ao SUS
+- **Treinamento para Profissionais**: Estratégias de capacitação
+- **Publicações ou Divulgação**: Artigos e comunicação de resultados
+- **Incorporação de Resultados ao SUS**: Integração às rotinas do SUS
+- **Longevidade e Sustentabilidade**: Continuidade pós-financiamento
 
 ## Output
 

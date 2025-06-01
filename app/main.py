@@ -38,7 +38,8 @@ class InterviewAnalyzer:
         self.client = self._setup_openai_client()
         self.categories = self._define_categories()
         self.interviews_folder = Path("entrevistas")
-        self.output_file = "interview_analysis.xlsx"
+        self.output_file = "Entrevistas Hospitais_Rosi.xlsx"
+        self.existing_df = self._load_existing_data()
 
     def _setup_openai_client(self) -> OpenAI:
         """Setup OpenAI client with API key."""
@@ -53,16 +54,74 @@ class InterviewAnalyzer:
     def _define_categories(self) -> Dict[str, str]:
         """Define categories and their descriptions for analysis."""
         return {
-            "technical_skills": "Technical skills, programming languages, frameworks, tools mentioned",
-            "soft_skills": "Communication, teamwork, leadership, problem-solving abilities",
-            "experience_level": "Years of experience, seniority level, career progression",
-            "problem_solving": "Examples of problem-solving approach, troubleshooting, debugging",
-            "team_collaboration": "Experience working in teams, mentoring, cross-functional work",
-            "learning_attitude": "Willingness to learn, adaptability, curiosity about new technologies",
-            "project_examples": "Specific projects mentioned, achievements, impact",
-            "cultural_fit": "Values alignment, work style, motivation factors",
-            "questions_asked": "Quality and relevance of questions asked by the candidate",
-            "overall_impression": "General assessment, strengths, areas for improvement"
+            "codigo_entrevista": "Identificador único de cada entrevista, composto pela sigla do hospital de excelência (HE) + um número sequencial (ex.: HEBPP01, HIAE01). Serve para rastrear e referenciar rapidamente cada registro.",
+            "area_atuacao": "Indica o eixo temático principal do projeto ao qual a entrevista se refere. Pode receber os nomes Pesquisa, Capacitação, Avaliação e Gestão.",
+            "hospital": "Nome completo do hospital de excelência responsável pela entrevista (ex.: Beneficência Portuguesa, Hospital Israelita Albert Einstein).",
+            "nome_posicao_projetos": "Campo narrativo onde o entrevistado informa seu nome, cargo/função e o(s) projeto(s) em que atua dentro do PROADI-SUS.",
+            "modelos_planos_trabalho": "Relato sobre como o hospital estrutura modelos/documentos para planos de trabalho e para a prestação de contas ao MS, descrevendo processos formais e padronização.",
+            "avaliacao_geral_proadi": "Percepções amplas sobre o impacto do PROADI-SUS no hospital e no SUS, incluindo ganhos institucionais, alinhamento estratégico e aprendizado organizacional, com comentários que vão de elogios à governança a críticas sobre burocracias.",
+            "relacao_conass_conasems_ms": "Observações sobre a articulação entre Ministério da Saúde, CONASS, CONASEMS, hospitais de excelência e parceiros locais, destacando acordos de cooperação, fluxos de decisão e desafios de alinhamento federativo.",
+            "beneficios_instituicao_parceira": "Vantagens percebidas pelas entidades executoras ou beneficiárias diretas do projeto, como melhorias em instalações, aquisição de conhecimento e aumento de visibilidade.",
+            "desafios_participacao_he": "Obstáculos internos e externos enfrentados pelos HEs — trâmites de plano de trabalho, infraestrutura limitada em centros participantes, mudanças na gestão pública, entre outros.",
+            "sugestoes": "Recomendações para aprimorar o programa, como reduzir burocracia, ampliar prazos ou adotar frameworks de gestão de projetos.",
+            "origem_projetos": "Narrativa sobre a gênese do projeto, o demandante (MS, hospital, sociedade) e o percurso burocrático até a aprovação.",
+            "projetos_colaborativos": "Detalhamento de iniciativas em que mais de um HE ou parceiro participa, descrevendo divisão de tarefas, sinergias e possíveis conflitos.",
+            "expertise_hospital": "Justificativa da competência técnica do hospital para liderar o projeto e como o tema se alinha à sua missão institucional.",
+            "abrangencia_territorial": "Definição do alcance geográfico (municipal, estadual, nacional) e critérios para escolha dos locais-alvo.",
+            "selecao_instituicoes_participantes": "Critérios utilizados para convidar unidades de saúde ou municípios e estratégias de engajamento (por exemplo, instrumentos de maturidade e visitas técnicas).",
+            "avaliacoes_projeto": "Resultados ou julgamentos preliminares sobre desempenho, impacto e lições aprendidas, incluindo indicadores clínicos quando disponíveis.",
+            "monitoramento_indicadores": "Métodos de acompanhamento do projeto, abrangendo indicadores, ferramentas de gestão, rotinas de reporte e visitas a campo.",
+            "riscos_dificuldades": "Problemas práticos já observados, como rotatividade de gestores públicos, falta de maturidade dos centros, custos logísticos e adaptação de protocolos.",
+            "beneficios_sus": "Ganhos esperados ou já percebidos para a rede pública, como ampliação de acesso, formação de serviço de referência e economia de recursos.",
+            "incorporacao_bens_materiais": "Indica se houve compra ou doação de equipamentos ou insumos permanentes ao SUS.",
+            "treinamento_profissionais": "Descrição das estratégias de capacitação (workshops, cursos, treinamentos on-the-job) para equipes dos hospitais participantes ou do SUS.",
+            "publicacoes_divulgacao": "Registra se o projeto gerou artigos, relatórios ou outras formas de comunicação de resultados, publicados ou em preparação.",
+            "incorporacao_resultados_sus": "Explica se e como produtos ou protocolos desenvolvidos estão sendo integrados às rotinas do SUS, além dos desafios regulatórios e de financiamento.",
+            "longevidade_sustentabilidade": "Reflexões sobre a continuidade do projeto após o financiamento do PROADI-SUS, incluindo fontes de recursos, escalabilidade e institucionalização."
+        }
+
+    def _load_existing_data(self) -> pd.DataFrame:
+        """Load existing Excel data if it exists."""
+        try:
+            if Path(self.output_file).exists():
+                df = pd.read_excel(self.output_file)
+                logger.info(f"Loaded existing file with {len(df)} rows")
+                return df
+            else:
+                logger.info("No existing file found, will create new one")
+                return pd.DataFrame()
+        except Exception as e:
+            logger.error(f"Error loading existing file: {e}")
+            return pd.DataFrame()
+
+    def _get_existing_column_mapping(self) -> Dict[str, str]:
+        """Map the actual Excel column names to our internal category keys."""
+        # Based on the existing Excel file structure
+        return {
+            "codigo_entrevista": "Código Entrevista",
+            "area_atuacao": "Área de atuação",
+            "hospital": "Hospital",
+            "nome_posicao_projetos": "Nome - posição institucional - Projetos",
+            "modelos_planos_trabalho": "Modelos para planos de trabalho e prestação de contas",
+            "avaliacao_geral_proadi": "Avaliação geral Proadi e DesenvoIvimento Institucional",
+            "relacao_conass_conasems_ms": "Relação Conass/Conasems/MS com HE e instituições parceiras",
+            "beneficios_instituicao_parceira": "Benefícios para instituição parceira",
+            "desafios_participacao_he": "Desafios para a participação do HE no Proadi",
+            "sugestoes": "Sugestões",
+            "origem_projetos": "Origem dos projetos (quem demandou, tramitação e negociações)",
+            "projetos_colaborativos": "Projetos colaborativos (participação de cada um, relacionamento HE e benefícios e desafios)",
+            "expertise_hospital": "Expertise do hospital para o projeto e Inserção deste no HE",
+            "abrangencia_territorial": "Abrangência Territorial do Projeto (definição)",
+            "selecao_instituicoes_participantes": "Seleção e envolvimento instituições participantes no projeto",
+            "avaliacoes_projeto": "Avaliações sobre o Projeto",
+            "monitoramento_indicadores": "Monitoramento (HE e instituições participantes) e Indicadores",
+            "riscos_dificuldades": "Riscos na implementação/dificuldades enfrentadas (adesão instituições ou profissionais, infraestrutura, outras)",
+            "beneficios_sus": "Benefícios do projeto para o SUS",
+            "incorporacao_bens_materiais": "Incorporação de bens materiais ao SUS?",
+            "treinamento_profissionais": "Treinamento para profissionais?",
+            "publicacoes_divulgacao": "Publicações ou divulgação?",
+            "incorporacao_resultados_sus": "Incorporação resultados ao SUS",
+            "longevidade_sustentabilidade": "Longevidade e sustentabilidade possível?"
         }
 
     def _get_interview_files(self) -> List[Path]:
@@ -100,17 +159,41 @@ class InterviewAnalyzer:
             logger.error(f"Error reading {file_path}: {e}")
             return ""
 
+    def _get_processed_interviews(self) -> List[str]:
+        """Get list of already processed interview files from existing data."""
+        if self.existing_df.empty:
+            return []
+
+        # Check the first unnamed column which should contain the filename info
+        processed_files = []
+        for _, row in self.existing_df.iterrows():
+            # Skip header rows and empty rows
+            first_col_value = str(row.iloc[0]) if len(row) > 0 else ""
+            if first_col_value and first_col_value not in ["Responsável pela análise", "nan", ""]:
+                # This might be an interview filename or identifier
+                processed_files.append(first_col_value)
+
+        logger.info(
+            f"Found {len(processed_files)} already processed interviews")
+        return processed_files
+
     def _create_analysis_prompt(self, interview_content: str) -> str:
         """Create the prompt for OpenAI analysis."""
+        column_mapping = self._get_existing_column_mapping()
         categories_text = "\n".join([
-            f"- {category}: {description}"
-            for category, description in self.categories.items()
+            f"- {excel_col}: {description}"
+            for internal_key, description in self.categories.items()
+            for excel_col in [column_mapping.get(internal_key, internal_key)]
+            if excel_col
         ])
 
         prompt = f"""
-Analyze the following interview transcript and provide insights for each category.
+Analyze the following PROADI-SUS interview transcript and provide insights for each category.
 For each category, provide a brief but specific assessment based on the interview content.
-If information is not available for a category, respond with "Not mentioned" or "Insufficient information".
+If information is not available for a category, respond with "Não mencionado" or "Informação insuficiente".
+Keep the analysis in Portuguese.
+
+IMPORTANT: Use the EXACT column names as keys in your JSON response. Do not modify or translate the column names.
 
 Categories to analyze:
 {categories_text}
@@ -118,8 +201,8 @@ Categories to analyze:
 Interview transcript:
 {interview_content}
 
-Please respond in JSON format with each category as a key and your analysis as the value.
-Keep responses concise but informative (1-3 sentences per category).
+Please respond in JSON format with each EXACT category name as a key and your analysis as the value.
+Keep responses concise but informative (1-3 sentences per category) in Portuguese.
 """
         return prompt
 
@@ -163,9 +246,17 @@ Keep responses concise but informative (1-3 sentences per category).
             logger.warning("No interview files found to process")
             return []
 
+        # Get already processed interviews to avoid duplicates
+        processed_interviews = self._get_processed_interviews()
+
         results = []
 
         for file_path in interview_files:
+            # Skip if already processed
+            if file_path.name in processed_interviews:
+                logger.info(f"Skipping {file_path.name} - already processed")
+                continue
+
             logger.info(f"Processing {file_path.name}...")
 
             # Read interview content
@@ -187,32 +278,53 @@ Keep responses concise but informative (1-3 sentences per category).
 
             results.append(result)
 
-        logger.info(f"Processed {len(results)} interviews successfully")
+        logger.info(f"Processed {len(results)} new interviews successfully")
         return results
 
     def _export_to_excel(self, results: List[Dict[str, str]]) -> None:
-        """Export analysis results to Excel file."""
+        """Export analysis results to Excel file, appending to existing data."""
         if not results:
             logger.warning("No results to export")
             return
 
         try:
-            # Create DataFrame
-            df = pd.DataFrame(results)
+            column_mapping = self._get_existing_column_mapping()
 
-            # Reorder columns to put metadata first
-            metadata_cols = ["interview_file", "file_size_chars"]
-            category_cols = [
-                col for col in df.columns if col not in metadata_cols]
-            df = df[metadata_cols + sorted(category_cols)]
+            # Transform results to match existing Excel structure
+            excel_rows = []
+            for result in results:
+                excel_row = {}
+
+                # Add the filename in the first column (IDENTIFICAÇÃO)
+                excel_row["IDENTIFICAÇÃO"] = result.get("interview_file", "")
+
+                # Map internal categories to Excel column names
+                for internal_key, excel_col in column_mapping.items():
+                    excel_row[excel_col] = result.get(
+                        excel_col, result.get(internal_key, ""))
+
+                excel_rows.append(excel_row)
+
+            # Create DataFrame for new results
+            new_df = pd.DataFrame(excel_rows)
+
+            # Load existing data properly with headers
+            if Path(self.output_file).exists():
+                existing_df = pd.read_excel(self.output_file)
+                # Combine existing and new data
+                combined_df = pd.concat(
+                    [existing_df, new_df], ignore_index=True)
+            else:
+                # Create new file with proper structure
+                combined_df = new_df
 
             # Export to Excel
             with pd.ExcelWriter(self.output_file, engine='openpyxl') as writer:
-                df.to_excel(writer, index=False,
-                            sheet_name='Interview Analysis')
+                combined_df.to_excel(writer, index=False,
+                                     sheet_name='Entrevistas')
 
                 # Auto-adjust column widths
-                worksheet = writer.sheets['Interview Analysis']
+                worksheet = writer.sheets['Entrevistas']
                 for column in worksheet.columns:
                     max_length = 0
                     column_letter = column[0].column_letter
@@ -222,12 +334,12 @@ Keep responses concise but informative (1-3 sentences per category).
                                 max_length = len(str(cell.value))
                         except:
                             pass
-                    adjusted_width = min(max_length + 2, 50)
+                    adjusted_width = min(max_length + 2, 80)
                     worksheet.column_dimensions[column_letter].width = adjusted_width
 
             logger.info(f"Results exported to {self.output_file}")
             logger.info(
-                f"Analyzed {len(results)} interviews across {len(self.categories)} categories")
+                f"Added {len(results)} new interviews. Total: {len(combined_df)} interviews")
 
         except Exception as e:
             logger.error(f"Error exporting to Excel: {e}")

@@ -1,0 +1,24 @@
+2025-06-01 10:42:59,283 - INFO - Loaded existing file with 6 rows
+2025-06-01 10:42:59,283 - INFO - Starting interview analysis...
+2025-06-01 10:42:59,284 - INFO - Found 2 interview files
+2025-06-01 10:42:59,284 - INFO - Found 5 already processed interviews
+2025-06-01 10:42:59,284 - INFO - Processing Gravação da Entrevista - Gravador - 09_04_2025 - HAOC01 - Bruna e Nídia.docx...
+2025-06-01 10:42:59,286 - WARNING - Used latin-1 encoding for Gravação da Entrevista - Gravador - 09_04_2025 - HAOC01 - Bruna e Nídia.docx
+2025-06-01 10:43:00,582 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 429 Too Many Requests"
+2025-06-01 10:43:00,582 - INFO - Retrying request to /chat/completions in 0.428923 seconds
+2025-06-01 10:43:01,649 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 429 Too Many Requests"
+2025-06-01 10:43:01,649 - INFO - Retrying request to /chat/completions in 0.878528 seconds
+2025-06-01 10:43:02,822 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 429 Too Many Requests"
+2025-06-01 10:43:02,825 - ERROR - Error analyzing Gravação da Entrevista - Gravador - 09_04_2025 - HAOC01 - Bruna e Nídia.docx with OpenAI: Error code: 429 - {'error': {'message': 'Request too large for gpt-4 in organization org-uGSvxi6hqnDdr9iXzRd1jKay on tokens per min (TPM): Limit 10000, Requested 25529. The input or output tokens must be reduced in order to run successfully. Visit https://platform.openai.com/account/rate-limits to learn more.', 'type': 'tokens', 'param': None, 'code': 'rate_limit_exceeded'}}
+2025-06-01 10:43:02,825 - INFO - Processing Transcrição da entrevista corrigida 08_04_2025 - HIAE02 - Renato Tanjoni e Fernanda Pahim.docx...
+2025-06-01 10:43:02,828 - WARNING - Used latin-1 encoding for Transcrição da entrevista corrigida 08_04_2025 - HIAE02 - Renato Tanjoni e Fernanda Pahim.docx
+2025-06-01 10:43:03,396 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 429 Too Many Requests"
+2025-06-01 10:43:03,397 - INFO - Retrying request to /chat/completions in 0.441391 seconds
+2025-06-01 10:43:04,092 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 429 Too Many Requests"
+2025-06-01 10:43:04,095 - INFO - Retrying request to /chat/completions in 0.942234 seconds
+2025-06-01 10:43:05,347 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 429 Too Many Requests"
+2025-06-01 10:43:05,348 - ERROR - Error analyzing Transcrição da entrevista corrigida 08_04_2025 - HIAE02 - Renato Tanjoni e Fernanda Pahim.docx with OpenAI: Error code: 429 - {'error': {'message': 'Request too large for gpt-4 in organization org-uGSvxi6hqnDdr9iXzRd1jKay on tokens per min (TPM): Limit 10000, Requested 25658. The input or output tokens must be reduced in order to run successfully. Visit https://platform.openai.com/account/rate-limits to learn more.', 'type': 'tokens', 'param': None, 'code': 'rate_limit_exceeded'}}
+2025-06-01 10:43:05,348 - INFO - Processed 2 new interviews successfully
+2025-06-01 10:43:05,400 - INFO - Results exported to Entrevistas Hospitais_Rosi.xlsx
+2025-06-01 10:43:05,400 - INFO - Added 2 new interviews. Total: 8 interviews
+2025-06-01 10:43:05,400 - INFO - Interview analysis completed successfully!
