@@ -127,3 +127,834 @@
 2025-06-01 11:07:04,689 - INFO - Results exported to Entrevistas Hospitais_Rosi.xlsx
 2025-06-01 11:07:04,689 - INFO - Added 2 new interviews. Total: 8 interviews
 2025-06-01 11:07:04,689 - INFO - Interview analysis completed successfully!
+2025-06-01 11:13:59,557 - INFO - Loaded existing file with 5 rows
+2025-06-01 11:13:59,557 - INFO - Starting interview analysis...
+2025-06-01 11:13:59,558 - INFO - Found 2 interview files
+2025-06-01 11:13:59,558 - INFO - Found 5 already processed interviews
+2025-06-01 11:13:59,558 - INFO - Processing Gravação da Entrevista - Gravador - 09_04_2025 - HAOC01 - Bruna e Nídia.docx...
+2025-06-01 11:13:59,559 - WARNING - Used latin-1 encoding for Gravação da Entrevista - Gravador - 09_04_2025 - HAOC01 - Bruna e Nídia.docx
+2025-06-01 11:13:59,559 - INFO - Estimated tokens for Gravação da Entrevista - Gravador - 09_04_2025 - HAOC01 - Bruna e Nídia.docx: 16299
+2025-06-01 11:13:59,559 - INFO - Content too large for Gravação da Entrevista - Gravador - 09_04_2025 - HAOC01 - Bruna e Nídia.docx, chunking...
+2025-06-01 11:13:59,559 - INFO - Split content into 6 chunks (max 1000 tokens each)
+2025-06-01 11:13:59,559 - INFO - Analyzing chunk 1/6 for Gravação da Entrevista - Gravador - 09_04_2025 - HAOC01 - Bruna e Nídia.docx (750 tokens)
+2025-06-01 11:14:13,811 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-01 11:14:13,823 - INFO - 🔍 Raw OpenAI response for chunk 1:
+2025-06-01 11:14:13,823 - INFO - 📝 Response: {
+  "Código Entrevista": "N/A",
+  "Área de atuação": "N/A",
+  "Hospital": "N/A",
+  "Nome - posição institucional - Projetos": "N/A",
+  "Modelos para planos de trabalho e prestação de contas": "N/A",
+  "Avaliação geral Proadi e DesenvoIvimento Institucional": "N/A",
+  "Relação Conass/Conasems/MS com HE e instituições parceiras": "N/A",
+  "Benefícios para instituição parceira": "N/A",
+  "Desafios para a participação do HE no Proadi": "N/A",
+  "Sugestões": "N/A",
+  "Origem dos projetos (quem demandou, tramitação e negociações)": "N/A",
+  "Projetos colaborativos (participação de cada um, relacionamento HE e benefícios e desafios)": "N/A",
+  "Expertise do hospital para o projeto e Inserção deste no HE": "N/A",
+  "Abrangência Territorial do Projeto (definição)": "N/A",
+  "Seleção e envolvimento instituições participantes no projeto": "N/A",
+  "Avaliações sobre o Projeto": "N/A",
+  "Monitoramento (HE e instituições participantes) e Indicadores": "N/A",
+  "Riscos na implementação/dificuldades enfrentadas (adesão instituições ou profissionais, infraestrutura, outras)": "N/A",
+  "Benefícios do projeto para o SUS": "N/A",
+  "Incorporação de bens materiais ao SUS?": "N/A",
+  "Treinamento para profissionais?": "N/A",
+  "Publicações ou divulgação?": "N/A",
+  "Incorporação resultados ao SUS": "N/A",
+  "Longevidade e sustentabilidade possível?": "N/A"
+}
+2025-06-01 11:14:13,824 - INFO - 🧹 Cleaned JSON for chunk 1: {
+  "Código Entrevista": "N/A",
+  "Área de atuação": "N/A",
+  "Hospital": "N/A",
+  "Nome - posição institucional - Projetos": "N/A",
+  "Modelos para planos de trabalho e prestação de contas": "N/A",
+  "Avaliação geral Proadi e DesenvoIvimento Institucional": "N/A",
+  "Relação Conass/Conasems/MS com HE e instituições parceiras": "N/A",
+  "Benefícios para instituição parceira": "N/A",
+  "Desafios para a participação do HE no Proadi": "N/A",
+  "Sugestões": "N/A",
+  "Origem dos projetos (quem demandou, tramitação e negociações)": "N/A",
+  "Projetos colaborativos (participação de cada um, relacionamento HE e benefícios e desafios)": "N/A",
+  "Expertise do hospital para o projeto e Inserção deste no HE": "N/A",
+  "Abrangência Territorial do Projeto (definição)": "N/A",
+  "Seleção e envolvimento instituições participantes no projeto": "N/A",
+  "Avaliações sobre o Projeto": "N/A",
+  "Monitoramento (HE e instituições participantes) e Indicadores": "N/A",
+  "Riscos na implementação/dificuldades enfrentadas (adesão instituições ou profissionais, infraestrutura, outras)": "N/A",
+  "Benefícios do projeto para o SUS": "N/A",
+  "Incorporação de bens materiais ao SUS?": "N/A",
+  "Treinamento para profissionais?": "N/A",
+  "Publicações ou divulgação?": "N/A",
+  "Incorporação resultados ao SUS": "N/A",
+  "Longevidade e sustentabilidade possível?": "N/A"
+}
+2025-06-01 11:14:13,824 - INFO - ✅ Successfully parsed JSON for chunk 1
+2025-06-01 11:14:13,824 - INFO - 📊 Extracted data keys: ['Código Entrevista', 'Área de atuação', 'Hospital', 'Nome - posição institucional - Projetos', 'Modelos para planos de trabalho e prestação de contas', 'Avaliação geral Proadi e DesenvoIvimento Institucional', 'Relação Conass/Conasems/MS com HE e instituições parceiras', 'Benefícios para instituição parceira', 'Desafios para a participação do HE no Proadi', 'Sugestões', 'Origem dos projetos (quem demandou, tramitação e negociações)', 'Projetos colaborativos (participação de cada um, relacionamento HE e benefícios e desafios)', 'Expertise do hospital para o projeto e Inserção deste no HE', 'Abrangência Territorial do Projeto (definição)', 'Seleção e envolvimento instituições participantes no projeto', 'Avaliações sobre o Projeto', 'Monitoramento (HE e instituições participantes) e Indicadores', 'Riscos na implementação/dificuldades enfrentadas (adesão instituições ou profissionais, infraestrutura, outras)', 'Benefícios do projeto para o SUS', 'Incorporação de bens materiais ao SUS?', 'Treinamento para profissionais?', 'Publicações ou divulgação?', 'Incorporação resultados ao SUS', 'Longevidade e sustentabilidade possível?']
+2025-06-01 11:14:13,824 - INFO - Analyzing chunk 2/6 for Gravação da Entrevista - Gravador - 09_04_2025 - HAOC01 - Bruna e Nídia.docx (926 tokens)
+2025-06-01 11:14:13,824 - INFO - Waiting 12 seconds to avoid rate limiting...
+2025-06-01 11:14:43,005 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-01 11:14:43,006 - INFO - 🔍 Raw OpenAI response for chunk 2:
+2025-06-01 11:14:43,006 - INFO - 📝 Response: {
+  "Código Entrevista": "N/A",
+  "Área de atuação": "N/A",
+  "Hospital": "N/A",
+  "Nome - posição institucional - Projetos": "N/A",
+  "Modelos para planos de trabalho e prestação de contas": "N/A",
+  "Avaliação geral Proadi e DesenvoIvimento Institucional": "N/A",
+  "Relação Conass/Conasems/MS com HE e instituições parceiras": "N/A",
+  "Benefícios para instituição parceira": "N/A",
+  "Desafios para a participação do HE no Proadi": "N/A",
+  "Sugestões": "N/A",
+  "Origem dos projetos (quem demandou, tramitação e negociações)": "N/A",
+  "Projetos colaborativos (participação de cada um, relacionamento HE e benefícios e desafios)": "N/A",
+  "Expertise do hospital para o projeto e Inserção deste no HE": "N/A",
+  "Abrangência Territorial do Projeto (definição)": "N/A",
+  "Seleção e envolvimento instituições participantes no projeto": "N/A",
+  "Avaliações sobre o Projeto": "N/A",
+  "Monitoramento (HE e instituições participantes) e Indicadores": "N/A",
+  "Riscos na implementação/dificuldades enfrentadas (adesão instituições ou profissionais, infraestrutura, outras)": "N/A",
+  "Benefícios do projeto para o SUS": "N/A",
+  "Incorporação de bens materiais ao SUS?": "N/A",
+  "Treinamento para profissionais?": "N/A",
+  "Publicações ou divulgação?": "N/A",
+  "Incorporação resultados ao SUS": "N/A",
+  "Longevidade e sustentabilidade possível?": "N/A"
+}
+2025-06-01 11:14:43,006 - INFO - 🧹 Cleaned JSON for chunk 2: {
+  "Código Entrevista": "N/A",
+  "Área de atuação": "N/A",
+  "Hospital": "N/A",
+  "Nome - posição institucional - Projetos": "N/A",
+  "Modelos para planos de trabalho e prestação de contas": "N/A",
+  "Avaliação geral Proadi e DesenvoIvimento Institucional": "N/A",
+  "Relação Conass/Conasems/MS com HE e instituições parceiras": "N/A",
+  "Benefícios para instituição parceira": "N/A",
+  "Desafios para a participação do HE no Proadi": "N/A",
+  "Sugestões": "N/A",
+  "Origem dos projetos (quem demandou, tramitação e negociações)": "N/A",
+  "Projetos colaborativos (participação de cada um, relacionamento HE e benefícios e desafios)": "N/A",
+  "Expertise do hospital para o projeto e Inserção deste no HE": "N/A",
+  "Abrangência Territorial do Projeto (definição)": "N/A",
+  "Seleção e envolvimento instituições participantes no projeto": "N/A",
+  "Avaliações sobre o Projeto": "N/A",
+  "Monitoramento (HE e instituições participantes) e Indicadores": "N/A",
+  "Riscos na implementação/dificuldades enfrentadas (adesão instituições ou profissionais, infraestrutura, outras)": "N/A",
+  "Benefícios do projeto para o SUS": "N/A",
+  "Incorporação de bens materiais ao SUS?": "N/A",
+  "Treinamento para profissionais?": "N/A",
+  "Publicações ou divulgação?": "N/A",
+  "Incorporação resultados ao SUS": "N/A",
+  "Longevidade e sustentabilidade possível?": "N/A"
+}
+2025-06-01 11:14:43,006 - INFO - ✅ Successfully parsed JSON for chunk 2
+2025-06-01 11:14:43,006 - INFO - 📊 Extracted data keys: ['Código Entrevista', 'Área de atuação', 'Hospital', 'Nome - posição institucional - Projetos', 'Modelos para planos de trabalho e prestação de contas', 'Avaliação geral Proadi e DesenvoIvimento Institucional', 'Relação Conass/Conasems/MS com HE e instituições parceiras', 'Benefícios para instituição parceira', 'Desafios para a participação do HE no Proadi', 'Sugestões', 'Origem dos projetos (quem demandou, tramitação e negociações)', 'Projetos colaborativos (participação de cada um, relacionamento HE e benefícios e desafios)', 'Expertise do hospital para o projeto e Inserção deste no HE', 'Abrangência Territorial do Projeto (definição)', 'Seleção e envolvimento instituições participantes no projeto', 'Avaliações sobre o Projeto', 'Monitoramento (HE e instituições participantes) e Indicadores', 'Riscos na implementação/dificuldades enfrentadas (adesão instituições ou profissionais, infraestrutura, outras)', 'Benefícios do projeto para o SUS', 'Incorporação de bens materiais ao SUS?', 'Treinamento para profissionais?', 'Publicações ou divulgação?', 'Incorporação resultados ao SUS', 'Longevidade e sustentabilidade possível?']
+2025-06-01 11:14:43,006 - INFO - Analyzing chunk 3/6 for Gravação da Entrevista - Gravador - 09_04_2025 - HAOC01 - Bruna e Nídia.docx (922 tokens)
+2025-06-01 11:14:43,006 - INFO - Waiting 12 seconds to avoid rate limiting...
+2025-06-01 11:16:36,522 - INFO - Loaded existing file with 5 rows
+2025-06-01 11:16:36,522 - INFO - Starting interview analysis...
+2025-06-01 11:16:36,523 - INFO - Found 2 interview files
+2025-06-01 11:16:36,523 - INFO - Found 5 already processed interviews
+2025-06-01 11:16:36,523 - INFO - Processing Gravação da Entrevista - Gravador - 09_04_2025 - HAOC01 - Bruna e Nídia.docx...
+2025-06-01 11:16:36,524 - WARNING - Used latin-1 encoding for Gravação da Entrevista - Gravador - 09_04_2025 - HAOC01 - Bruna e Nídia.docx
+2025-06-01 11:16:36,524 - INFO - Estimated tokens for Gravação da Entrevista - Gravador - 09_04_2025 - HAOC01 - Bruna e Nídia.docx: 16299
+2025-06-01 11:16:36,524 - INFO - Content too large for Gravação da Entrevista - Gravador - 09_04_2025 - HAOC01 - Bruna e Nídia.docx, chunking...
+2025-06-01 11:16:36,524 - INFO - Split content into 6 chunks (max 1000 tokens each)
+2025-06-01 11:16:36,524 - INFO - Analyzing chunk 1/6 for Gravação da Entrevista - Gravador - 09_04_2025 - HAOC01 - Bruna e Nídia.docx (750 tokens)
+2025-06-01 11:16:51,180 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-01 11:16:51,187 - INFO - 🔍 Raw OpenAI response for chunk 1:
+2025-06-01 11:16:51,187 - INFO - 📝 Response: {
+  "Código Entrevista": "Não mencionado",
+  "Área de atuação": "Não mencionado",
+  "Hospital": "Não mencionado",
+  "Nome - posição institucional - Projetos": "Não mencionado",
+  "Modelos para planos de trabalho e prestação de contas": "Não mencionado",
+  "Avaliação geral Proadi e DesenvoIvimento Institucional": "Não mencionado",
+  "Relação Conass/Conasems/MS com HE e instituições parceiras": "Não mencionado",
+  "Benefícios para instituição parceira": "Não mencionado",
+  "Desafios para a participação do HE no Proadi": "Não mencionado",
+  "Sugestões": "Não mencionado",
+  "Origem dos projetos (quem demandou, tramitação e negociações)": "Não mencionado",
+  "Projetos colaborativos (participação de cada um, relacionamento HE e benefícios e desafios)": "Não mencionado",
+  "Expertise do hospital para o projeto e Inserção deste no HE": "Não mencionado",
+  "Abrangência Territorial do Projeto (definição)": "Não mencionado",
+  "Seleção e envolvimento instituições participantes no projeto": "Não mencionado",
+  "Avaliações sobre o Projeto": "Não mencionado",
+  "Monitoramento (HE e instituições participantes) e Indicadores": "Não mencionado",
+  "Riscos na implementação/dificuldades enfrentadas (adesão instituições ou profissionais, infraestrutura, outras)": "Não mencionado",
+  "Benefícios do projeto para o SUS": "Não mencionado",
+  "Incorporação de bens materiais ao SUS?": "Não mencionado",
+  "Treinamento para profissionais?": "Não mencionado",
+  "Publicações ou divulgação?": "Não mencionado",
+  "Incorporação resultados ao SUS": "Não mencionado",
+  "Longevidade e sustentabilidade possível?": "Não mencionado"
+}
+2025-06-01 11:16:51,188 - INFO - 🧹 Cleaned JSON for chunk 1: {
+  "Código Entrevista": "Não mencionado",
+  "Área de atuação": "Não mencionado",
+  "Hospital": "Não mencionado",
+  "Nome - posição institucional - Projetos": "Não mencionado",
+  "Modelos para planos de trabalho e prestação de contas": "Não mencionado",
+  "Avaliação geral Proadi e DesenvoIvimento Institucional": "Não mencionado",
+  "Relação Conass/Conasems/MS com HE e instituições parceiras": "Não mencionado",
+  "Benefícios para instituição parceira": "Não mencionado",
+  "Desafios para a participação do HE no Proadi": "Não mencionado",
+  "Sugestões": "Não mencionado",
+  "Origem dos projetos (quem demandou, tramitação e negociações)": "Não mencionado",
+  "Projetos colaborativos (participação de cada um, relacionamento HE e benefícios e desafios)": "Não mencionado",
+  "Expertise do hospital para o projeto e Inserção deste no HE": "Não mencionado",
+  "Abrangência Territorial do Projeto (definição)": "Não mencionado",
+  "Seleção e envolvimento instituições participantes no projeto": "Não mencionado",
+  "Avaliações sobre o Projeto": "Não mencionado",
+  "Monitoramento (HE e instituições participantes) e Indicadores": "Não mencionado",
+  "Riscos na implementação/dificuldades enfrentadas (adesão instituições ou profissionais, infraestrutura, outras)": "Não mencionado",
+  "Benefícios do projeto para o SUS": "Não mencionado",
+  "Incorporação de bens materiais ao SUS?": "Não mencionado",
+  "Treinamento para profissionais?": "Não mencionado",
+  "Publicações ou divulgação?": "Não mencionado",
+  "Incorporação resultados ao SUS": "Não mencionado",
+  "Longevidade e sustentabilidade possível?": "Não mencionado"
+}
+2025-06-01 11:16:51,188 - INFO - ✅ Successfully parsed JSON for chunk 1
+2025-06-01 11:16:51,189 - INFO - 📊 Extracted data keys: ['Código Entrevista', 'Área de atuação', 'Hospital', 'Nome - posição institucional - Projetos', 'Modelos para planos de trabalho e prestação de contas', 'Avaliação geral Proadi e DesenvoIvimento Institucional', 'Relação Conass/Conasems/MS com HE e instituições parceiras', 'Benefícios para instituição parceira', 'Desafios para a participação do HE no Proadi', 'Sugestões', 'Origem dos projetos (quem demandou, tramitação e negociações)', 'Projetos colaborativos (participação de cada um, relacionamento HE e benefícios e desafios)', 'Expertise do hospital para o projeto e Inserção deste no HE', 'Abrangência Territorial do Projeto (definição)', 'Seleção e envolvimento instituições participantes no projeto', 'Avaliações sobre o Projeto', 'Monitoramento (HE e instituições participantes) e Indicadores', 'Riscos na implementação/dificuldades enfrentadas (adesão instituições ou profissionais, infraestrutura, outras)', 'Benefícios do projeto para o SUS', 'Incorporação de bens materiais ao SUS?', 'Treinamento para profissionais?', 'Publicações ou divulgação?', 'Incorporação resultados ao SUS', 'Longevidade e sustentabilidade possível?']
+2025-06-01 11:16:51,189 - INFO - Analyzing chunk 2/6 for Gravação da Entrevista - Gravador - 09_04_2025 - HAOC01 - Bruna e Nídia.docx (926 tokens)
+2025-06-01 11:16:51,189 - INFO - Waiting 12 seconds to avoid rate limiting...
+2025-06-01 11:17:20,311 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-01 11:17:20,316 - INFO - 🔍 Raw OpenAI response for chunk 2:
+2025-06-01 11:17:20,316 - INFO - 📝 Response: {
+  "Código Entrevista": "Não mencionado",
+  "Área de atuação": "Não mencionado",
+  "Hospital": "Não mencionado",
+  "Nome - posição institucional - Projetos": "Não mencionado",
+  "Modelos para planos de trabalho e prestação de contas": "Não mencionado",
+  "Avaliação geral Proadi e DesenvoIvimento Institucional": "Não mencionado",
+  "Relação Conass/Conasems/MS com HE e instituições parceiras": "Não mencionado",
+  "Benefícios para instituição parceira": "Não mencionado",
+  "Desafios para a participação do HE no Proadi": "Não mencionado",
+  "Sugestões": "Não mencionado",
+  "Origem dos projetos (quem demandou, tramitação e negociações)": "Não mencionado",
+  "Projetos colaborativos (participação de cada um, relacionamento HE e benefícios e desafios)": "Não mencionado",
+  "Expertise do hospital para o projeto e Inserção deste no HE": "Não mencionado",
+  "Abrangência Territorial do Projeto (definição)": "Não mencionado",
+  "Seleção e envolvimento instituições participantes no projeto": "Não mencionado",
+  "Avaliações sobre o Projeto": "Não mencionado",
+  "Monitoramento (HE e instituições participantes) e Indicadores": "Não mencionado",
+  "Riscos na implementação/dificuldades enfrentadas (adesão instituições ou profissionais, infraestrutura, outras)": "Não mencionado",
+  "Benefícios do projeto para o SUS": "Não mencionado",
+  "Incorporação de bens materiais ao SUS?": "Não mencionado",
+  "Treinamento para profissionais?": "Não mencionado",
+  "Publicações ou divulgação?": "Não mencionado",
+  "Incorporação resultados ao SUS": "Não mencionado",
+  "Longevidade e sustentabilidade possível?": "Não mencionado"
+}
+2025-06-01 11:17:20,317 - INFO - 🧹 Cleaned JSON for chunk 2: {
+  "Código Entrevista": "Não mencionado",
+  "Área de atuação": "Não mencionado",
+  "Hospital": "Não mencionado",
+  "Nome - posição institucional - Projetos": "Não mencionado",
+  "Modelos para planos de trabalho e prestação de contas": "Não mencionado",
+  "Avaliação geral Proadi e DesenvoIvimento Institucional": "Não mencionado",
+  "Relação Conass/Conasems/MS com HE e instituições parceiras": "Não mencionado",
+  "Benefícios para instituição parceira": "Não mencionado",
+  "Desafios para a participação do HE no Proadi": "Não mencionado",
+  "Sugestões": "Não mencionado",
+  "Origem dos projetos (quem demandou, tramitação e negociações)": "Não mencionado",
+  "Projetos colaborativos (participação de cada um, relacionamento HE e benefícios e desafios)": "Não mencionado",
+  "Expertise do hospital para o projeto e Inserção deste no HE": "Não mencionado",
+  "Abrangência Territorial do Projeto (definição)": "Não mencionado",
+  "Seleção e envolvimento instituições participantes no projeto": "Não mencionado",
+  "Avaliações sobre o Projeto": "Não mencionado",
+  "Monitoramento (HE e instituições participantes) e Indicadores": "Não mencionado",
+  "Riscos na implementação/dificuldades enfrentadas (adesão instituições ou profissionais, infraestrutura, outras)": "Não mencionado",
+  "Benefícios do projeto para o SUS": "Não mencionado",
+  "Incorporação de bens materiais ao SUS?": "Não mencionado",
+  "Treinamento para profissionais?": "Não mencionado",
+  "Publicações ou divulgação?": "Não mencionado",
+  "Incorporação resultados ao SUS": "Não mencionado",
+  "Longevidade e sustentabilidade possível?": "Não mencionado"
+}
+2025-06-01 11:17:20,317 - INFO - ✅ Successfully parsed JSON for chunk 2
+2025-06-01 11:17:20,317 - INFO - 📊 Extracted data keys: ['Código Entrevista', 'Área de atuação', 'Hospital', 'Nome - posição institucional - Projetos', 'Modelos para planos de trabalho e prestação de contas', 'Avaliação geral Proadi e DesenvoIvimento Institucional', 'Relação Conass/Conasems/MS com HE e instituições parceiras', 'Benefícios para instituição parceira', 'Desafios para a participação do HE no Proadi', 'Sugestões', 'Origem dos projetos (quem demandou, tramitação e negociações)', 'Projetos colaborativos (participação de cada um, relacionamento HE e benefícios e desafios)', 'Expertise do hospital para o projeto e Inserção deste no HE', 'Abrangência Territorial do Projeto (definição)', 'Seleção e envolvimento instituições participantes no projeto', 'Avaliações sobre o Projeto', 'Monitoramento (HE e instituições participantes) e Indicadores', 'Riscos na implementação/dificuldades enfrentadas (adesão instituições ou profissionais, infraestrutura, outras)', 'Benefícios do projeto para o SUS', 'Incorporação de bens materiais ao SUS?', 'Treinamento para profissionais?', 'Publicações ou divulgação?', 'Incorporação resultados ao SUS', 'Longevidade e sustentabilidade possível?']
+2025-06-01 11:17:20,318 - INFO - Analyzing chunk 3/6 for Gravação da Entrevista - Gravador - 09_04_2025 - HAOC01 - Bruna e Nídia.docx (922 tokens)
+2025-06-01 11:17:20,318 - INFO - Waiting 12 seconds to avoid rate limiting...
+2025-06-01 11:21:11,000 - INFO - Loaded existing file with 5 rows
+2025-06-01 11:21:11,000 - INFO - Starting interview analysis...
+2025-06-01 11:21:11,001 - INFO - Found 2 interview files
+2025-06-01 11:21:11,001 - INFO - Found 5 already processed interviews
+2025-06-01 11:21:11,001 - INFO - Processing Gravação da Entrevista - Gravador - 09_04_2025 - HAOC01 - Bruna e Nídia.docx...
+2025-06-01 11:21:11,002 - WARNING - Used latin-1 encoding for Gravação da Entrevista - Gravador - 09_04_2025 - HAOC01 - Bruna e Nídia.docx
+2025-06-01 11:21:11,002 - INFO - Estimated tokens for Gravação da Entrevista - Gravador - 09_04_2025 - HAOC01 - Bruna e Nídia.docx: 16299
+2025-06-01 11:21:11,002 - INFO - Content too large for Gravação da Entrevista - Gravador - 09_04_2025 - HAOC01 - Bruna e Nídia.docx, chunking...
+2025-06-01 11:21:11,002 - INFO - Split content into 6 chunks (max 1000 tokens each)
+2025-06-01 11:21:11,002 - INFO - Analyzing chunk 1/6 for Gravação da Entrevista - Gravador - 09_04_2025 - HAOC01 - Bruna e Nídia.docx (750 tokens)
+2025-06-01 11:21:15,296 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-01 11:21:15,301 - INFO - 🔍 Raw OpenAI response for chunk 1:
+2025-06-01 11:21:15,302 - INFO - 📝 Response: ```json
+{
+  "Código Entrevista": "Não mencionado",
+  "Área de atuação": "Não mencionado",
+  "Hospital": "Não mencionado",
+  "Nome - posição institucional - Projetos": "Não mencionado",
+  "Modelos para planos de trabalho e prestação de contas": "Não mencionado",
+  "Avaliação geral Proadi e DesenvoIvimento Institucional": "Não mencionado",
+  "Relação Conass/Conasems/MS com HE e instituições parceiras": "Não mencionado",
+  "Benefícios para instituição parceira": "Não mencionado",
+  "Desafios para a participação do HE no Proadi": "Não mencionado",
+  "Sugestões": "Não mencionado",
+  "Origem dos projetos (quem demandou, tramitação e negociações)": "Não mencionado",
+  "Projetos colaborativos (participação de cada um, relacionamento HE e benefícios e desafios)": "Não mencionado",
+  "Expertise do hospital para o projeto e Inserção deste no HE": "Não mencionado",
+  "Abrangência Territorial do Projeto (definição)": "Não mencionado",
+  "Seleção e envolvimento instituições participantes no projeto": "Não mencionado",
+  "Avaliações sobre o Projeto": "Não mencionado",
+  "Monitoramento (HE e instituições participantes) e Indicadores": "Não mencionado",
+  "Riscos na implementação/dificuldades enfrentadas (adesão instituições ou profissionais, infraestrutura, outras)": "Não mencionado",
+  "Benefícios do projeto para o SUS": "Não mencionado",
+  "Incorporação de bens materiais ao SUS?": "Não mencionado",
+  "Treinamento para profissionais?": "Não mencionado",
+  "Publicações ou divulgação?": "Não mencionado",
+  "Incorporação resultados ao SUS": "Não mencionado",
+  "Longevidade e sustentabilidade possível?": "Não mencionado"
+}
+```
+2025-06-01 11:21:15,302 - INFO - 🧹 Cleaned JSON for chunk 1: {
+  "Código Entrevista": "Não mencionado",
+  "Área de atuação": "Não mencionado",
+  "Hospital": "Não mencionado",
+  "Nome - posição institucional - Projetos": "Não mencionado",
+  "Modelos para planos de trabalho e prestação de contas": "Não mencionado",
+  "Avaliação geral Proadi e DesenvoIvimento Institucional": "Não mencionado",
+  "Relação Conass/Conasems/MS com HE e instituições parceiras": "Não mencionado",
+  "Benefícios para instituição parceira": "Não mencionado",
+  "Desafios para a participação do HE no Proadi": "Não mencionado",
+  "Sugestões": "Não mencionado",
+  "Origem dos projetos (quem demandou, tramitação e negociações)": "Não mencionado",
+  "Projetos colaborativos (participação de cada um, relacionamento HE e benefícios e desafios)": "Não mencionado",
+  "Expertise do hospital para o projeto e Inserção deste no HE": "Não mencionado",
+  "Abrangência Territorial do Projeto (definição)": "Não mencionado",
+  "Seleção e envolvimento instituições participantes no projeto": "Não mencionado",
+  "Avaliações sobre o Projeto": "Não mencionado",
+  "Monitoramento (HE e instituições participantes) e Indicadores": "Não mencionado",
+  "Riscos na implementação/dificuldades enfrentadas (adesão instituições ou profissionais, infraestrutura, outras)": "Não mencionado",
+  "Benefícios do projeto para o SUS": "Não mencionado",
+  "Incorporação de bens materiais ao SUS?": "Não mencionado",
+  "Treinamento para profissionais?": "Não mencionado",
+  "Publicações ou divulgação?": "Não mencionado",
+  "Incorporação resultados ao SUS": "Não mencionado",
+  "Longevidade e sustentabilidade possível?": "Não mencionado"
+}
+2025-06-01 11:21:15,302 - INFO - ✅ Successfully parsed JSON for chunk 1
+2025-06-01 11:21:15,302 - INFO - 📊 Extracted data keys: ['Código Entrevista', 'Área de atuação', 'Hospital', 'Nome - posição institucional - Projetos', 'Modelos para planos de trabalho e prestação de contas', 'Avaliação geral Proadi e DesenvoIvimento Institucional', 'Relação Conass/Conasems/MS com HE e instituições parceiras', 'Benefícios para instituição parceira', 'Desafios para a participação do HE no Proadi', 'Sugestões', 'Origem dos projetos (quem demandou, tramitação e negociações)', 'Projetos colaborativos (participação de cada um, relacionamento HE e benefícios e desafios)', 'Expertise do hospital para o projeto e Inserção deste no HE', 'Abrangência Territorial do Projeto (definição)', 'Seleção e envolvimento instituições participantes no projeto', 'Avaliações sobre o Projeto', 'Monitoramento (HE e instituições participantes) e Indicadores', 'Riscos na implementação/dificuldades enfrentadas (adesão instituições ou profissionais, infraestrutura, outras)', 'Benefícios do projeto para o SUS', 'Incorporação de bens materiais ao SUS?', 'Treinamento para profissionais?', 'Publicações ou divulgação?', 'Incorporação resultados ao SUS', 'Longevidade e sustentabilidade possível?']
+2025-06-01 11:21:15,302 - INFO - Analyzing chunk 2/6 for Gravação da Entrevista - Gravador - 09_04_2025 - HAOC01 - Bruna e Nídia.docx (926 tokens)
+2025-06-01 11:21:15,303 - INFO - Waiting 6 seconds to avoid rate limiting...
+2025-06-01 11:21:25,603 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-01 11:21:25,605 - INFO - 🔍 Raw OpenAI response for chunk 2:
+2025-06-01 11:21:25,606 - INFO - 📝 Response: ```json
+{
+  "Código Entrevista": "Não mencionado",
+  "Área de atuação": "Não mencionado",
+  "Hospital": "Não mencionado",
+  "Nome - posição institucional - Projetos": "Não mencionado",
+  "Modelos para planos de trabalho e prestação de contas": "Não mencionado",
+  "Avaliação geral Proadi e DesenvoIvimento Institucional": "Não mencionado",
+  "Relação Conass/Conasems/MS com HE e instituições parceiras": "Não mencionado",
+  "Benefícios para instituição parceira": "Não mencionado",
+  "Desafios para a participação do HE no Proadi": "Não mencionado",
+  "Sugestões": "Não mencionado",
+  "Origem dos projetos (quem demandou, tramitação e negociações)": "Não mencionado",
+  "Projetos colaborativos (participação de cada um, relacionamento HE e benefícios e desafios)": "Não mencionado",
+  "Expertise do hospital para o projeto e Inserção deste no HE": "Não mencionado",
+  "Abrangência Territorial do Projeto (definição)": "Não mencionado",
+  "Seleção e envolvimento instituições participantes no projeto": "Não mencionado",
+  "Avaliações sobre o Projeto": "Não mencionado",
+  "Monitoramento (HE e instituições participantes) e Indicadores": "Não mencionado",
+  "Riscos na implementação/dificuldades enfrentadas (adesão instituições ou profissionais, infraestrutura, outras)": "Não mencionado",
+  "Benefícios do projeto para o SUS": "Não mencionado",
+  "Incorporação de bens materiais ao SUS?": "Não mencionado",
+  "Treinamento para profissionais?": "Não mencionado",
+  "Publicações ou divulgação?": "Não mencionado",
+  "Incorporação resultados ao SUS": "Não mencionado",
+  "Longevidade e sustentabilidade possível?": "Não mencionado"
+}
+```
+2025-06-01 11:21:25,606 - INFO - 🧹 Cleaned JSON for chunk 2: {
+  "Código Entrevista": "Não mencionado",
+  "Área de atuação": "Não mencionado",
+  "Hospital": "Não mencionado",
+  "Nome - posição institucional - Projetos": "Não mencionado",
+  "Modelos para planos de trabalho e prestação de contas": "Não mencionado",
+  "Avaliação geral Proadi e DesenvoIvimento Institucional": "Não mencionado",
+  "Relação Conass/Conasems/MS com HE e instituições parceiras": "Não mencionado",
+  "Benefícios para instituição parceira": "Não mencionado",
+  "Desafios para a participação do HE no Proadi": "Não mencionado",
+  "Sugestões": "Não mencionado",
+  "Origem dos projetos (quem demandou, tramitação e negociações)": "Não mencionado",
+  "Projetos colaborativos (participação de cada um, relacionamento HE e benefícios e desafios)": "Não mencionado",
+  "Expertise do hospital para o projeto e Inserção deste no HE": "Não mencionado",
+  "Abrangência Territorial do Projeto (definição)": "Não mencionado",
+  "Seleção e envolvimento instituições participantes no projeto": "Não mencionado",
+  "Avaliações sobre o Projeto": "Não mencionado",
+  "Monitoramento (HE e instituições participantes) e Indicadores": "Não mencionado",
+  "Riscos na implementação/dificuldades enfrentadas (adesão instituições ou profissionais, infraestrutura, outras)": "Não mencionado",
+  "Benefícios do projeto para o SUS": "Não mencionado",
+  "Incorporação de bens materiais ao SUS?": "Não mencionado",
+  "Treinamento para profissionais?": "Não mencionado",
+  "Publicações ou divulgação?": "Não mencionado",
+  "Incorporação resultados ao SUS": "Não mencionado",
+  "Longevidade e sustentabilidade possível?": "Não mencionado"
+}
+2025-06-01 11:21:25,607 - INFO - ✅ Successfully parsed JSON for chunk 2
+2025-06-01 11:21:25,607 - INFO - 📊 Extracted data keys: ['Código Entrevista', 'Área de atuação', 'Hospital', 'Nome - posição institucional - Projetos', 'Modelos para planos de trabalho e prestação de contas', 'Avaliação geral Proadi e DesenvoIvimento Institucional', 'Relação Conass/Conasems/MS com HE e instituições parceiras', 'Benefícios para instituição parceira', 'Desafios para a participação do HE no Proadi', 'Sugestões', 'Origem dos projetos (quem demandou, tramitação e negociações)', 'Projetos colaborativos (participação de cada um, relacionamento HE e benefícios e desafios)', 'Expertise do hospital para o projeto e Inserção deste no HE', 'Abrangência Territorial do Projeto (definição)', 'Seleção e envolvimento instituições participantes no projeto', 'Avaliações sobre o Projeto', 'Monitoramento (HE e instituições participantes) e Indicadores', 'Riscos na implementação/dificuldades enfrentadas (adesão instituições ou profissionais, infraestrutura, outras)', 'Benefícios do projeto para o SUS', 'Incorporação de bens materiais ao SUS?', 'Treinamento para profissionais?', 'Publicações ou divulgação?', 'Incorporação resultados ao SUS', 'Longevidade e sustentabilidade possível?']
+2025-06-01 11:21:25,607 - INFO - Analyzing chunk 3/6 for Gravação da Entrevista - Gravador - 09_04_2025 - HAOC01 - Bruna e Nídia.docx (922 tokens)
+2025-06-01 11:21:25,607 - INFO - Waiting 6 seconds to avoid rate limiting...
+2025-06-01 11:21:35,454 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-01 11:21:35,457 - INFO - 🔍 Raw OpenAI response for chunk 3:
+2025-06-01 11:21:35,457 - INFO - 📝 Response: ```json
+{
+  "Código Entrevista": "Não mencionado",
+  "Área de atuação": "Não mencionado",
+  "Hospital": "Não mencionado",
+  "Nome - posição institucional - Projetos": "Não mencionado",
+  "Modelos para planos de trabalho e prestação de contas": "Não mencionado",
+  "Avaliação geral Proadi e DesenvoIvimento Institucional": "Não mencionado",
+  "Relação Conass/Conasems/MS com HE e instituições parceiras": "Não mencionado",
+  "Benefícios para instituição parceira": "Não mencionado",
+  "Desafios para a participação do HE no Proadi": "Não mencionado",
+  "Sugestões": "Não mencionado",
+  "Origem dos projetos (quem demandou, tramitação e negociações)": "Não mencionado",
+  "Projetos colaborativos (participação de cada um, relacionamento HE e benefícios e desafios)": "Não mencionado",
+  "Expertise do hospital para o projeto e Inserção deste no HE": "Não mencionado",
+  "Abrangência Territorial do Projeto (definição)": "Não mencionado",
+  "Seleção e envolvimento instituições participantes no projeto": "Não mencionado",
+  "Avaliações sobre o Projeto": "Não mencionado",
+  "Monitoramento (HE e instituições participantes) e Indicadores": "Não mencionado",
+  "Riscos na implementação/dificuldades enfrentadas (adesão instituições ou profissionais, infraestrutura, outras)": "Não mencionado",
+  "Benefícios do projeto para o SUS": "Não mencionado",
+  "Incorporação de bens materiais ao SUS?": "Não mencionado",
+  "Treinamento para profissionais?": "Não mencionado",
+  "Publicações ou divulgação?": "Não mencionado",
+  "Incorporação resultados ao SUS": "Não mencionado",
+  "Longevidade e sustentabilidade possível?": "Não mencionado"
+}
+```
+2025-06-01 11:21:35,457 - INFO - 🧹 Cleaned JSON for chunk 3: {
+  "Código Entrevista": "Não mencionado",
+  "Área de atuação": "Não mencionado",
+  "Hospital": "Não mencionado",
+  "Nome - posição institucional - Projetos": "Não mencionado",
+  "Modelos para planos de trabalho e prestação de contas": "Não mencionado",
+  "Avaliação geral Proadi e DesenvoIvimento Institucional": "Não mencionado",
+  "Relação Conass/Conasems/MS com HE e instituições parceiras": "Não mencionado",
+  "Benefícios para instituição parceira": "Não mencionado",
+  "Desafios para a participação do HE no Proadi": "Não mencionado",
+  "Sugestões": "Não mencionado",
+  "Origem dos projetos (quem demandou, tramitação e negociações)": "Não mencionado",
+  "Projetos colaborativos (participação de cada um, relacionamento HE e benefícios e desafios)": "Não mencionado",
+  "Expertise do hospital para o projeto e Inserção deste no HE": "Não mencionado",
+  "Abrangência Territorial do Projeto (definição)": "Não mencionado",
+  "Seleção e envolvimento instituições participantes no projeto": "Não mencionado",
+  "Avaliações sobre o Projeto": "Não mencionado",
+  "Monitoramento (HE e instituições participantes) e Indicadores": "Não mencionado",
+  "Riscos na implementação/dificuldades enfrentadas (adesão instituições ou profissionais, infraestrutura, outras)": "Não mencionado",
+  "Benefícios do projeto para o SUS": "Não mencionado",
+  "Incorporação de bens materiais ao SUS?": "Não mencionado",
+  "Treinamento para profissionais?": "Não mencionado",
+  "Publicações ou divulgação?": "Não mencionado",
+  "Incorporação resultados ao SUS": "Não mencionado",
+  "Longevidade e sustentabilidade possível?": "Não mencionado"
+}
+2025-06-01 11:21:35,457 - INFO - ✅ Successfully parsed JSON for chunk 3
+2025-06-01 11:21:35,458 - INFO - 📊 Extracted data keys: ['Código Entrevista', 'Área de atuação', 'Hospital', 'Nome - posição institucional - Projetos', 'Modelos para planos de trabalho e prestação de contas', 'Avaliação geral Proadi e DesenvoIvimento Institucional', 'Relação Conass/Conasems/MS com HE e instituições parceiras', 'Benefícios para instituição parceira', 'Desafios para a participação do HE no Proadi', 'Sugestões', 'Origem dos projetos (quem demandou, tramitação e negociações)', 'Projetos colaborativos (participação de cada um, relacionamento HE e benefícios e desafios)', 'Expertise do hospital para o projeto e Inserção deste no HE', 'Abrangência Territorial do Projeto (definição)', 'Seleção e envolvimento instituições participantes no projeto', 'Avaliações sobre o Projeto', 'Monitoramento (HE e instituições participantes) e Indicadores', 'Riscos na implementação/dificuldades enfrentadas (adesão instituições ou profissionais, infraestrutura, outras)', 'Benefícios do projeto para o SUS', 'Incorporação de bens materiais ao SUS?', 'Treinamento para profissionais?', 'Publicações ou divulgação?', 'Incorporação resultados ao SUS', 'Longevidade e sustentabilidade possível?']
+2025-06-01 11:21:35,458 - INFO - Analyzing chunk 4/6 for Gravação da Entrevista - Gravador - 09_04_2025 - HAOC01 - Bruna e Nídia.docx (994 tokens)
+2025-06-01 11:21:35,458 - INFO - Waiting 6 seconds to avoid rate limiting...
+2025-06-01 11:21:43,803 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-01 11:21:43,806 - INFO - 🔍 Raw OpenAI response for chunk 4:
+2025-06-01 11:21:43,806 - INFO - 📝 Response: ```json
+{
+  "Código Entrevista": "Não mencionado",
+  "Área de atuação": "Não mencionado",
+  "Hospital": "Não mencionado",
+  "Nome - posição institucional - Projetos": "Não mencionado",
+  "Modelos para planos de trabalho e prestação de contas": "Não mencionado",
+  "Avaliação geral Proadi e DesenvoIvimento Institucional": "Não mencionado",
+  "Relação Conass/Conasems/MS com HE e instituições parceiras": "Não mencionado",
+  "Benefícios para instituição parceira": "Não mencionado",
+  "Desafios para a participação do HE no Proadi": "Não mencionado",
+  "Sugestões": "Não mencionado",
+  "Origem dos projetos (quem demandou, tramitação e negociações)": "Não mencionado",
+  "Projetos colaborativos (participação de cada um, relacionamento HE e benefícios e desafios)": "Não mencionado",
+  "Expertise do hospital para o projeto e Inserção deste no HE": "Não mencionado",
+  "Abrangência Territorial do Projeto (definição)": "Não mencionado",
+  "Seleção e envolvimento instituições participantes no projeto": "Não mencionado",
+  "Avaliações sobre o Projeto": "Não mencionado",
+  "Monitoramento (HE e instituições participantes) e Indicadores": "Não mencionado",
+  "Riscos na implementação/dificuldades enfrentadas (adesão instituições ou profissionais, infraestrutura, outras)": "Não mencionado",
+  "Benefícios do projeto para o SUS": "Não mencionado",
+  "Incorporação de bens materiais ao SUS?": "Não mencionado",
+  "Treinamento para profissionais?": "Não mencionado",
+  "Publicações ou divulgação?": "Não mencionado",
+  "Incorporação resultados ao SUS": "Não mencionado",
+  "Longevidade e sustentabilidade possível?": "Não mencionado"
+}
+```
+2025-06-01 11:21:43,806 - INFO - 🧹 Cleaned JSON for chunk 4: {
+  "Código Entrevista": "Não mencionado",
+  "Área de atuação": "Não mencionado",
+  "Hospital": "Não mencionado",
+  "Nome - posição institucional - Projetos": "Não mencionado",
+  "Modelos para planos de trabalho e prestação de contas": "Não mencionado",
+  "Avaliação geral Proadi e DesenvoIvimento Institucional": "Não mencionado",
+  "Relação Conass/Conasems/MS com HE e instituições parceiras": "Não mencionado",
+  "Benefícios para instituição parceira": "Não mencionado",
+  "Desafios para a participação do HE no Proadi": "Não mencionado",
+  "Sugestões": "Não mencionado",
+  "Origem dos projetos (quem demandou, tramitação e negociações)": "Não mencionado",
+  "Projetos colaborativos (participação de cada um, relacionamento HE e benefícios e desafios)": "Não mencionado",
+  "Expertise do hospital para o projeto e Inserção deste no HE": "Não mencionado",
+  "Abrangência Territorial do Projeto (definição)": "Não mencionado",
+  "Seleção e envolvimento instituições participantes no projeto": "Não mencionado",
+  "Avaliações sobre o Projeto": "Não mencionado",
+  "Monitoramento (HE e instituições participantes) e Indicadores": "Não mencionado",
+  "Riscos na implementação/dificuldades enfrentadas (adesão instituições ou profissionais, infraestrutura, outras)": "Não mencionado",
+  "Benefícios do projeto para o SUS": "Não mencionado",
+  "Incorporação de bens materiais ao SUS?": "Não mencionado",
+  "Treinamento para profissionais?": "Não mencionado",
+  "Publicações ou divulgação?": "Não mencionado",
+  "Incorporação resultados ao SUS": "Não mencionado",
+  "Longevidade e sustentabilidade possível?": "Não mencionado"
+}
+2025-06-01 11:21:43,806 - INFO - ✅ Successfully parsed JSON for chunk 4
+2025-06-01 11:21:43,806 - INFO - 📊 Extracted data keys: ['Código Entrevista', 'Área de atuação', 'Hospital', 'Nome - posição institucional - Projetos', 'Modelos para planos de trabalho e prestação de contas', 'Avaliação geral Proadi e DesenvoIvimento Institucional', 'Relação Conass/Conasems/MS com HE e instituições parceiras', 'Benefícios para instituição parceira', 'Desafios para a participação do HE no Proadi', 'Sugestões', 'Origem dos projetos (quem demandou, tramitação e negociações)', 'Projetos colaborativos (participação de cada um, relacionamento HE e benefícios e desafios)', 'Expertise do hospital para o projeto e Inserção deste no HE', 'Abrangência Territorial do Projeto (definição)', 'Seleção e envolvimento instituições participantes no projeto', 'Avaliações sobre o Projeto', 'Monitoramento (HE e instituições participantes) e Indicadores', 'Riscos na implementação/dificuldades enfrentadas (adesão instituições ou profissionais, infraestrutura, outras)', 'Benefícios do projeto para o SUS', 'Incorporação de bens materiais ao SUS?', 'Treinamento para profissionais?', 'Publicações ou divulgação?', 'Incorporação resultados ao SUS', 'Longevidade e sustentabilidade possível?']
+2025-06-01 11:21:43,807 - INFO - Analyzing chunk 5/6 for Gravação da Entrevista - Gravador - 09_04_2025 - HAOC01 - Bruna e Nídia.docx (926 tokens)
+2025-06-01 11:21:43,807 - INFO - Waiting 6 seconds to avoid rate limiting...
+2025-06-01 11:22:20,172 - INFO - Loaded existing file with 5 rows
+2025-06-01 11:22:20,172 - INFO - Starting interview analysis...
+2025-06-01 11:22:20,172 - INFO - Found 2 interview files
+2025-06-01 11:22:20,173 - INFO - Found 5 already processed interviews
+2025-06-01 11:22:20,173 - INFO - Processing Gravação da Entrevista - Gravador - 09_04_2025 - HAOC01 - Bruna e Nídia.docx...
+2025-06-01 11:22:20,174 - WARNING - Used latin-1 encoding for Gravação da Entrevista - Gravador - 09_04_2025 - HAOC01 - Bruna e Nídia.docx
+2025-06-01 11:22:20,174 - INFO - Estimated tokens for Gravação da Entrevista - Gravador - 09_04_2025 - HAOC01 - Bruna e Nídia.docx: 16299
+2025-06-01 11:22:20,174 - INFO - Content too large for Gravação da Entrevista - Gravador - 09_04_2025 - HAOC01 - Bruna e Nídia.docx, chunking...
+2025-06-01 11:22:20,174 - INFO - Split content into 6 chunks (max 1000 tokens each)
+2025-06-01 11:22:20,174 - INFO - Analyzing chunk 1/6 for Gravação da Entrevista - Gravador - 09_04_2025 - HAOC01 - Bruna e Nídia.docx (750 tokens)
+2025-06-01 11:22:22,844 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-01 11:22:22,856 - INFO - 🔍 Raw OpenAI response for chunk 1:
+2025-06-01 11:22:22,856 - INFO - 📝 Response: ```json
+{
+  "Código Entrevista": "Não mencionado",
+  "Área de atuação": "Não mencionado",
+  "Hospital": "Não mencionado",
+  "Nome - posição institucional - Projetos": "Não mencionado",
+  "Modelos para planos de trabalho e prestação de contas": "Não mencionado",
+  "Avaliação geral Proadi e DesenvoIvimento Institucional": "Não mencionado",
+  "Relação Conass/Conasems/MS com HE e instituições parceiras": "Não mencionado",
+  "Benefícios para instituição parceira": "Não mencionado",
+  "Desafios para a participação do HE no Proadi": "Não mencionado",
+  "Sugestões": "Não mencionado",
+  "Origem dos projetos (quem demandou, tramitação e negociações)": "Não mencionado",
+  "Projetos colaborativos (participação de cada um, relacionamento HE e benefícios e desafios)": "Não mencionado",
+  "Expertise do hospital para o projeto e Inserção deste no HE": "Não mencionado",
+  "Abrangência Territorial do Projeto (definição)": "Não mencionado",
+  "Seleção e envolvimento instituições participantes no projeto": "Não mencionado",
+  "Avaliações sobre o Projeto": "Não mencionado",
+  "Monitoramento (HE e instituições participantes) e Indicadores": "Não mencionado",
+  "Riscos na implementação/dificuldades enfrentadas (adesão instituições ou profissionais, infraestrutura, outras)": "Não mencionado",
+  "Benefícios do projeto para o SUS": "Não mencionado",
+  "Incorporação de bens materiais ao SUS?": "Não mencionado",
+  "Treinamento para profissionais?": "Não mencionado",
+  "Publicações ou divulgação?": "Não mencionado",
+  "Incorporação resultados ao SUS": "Não mencionado",
+  "Longevidade e sustentabilidade possível?": "Não mencionado"
+}
+```
+2025-06-01 11:22:22,856 - INFO - 🧹 Cleaned JSON for chunk 1: {
+  "Código Entrevista": "Não mencionado",
+  "Área de atuação": "Não mencionado",
+  "Hospital": "Não mencionado",
+  "Nome - posição institucional - Projetos": "Não mencionado",
+  "Modelos para planos de trabalho e prestação de contas": "Não mencionado",
+  "Avaliação geral Proadi e DesenvoIvimento Institucional": "Não mencionado",
+  "Relação Conass/Conasems/MS com HE e instituições parceiras": "Não mencionado",
+  "Benefícios para instituição parceira": "Não mencionado",
+  "Desafios para a participação do HE no Proadi": "Não mencionado",
+  "Sugestões": "Não mencionado",
+  "Origem dos projetos (quem demandou, tramitação e negociações)": "Não mencionado",
+  "Projetos colaborativos (participação de cada um, relacionamento HE e benefícios e desafios)": "Não mencionado",
+  "Expertise do hospital para o projeto e Inserção deste no HE": "Não mencionado",
+  "Abrangência Territorial do Projeto (definição)": "Não mencionado",
+  "Seleção e envolvimento instituições participantes no projeto": "Não mencionado",
+  "Avaliações sobre o Projeto": "Não mencionado",
+  "Monitoramento (HE e instituições participantes) e Indicadores": "Não mencionado",
+  "Riscos na implementação/dificuldades enfrentadas (adesão instituições ou profissionais, infraestrutura, outras)": "Não mencionado",
+  "Benefícios do projeto para o SUS": "Não mencionado",
+  "Incorporação de bens materiais ao SUS?": "Não mencionado",
+  "Treinamento para profissionais?": "Não mencionado",
+  "Publicações ou divulgação?": "Não mencionado",
+  "Incorporação resultados ao SUS": "Não mencionado",
+  "Longevidade e sustentabilidade possível?": "Não mencionado"
+}
+2025-06-01 11:22:22,857 - INFO - ✅ Successfully parsed JSON for chunk 1
+2025-06-01 11:22:22,857 - INFO - 📊 Extracted data keys: ['Código Entrevista', 'Área de atuação', 'Hospital', 'Nome - posição institucional - Projetos', 'Modelos para planos de trabalho e prestação de contas', 'Avaliação geral Proadi e DesenvoIvimento Institucional', 'Relação Conass/Conasems/MS com HE e instituições parceiras', 'Benefícios para instituição parceira', 'Desafios para a participação do HE no Proadi', 'Sugestões', 'Origem dos projetos (quem demandou, tramitação e negociações)', 'Projetos colaborativos (participação de cada um, relacionamento HE e benefícios e desafios)', 'Expertise do hospital para o projeto e Inserção deste no HE', 'Abrangência Territorial do Projeto (definição)', 'Seleção e envolvimento instituições participantes no projeto', 'Avaliações sobre o Projeto', 'Monitoramento (HE e instituições participantes) e Indicadores', 'Riscos na implementação/dificuldades enfrentadas (adesão instituições ou profissionais, infraestrutura, outras)', 'Benefícios do projeto para o SUS', 'Incorporação de bens materiais ao SUS?', 'Treinamento para profissionais?', 'Publicações ou divulgação?', 'Incorporação resultados ao SUS', 'Longevidade e sustentabilidade possível?']
+2025-06-01 11:22:22,857 - INFO - Analyzing chunk 2/6 for Gravação da Entrevista - Gravador - 09_04_2025 - HAOC01 - Bruna e Nídia.docx (926 tokens)
+2025-06-01 11:22:22,857 - INFO - Waiting 6 seconds to avoid rate limiting...
+2025-06-01 11:22:55,449 - INFO - Loaded existing file with 5 rows
+2025-06-01 11:22:55,449 - INFO - Starting interview analysis...
+2025-06-01 11:22:55,450 - INFO - Found 2 interview files
+2025-06-01 11:22:55,450 - INFO - Found 5 already processed interviews
+2025-06-01 11:22:55,450 - INFO - Processing Gravação da Entrevista - Gravador - 09_04_2025 - HAOC01 - Bruna e Nídia.docx...
+2025-06-01 11:22:55,451 - WARNING - Used latin-1 encoding for Gravação da Entrevista - Gravador - 09_04_2025 - HAOC01 - Bruna e Nídia.docx
+2025-06-01 11:22:55,451 - INFO - Estimated tokens for Gravação da Entrevista - Gravador - 09_04_2025 - HAOC01 - Bruna e Nídia.docx: 16299
+2025-06-01 11:22:55,451 - INFO - Content too large for Gravação da Entrevista - Gravador - 09_04_2025 - HAOC01 - Bruna e Nídia.docx, chunking...
+2025-06-01 11:22:55,451 - INFO - Split content into 6 chunks (max 1000 tokens each)
+2025-06-01 11:22:55,451 - INFO - Analyzing chunk 1/6 for Gravação da Entrevista - Gravador - 09_04_2025 - HAOC01 - Bruna e Nídia.docx (750 tokens)
+2025-06-01 11:22:57,556 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-01 11:22:57,565 - INFO - 🔍 Raw OpenAI response for chunk 1:
+2025-06-01 11:22:57,565 - INFO - 📝 Response: ```json
+{
+  "Código Entrevista": "",
+  "Área de atuação": "",
+  "Hospital": "",
+  "Nome - posição institucional - Projetos": "",
+  "Modelos para planos de trabalho e prestação de contas": "",
+  "Avaliação geral Proadi e DesenvoIvimento Institucional": "",
+  "Relação Conass/Conasems/MS com HE e instituições parceiras": "",
+  "Benefícios para instituição parceira": "",
+  "Desafios para a participação do HE no Proadi": "",
+  "Sugestões": "",
+  "Origem dos projetos (quem demandou, tramitação e negociações)": "",
+  "Projetos colaborativos (participação de cada um, relacionamento HE e benefícios e desafios)": "",
+  "Expertise do hospital para o projeto e Inserção deste no HE": "",
+  "Abrangência Territorial do Projeto (definição)": "",
+  "Seleção e envolvimento instituições participantes no projeto": "",
+  "Avaliações sobre o Projeto": "",
+  "Monitoramento (HE e instituições participantes) e Indicadores": "",
+  "Riscos na implementação/dificuldades enfrentadas (adesão instituições ou profissionais, infraestrutura, outras)": "",
+  "Benefícios do projeto para o SUS": "",
+  "Incorporação de bens materiais ao SUS?": "",
+  "Treinamento para profissionais?": "",
+  "Publicações ou divulgação?": "",
+  "Incorporação resultados ao SUS": "",
+  "Longevidade e sustentabilidade possível?": ""
+}
+```
+2025-06-01 11:22:57,565 - INFO - 🧹 Cleaned JSON for chunk 1: {
+  "Código Entrevista": "",
+  "Área de atuação": "",
+  "Hospital": "",
+  "Nome - posição institucional - Projetos": "",
+  "Modelos para planos de trabalho e prestação de contas": "",
+  "Avaliação geral Proadi e DesenvoIvimento Institucional": "",
+  "Relação Conass/Conasems/MS com HE e instituições parceiras": "",
+  "Benefícios para instituição parceira": "",
+  "Desafios para a participação do HE no Proadi": "",
+  "Sugestões": "",
+  "Origem dos projetos (quem demandou, tramitação e negociações)": "",
+  "Projetos colaborativos (participação de cada um, relacionamento HE e benefícios e desafios)": "",
+  "Expertise do hospital para o projeto e Inserção deste no HE": "",
+  "Abrangência Territorial do Projeto (definição)": "",
+  "Seleção e envolvimento instituições participantes no projeto": "",
+  "Avaliações sobre o Projeto": "",
+  "Monitoramento (HE e instituições participantes) e Indicadores": "",
+  "Riscos na implementação/dificuldades enfrentadas (adesão instituições ou profissionais, infraestrutura, outras)": "",
+  "Benefícios do projeto para o SUS": "",
+  "Incorporação de bens materiais ao SUS?": "",
+  "Treinamento para profissionais?": "",
+  "Publicações ou divulgação?": "",
+  "Incorporação resultados ao SUS": "",
+  "Longevidade e sustentabilidade possível?": ""
+}
+2025-06-01 11:22:57,566 - INFO - ✅ Successfully parsed JSON for chunk 1
+2025-06-01 11:22:57,566 - INFO - 📊 Extracted data keys: ['Código Entrevista', 'Área de atuação', 'Hospital', 'Nome - posição institucional - Projetos', 'Modelos para planos de trabalho e prestação de contas', 'Avaliação geral Proadi e DesenvoIvimento Institucional', 'Relação Conass/Conasems/MS com HE e instituições parceiras', 'Benefícios para instituição parceira', 'Desafios para a participação do HE no Proadi', 'Sugestões', 'Origem dos projetos (quem demandou, tramitação e negociações)', 'Projetos colaborativos (participação de cada um, relacionamento HE e benefícios e desafios)', 'Expertise do hospital para o projeto e Inserção deste no HE', 'Abrangência Territorial do Projeto (definição)', 'Seleção e envolvimento instituições participantes no projeto', 'Avaliações sobre o Projeto', 'Monitoramento (HE e instituições participantes) e Indicadores', 'Riscos na implementação/dificuldades enfrentadas (adesão instituições ou profissionais, infraestrutura, outras)', 'Benefícios do projeto para o SUS', 'Incorporação de bens materiais ao SUS?', 'Treinamento para profissionais?', 'Publicações ou divulgação?', 'Incorporação resultados ao SUS', 'Longevidade e sustentabilidade possível?']
+2025-06-01 11:22:57,567 - INFO - Analyzing chunk 2/6 for Gravação da Entrevista - Gravador - 09_04_2025 - HAOC01 - Bruna e Nídia.docx (926 tokens)
+2025-06-01 11:22:57,567 - INFO - Waiting 6 seconds to avoid rate limiting...
+2025-06-01 11:24:46,890 - INFO - Loaded existing file with 5 rows
+2025-06-01 11:24:46,891 - INFO - Starting interview analysis...
+2025-06-01 11:24:46,891 - INFO - Found 2 interview files
+2025-06-01 11:24:46,891 - INFO - Found 5 already processed interviews
+2025-06-01 11:24:46,891 - INFO - Processing Gravação da Entrevista - Gravador - 09_04_2025 - HAOC01 - Bruna e Nídia.docx...
+2025-06-01 11:24:46,892 - WARNING - Used latin-1 encoding for Gravação da Entrevista - Gravador - 09_04_2025 - HAOC01 - Bruna e Nídia.docx
+2025-06-01 11:24:46,892 - INFO - Estimated tokens for Gravação da Entrevista - Gravador - 09_04_2025 - HAOC01 - Bruna e Nídia.docx: 16299
+2025-06-01 11:24:46,892 - INFO - Content too large for Gravação da Entrevista - Gravador - 09_04_2025 - HAOC01 - Bruna e Nídia.docx, chunking...
+2025-06-01 11:24:46,892 - INFO - Split content into 6 chunks (max 1000 tokens each)
+2025-06-01 11:24:46,892 - INFO - Analyzing chunk 1/6 for Gravação da Entrevista - Gravador - 09_04_2025 - HAOC01 - Bruna e Nídia.docx (750 tokens)
+2025-06-01 11:24:51,766 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-01 11:24:51,770 - INFO - 🔍 Raw OpenAI response for chunk 1:
+2025-06-01 11:24:51,770 - INFO - 📝 Response: {
+  "Código Entrevista": "Não encontrado neste trecho",
+  "Hospital": "Não encontrado neste trecho",
+  "Nome - posição institucional - Projetos": "Não encontrado neste trecho",
+  "Área de atuação": "Não encontrado neste trecho",
+  "Avaliação geral Proadi e DesenvoIvimento Institucional": "Não encontrado neste trecho",
+  "Desafios para a participação do HE no Proadi": "Não encontrado neste trecho",
+  "Sugestões": "Não encontrado neste trecho",
+  "Benefícios do projeto para o SUS": "Não encontrado neste trecho",
+  "Origem dos projetos (quem demandou, tramitação e negociações)": "Não encontrado neste trecho",
+  "Projetos colaborativos (participação de cada um, relacionamento HE e benefícios e desafios)": "Não encontrado neste trecho"
+}
+2025-06-01 11:24:51,770 - INFO - 🧹 Cleaned JSON for chunk 1: {
+  "Código Entrevista": "Não encontrado neste trecho",
+  "Hospital": "Não encontrado neste trecho",
+  "Nome - posição institucional - Projetos": "Não encontrado neste trecho",
+  "Área de atuação": "Não encontrado neste trecho",
+  "Avaliação geral Proadi e DesenvoIvimento Institucional": "Não encontrado neste trecho",
+  "Desafios para a participação do HE no Proadi": "Não encontrado neste trecho",
+  "Sugestões": "Não encontrado neste trecho",
+  "Benefícios do projeto para o SUS": "Não encontrado neste trecho",
+  "Origem dos projetos (quem demandou, tramitação e negociações)": "Não encontrado neste trecho",
+  "Projetos colaborativos (participação de cada um, relacionamento HE e benefícios e desafios)": "Não encontrado neste trecho"
+}
+2025-06-01 11:24:51,770 - INFO - ✅ Successfully parsed JSON for chunk 1
+2025-06-01 11:24:51,770 - INFO - 📊 Extracted data keys: ['Código Entrevista', 'Hospital', 'Nome - posição institucional - Projetos', 'Área de atuação', 'Avaliação geral Proadi e DesenvoIvimento Institucional', 'Desafios para a participação do HE no Proadi', 'Sugestões', 'Benefícios do projeto para o SUS', 'Origem dos projetos (quem demandou, tramitação e negociações)', 'Projetos colaborativos (participação de cada um, relacionamento HE e benefícios e desafios)']
+2025-06-01 11:24:51,770 - INFO - Analyzing chunk 2/6 for Gravação da Entrevista - Gravador - 09_04_2025 - HAOC01 - Bruna e Nídia.docx (926 tokens)
+2025-06-01 11:24:51,770 - INFO - Waiting 6 seconds to avoid rate limiting...
+2025-06-01 11:25:43,597 - INFO - Loaded existing file with 5 rows
+2025-06-01 11:25:43,597 - INFO - Starting interview analysis...
+2025-06-01 11:25:43,597 - INFO - Found 2 interview files
+2025-06-01 11:25:43,598 - INFO - Found 5 already processed interviews
+2025-06-01 11:25:43,598 - INFO - Processing Gravação da Entrevista - Gravador - 09_04_2025 - HAOC01 - Bruna e Nídia.docx...
+2025-06-01 11:25:43,599 - WARNING - Used latin-1 encoding for Gravação da Entrevista - Gravador - 09_04_2025 - HAOC01 - Bruna e Nídia.docx
+2025-06-01 11:25:43,599 - INFO - Estimated tokens for Gravação da Entrevista - Gravador - 09_04_2025 - HAOC01 - Bruna e Nídia.docx: 16299
+2025-06-01 11:25:43,599 - INFO - Content too large for Gravação da Entrevista - Gravador - 09_04_2025 - HAOC01 - Bruna e Nídia.docx, chunking...
+2025-06-01 11:25:43,599 - INFO - Split content into 6 chunks (max 1000 tokens each)
+2025-06-01 11:25:43,599 - INFO - Analyzing chunk 1/6 for Gravação da Entrevista - Gravador - 09_04_2025 - HAOC01 - Bruna e Nídia.docx (750 tokens)
+2025-06-01 11:25:43,599 - INFO - 📄 CHUNK 1 CONTENT:
+2025-06-01 11:25:43,599 - INFO - 📝 Content: PK  ö"³Z               word/header1.xml¥ÛÚ0 ï|	twµ{QÔªR/Ð¶}YÛ4v`yû:g h²¹ãÌ÷Éxùò®ääÀÑ	£S2ÅdÂ55Lè]Jþýý1}&çA3Fó¸#/«/Ëc1`íESyo(r4ã
+ÜÌX®skPSÜE
+pÛ)5ÊoB
+qüDjII:©S%(g¶¾IÌv+(¯&èV!kCsÅµ/#ä2ä`´Ëu
+M¥gÖ@-â dóÞÑQcÇð%¬EC¹sÁº®-qØÀÑFIáR³ÉDÐ-¦¨+P«=Úõ¦¨n!Ý^89$Êõ[¼!à©ØÏóx+Uñ!DùÛ  o rAºçì;è´ÅÌvÊùÄìTW¤î®/;¯ÊåOw´Ýçh?Ñä¶+÷1´³?pþx`Ñ<Ýxî(ÇBä9G°û8O-G4ý`ÀÛ»ð-bu,Mí/ÐoÊ79á±-P84d eC&«p´ØÉ1	'{MI\_¤6­¹ì7}Óëo!þgÆù...
+2025-06-01 11:25:43,599 - INFO - 📏 Full chunk length: 3000 characters
+2025-06-01 11:26:45,687 - INFO - Loaded existing file with 5 rows
+2025-06-01 11:26:45,687 - INFO - Starting interview analysis...
+2025-06-01 11:26:45,688 - INFO - Found 2 interview files
+2025-06-01 11:26:45,688 - INFO - Found 5 already processed interviews
+2025-06-01 11:26:45,688 - INFO - Processing Gravação da Entrevista - Gravador - 09_04_2025 - HAOC01 - Bruna e Nídia.docx...
+2025-06-01 11:26:45,688 - ERROR - python-docx not installed. Install with: pip install python-docx
+2025-06-01 11:26:45,688 - WARNING - Skipping Gravação da Entrevista - Gravador - 09_04_2025 - HAOC01 - Bruna e Nídia.docx - no content
+2025-06-01 11:26:45,688 - INFO - Processing Transcrição da entrevista corrigida 08_04_2025 - HIAE02 - Renato Tanjoni e Fernanda Pahim.docx...
+2025-06-01 11:26:45,688 - ERROR - python-docx not installed. Install with: pip install python-docx
+2025-06-01 11:26:45,688 - WARNING - Skipping Transcrição da entrevista corrigida 08_04_2025 - HIAE02 - Renato Tanjoni e Fernanda Pahim.docx - no content
+2025-06-01 11:26:45,688 - INFO - Processed 0 new interviews successfully
+2025-06-01 11:26:45,688 - ERROR - No interviews were processed successfully
+2025-06-01 11:27:29,538 - INFO - Loaded existing file with 5 rows
+2025-06-01 11:27:29,538 - INFO - Starting interview analysis...
+2025-06-01 11:27:29,539 - INFO - Found 2 interview files
+2025-06-01 11:27:29,539 - INFO - Found 5 already processed interviews
+2025-06-01 11:27:29,539 - INFO - Processing Gravação da Entrevista - Gravador - 09_04_2025 - HAOC01 - Bruna e Nídia.docx...
+2025-06-01 11:27:29,660 - INFO - Read 70959 characters from Word document Gravação da Entrevista - Gravador - 09_04_2025 - HAOC01 - Bruna e Nídia.docx
+2025-06-01 11:27:29,660 - INFO - Estimated tokens for Gravação da Entrevista - Gravador - 09_04_2025 - HAOC01 - Bruna e Nídia.docx: 17739
+2025-06-01 11:27:29,660 - INFO - Content too large for Gravação da Entrevista - Gravador - 09_04_2025 - HAOC01 - Bruna e Nídia.docx, chunking...
+2025-06-01 11:27:29,660 - INFO - Split content into 20 chunks (max 1000 tokens each)
+2025-06-01 11:27:29,660 - INFO - Analyzing chunk 1/20 for Gravação da Entrevista - Gravador - 09_04_2025 - HAOC01 - Bruna e Nídia.docx (991 tokens)
+2025-06-01 11:27:29,661 - INFO - 📄 CHUNK 1 CONTENT:
+2025-06-01 11:27:29,661 - INFO - 📝 Content: TRANSCRIÇÃO DE ENTREVISTA
+Jéssica da Silva Rodrigues e Laura Omotosho
+[Correção: Gabrielle de Souza] / [Revisão Final: ]
+
+
+TRANSCRIÇÃO: 
+Telma
+Primeiro agradecer a disponibilidade de vocês participarem desse estudo, dedicando o tempo precioso de todos vocês para estarem nos contribuindo. Para começar, eu gostaria que cada uma de vocês se apresentasse, porque já fica aqui registrado quem vocês são, que função que vocês têm aqui no hospital, especificamente em relação ao PROADI. Tá bom? Primeira c...
+2025-06-01 11:27:29,661 - INFO - 📏 Full chunk length: 3966 characters
+2025-06-01 11:27:34,444 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-01 11:27:34,452 - INFO - 🔍 Raw OpenAI response for chunk 1:
+2025-06-01 11:27:34,453 - INFO - 📝 Response: ```json
+{
+  "Código Entrevista": "Não encontrado neste trecho",
+  "Hospital": "Não encontrado neste trecho",
+  "Nome - posição institucional - Projetos": "Bruna, responsável pela gestão financeira e administrativa do escritório de projetos do PROADI SUS",
+  "Área de atuação": "Gestão",
+  "Avaliação geral Proadi e DesenvoIvimento Institucional": "Não encontrado neste trecho",
+  "Desafios para a participação do HE no Proadi": "Não encontrado neste trecho",
+  "Sugestões": "Não encontrado neste trecho",
+  "Benefícios do projeto para o SUS": "Não encontrado neste trecho",
+  "Origem dos projetos (quem demandou, tramitação e negociações)": "Não encontrado neste trecho",
+  "Projetos colaborativos (participação de cada um, relacionamento HE e benefícios e desafios)": "Não encontrado neste trecho"
+}
+```
+2025-06-01 11:27:34,453 - INFO - 🧹 Cleaned JSON for chunk 1: {
+  "Código Entrevista": "Não encontrado neste trecho",
+  "Hospital": "Não encontrado neste trecho",
+  "Nome - posição institucional - Projetos": "Bruna, responsável pela gestão financeira e administrativa do escritório de projetos do PROADI SUS",
+  "Área de atuação": "Gestão",
+  "Avaliação geral Proadi e DesenvoIvimento Institucional": "Não encontrado neste trecho",
+  "Desafios para a participação do HE no Proadi": "Não encontrado neste trecho",
+  "Sugestões": "Não encontrado neste trecho",
+  "Benefícios do projeto para o SUS": "Não encontrado neste trecho",
+  "Origem dos projetos (quem demandou, tramitação e negociações)": "Não encontrado neste trecho",
+  "Projetos colaborativos (participação de cada um, relacionamento HE e benefícios e desafios)": "Não encontrado neste trecho"
+}
+2025-06-01 11:27:34,453 - INFO - ✅ Successfully parsed JSON for chunk 1
+2025-06-01 11:27:34,453 - INFO - 📊 Extracted data keys: ['Código Entrevista', 'Hospital', 'Nome - posição institucional - Projetos', 'Área de atuação', 'Avaliação geral Proadi e DesenvoIvimento Institucional', 'Desafios para a participação do HE no Proadi', 'Sugestões', 'Benefícios do projeto para o SUS', 'Origem dos projetos (quem demandou, tramitação e negociações)', 'Projetos colaborativos (participação de cada um, relacionamento HE e benefícios e desafios)']
+2025-06-01 11:27:34,453 - INFO - Analyzing chunk 2/20 for Gravação da Entrevista - Gravador - 09_04_2025 - HAOC01 - Bruna e Nídia.docx (953 tokens)
+2025-06-01 11:27:34,453 - INFO - 📄 CHUNK 2 CONTENT:
+2025-06-01 11:27:34,453 - INFO - 📝 Content: Difícil, vou até pôr isso por causa de vocês.
+
+Bruna
+Eu vou pedir uma água pra senhora, porque é melhor também a gente tosse.
+
+Telma
+Eu tô com essa tosse, eu tenho problema de refluxo e da tosse. Eu tive uma gripe, aí quando tem gripe, ela piora e custa embora.
+
+Bruna
+Vou pedir para as meninas aqui.
+
+Telma
+Depois você me conta os principais problemas nisso.
+
+Bruna
+Tá. Eu já vou perguntar isso daí, mas pode me trazer uma água para a professora, por favor? Que eu vou chamar aqui, porque elas estão...
+2025-06-01 11:27:34,453 - INFO - 📏 Full chunk length: 3812 characters
+2025-06-01 11:27:34,453 - INFO - Waiting 6 seconds to avoid rate limiting...
+2025-06-01 11:27:48,807 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-01 11:27:48,813 - INFO - 🔍 Raw OpenAI response for chunk 2:
+2025-06-01 11:27:48,813 - INFO - 📝 Response: ```json
+{
+  "Código Entrevista": "Não encontrado neste trecho",
+  "Hospital": "Não encontrado neste trecho",
+  "Nome - posição institucional - Projetos": "Não encontrado neste trecho",
+  "Área de atuação": "Não encontrado neste trecho",
+  "Avaliação geral Proadi e DesenvoIvimento Institucional": "Não encontrado neste trecho",
+  "Desafios para a participação do HE no Proadi": "Primeira questão, isso já atrasa meu início de atividades e consequentemente uma reprogramação dos meus custos. Então, eu tenho que fazer esse acompanhamento. Essa é uma das questões. Outro ponto é… ao longo do ano, a gente vê algumas mudanças. Eu… obrigada. Eu preciso acompanhar. Eu tenho uma obrigação no âmbito financeiro, que é entregar a minha humanidade aos projetos. Então, eu faço esse acompanhamento e, às vezes, eu tenho algumas não performance. E eu preciso entender o porquê. Porque, algumas vezes, quais são as questões? Pode ser o ambiente externo, que eu chamo, que é o próprio Ministério da Saúde, Às vezes troca de governo, algum replanejamento que eles precisam fazer. Isso tem interferência no orçamento do projeto.",
+  "Sugestões": "Não encontrado neste trecho",
+  "Benefícios do projeto para o SUS": "Não encontrado neste trecho",
+  "Origem dos projetos (quem demandou, tramitação e negociações)": "Não encontrado neste trecho",
+  "Projetos colaborativos (participação de cada um, relacionamento HE e benefícios e desafios)": "Não encontrado neste trecho"
+}
+```
+2025-06-01 11:27:48,813 - INFO - 🧹 Cleaned JSON for chunk 2: {
+  "Código Entrevista": "Não encontrado neste trecho",
+  "Hospital": "Não encontrado neste trecho",
+  "Nome - posição institucional - Projetos": "Não encontrado neste trecho",
+  "Área de atuação": "Não encontrado neste trecho",
+  "Avaliação geral Proadi e DesenvoIvimento Institucional": "Não encontrado neste trecho",
+  "Desafios para a participação do HE no Proadi": "Primeira questão, isso já atrasa meu início de atividades e consequentemente uma reprogramação dos meus custos. Então, eu tenho que fazer esse acompanhamento. Essa é uma das questões. Outro ponto é… ao longo do ano, a gente vê algumas mudanças. Eu… obrigada. Eu preciso acompanhar. Eu tenho uma obrigação no âmbito financeiro, que é entregar a minha humanidade aos projetos. Então, eu faço esse acompanhamento e, às vezes, eu tenho algumas não performance. E eu preciso entender o porquê. Porque, algumas vezes, quais são as questões? Pode ser o ambiente externo, que eu chamo, que é o próprio Ministério da Saúde, Às vezes troca de governo, algum replanejamento que eles precisam fazer. Isso tem interferência no orçamento do projeto.",
+  "Sugestões": "Não encontrado neste trecho",
+  "Benefícios do projeto para o SUS": "Não encontrado neste trecho",
+  "Origem dos projetos (quem demandou, tramitação e negociações)": "Não encontrado neste trecho",
+  "Projetos colaborativos (participação de cada um, relacionamento HE e benefícios e desafios)": "Não encontrado neste trecho"
+}
+2025-06-01 11:27:48,813 - INFO - ✅ Successfully parsed JSON for chunk 2
+2025-06-01 11:27:48,813 - INFO - 📊 Extracted data keys: ['Código Entrevista', 'Hospital', 'Nome - posição institucional - Projetos', 'Área de atuação', 'Avaliação geral Proadi e DesenvoIvimento Institucional', 'Desafios para a participação do HE no Proadi', 'Sugestões', 'Benefícios do projeto para o SUS', 'Origem dos projetos (quem demandou, tramitação e negociações)', 'Projetos colaborativos (participação de cada um, relacionamento HE e benefícios e desafios)']
+2025-06-01 11:27:48,813 - INFO - Analyzing chunk 3/20 for Gravação da Entrevista - Gravador - 09_04_2025 - HAOC01 - Bruna e Nídia.docx (981 tokens)
+2025-06-01 11:27:48,813 - INFO - 📄 CHUNK 3 CONTENT:
+2025-06-01 11:27:48,814 - INFO - 📝 Content: ponsiva, mas ela ainda tá sonolenta
+
+Bruna
+Tá
+
+Orador Indefinido
+Vocês aceitam um cafezinho?
+
+Nídia
+Coitada.
+
+Telma
+Tá pronta? Quer um café? Não quero isso, tá? Então, eu queria que você dissesse o seu nome, a sua função, o seu cargo e descrever um pouco o que é exatamente, o que você faz no PROADI.
+
+Nídia
+Bom, eu sou Nidia Souza, trabalho há quase 14 anos aqui no Hospital Osvaldo Cruz, estou como gerente de responsabilidade social aqui do HAOC. Desde a minha entrada sempre foi aqui, eu cheguei ...
+2025-06-01 11:27:48,814 - INFO - 📏 Full chunk length: 3925 characters
+2025-06-01 11:27:48,814 - INFO - Waiting 6 seconds to avoid rate limiting...

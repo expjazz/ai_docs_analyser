@@ -42,11 +42,11 @@ class InterviewAnalyzer:
         self.output_file = "Entrevistas Hospitais_Rosi.xlsx"
         self.existing_df = self._load_existing_data()
 
-        # Token and chunking settings
-        self.max_tokens_per_request = 250  # Much smaller chunks
-        self.chunk_overlap = 20  # Minimal overlap
-        self.request_delay = 12  # Longer delay to respect rate limits
-        self.max_output_tokens = 600  # Reduce output tokens further
+        # Token and chunking settings - optimized for gpt-4o (128k context, superior reasoning)
+        self.max_tokens_per_request = 10000  # Large chunks for advanced model
+        self.chunk_overlap = 300  # Good overlap for context continuity
+        self.request_delay = 6  # Reasonable delay for rate limits
+        self.max_output_tokens = 2500  # Allow for detailed, comprehensive responses
 
     def _setup_openai_client(self) -> OpenAI:
         """Setup OpenAI client with API key."""
@@ -265,19 +265,65 @@ class InterviewAnalyzer:
         return sorted(interview_files)
 
     def _read_interview_content(self, file_path: Path) -> str:
-        """Read interview content from file."""
+        """Read interview content from file, handling different formats properly."""
         try:
-            with open(file_path, 'r', encoding='utf-8') as f:
-                content = f.read().strip()
-            logger.info(
-                f"Read {len(content)} characters from {file_path.name}")
-            return content
+            file_extension = file_path.suffix.lower()
+
+            if file_extension == '.docx':
+                # Handle Word documents with python-docx
+                try:
+                    from docx import Document
+                    doc = Document(file_path)
+                    content = '\n'.join(
+                        [paragraph.text for paragraph in doc.paragraphs])
+                    logger.info(
+                        f"Read {len(content)} characters from Word document {file_path.name}")
+                    return content.strip()
+                except ImportError:
+                    logger.error(
+                        "python-docx not installed. Install with: pip install python-docx")
+                    return ""
+                except Exception as e:
+                    logger.error(
+                        f"Error reading Word document {file_path}: {e}")
+                    return ""
+
+            elif file_extension == '.doc':
+                # Handle old Word documents with python-docx2txt
+                try:
+                    import docx2txt
+                    content = docx2txt.process(str(file_path))
+                    logger.info(
+                        f"Read {len(content)} characters from old Word document {file_path.name}")
+                    return content.strip()
+                except ImportError:
+                    logger.error(
+                        "docx2txt not installed. Install with: pip install docx2txt")
+                    return ""
+                except Exception as e:
+                    logger.error(
+                        f"Error reading old Word document {file_path}: {e}")
+                    return ""
+
+            else:
+                # Handle text files (.txt, .md, etc.)
+                with open(file_path, 'r', encoding='utf-8') as f:
+                    content = f.read().strip()
+                logger.info(
+                    f"Read {len(content)} characters from text file {file_path.name}")
+                return content
+
         except UnicodeDecodeError:
-            # Try with different encoding
-            with open(file_path, 'r', encoding='latin-1') as f:
-                content = f.read().strip()
-            logger.warning(f"Used latin-1 encoding for {file_path.name}")
-            return content
+            # Try with different encoding for text files
+            try:
+                with open(file_path, 'r', encoding='latin-1') as f:
+                    content = f.read().strip()
+                logger.warning(f"Used latin-1 encoding for {file_path.name}")
+                return content
+            except Exception as e:
+                logger.error(
+                    f"Error reading file with latin-1 encoding {file_path}: {e}")
+                return ""
         except Exception as e:
             logger.error(f"Error reading {file_path}: {e}")
             return ""
@@ -303,72 +349,49 @@ class InterviewAnalyzer:
     def _create_analysis_prompt(self, interview_content: str, chunk_number: int = None, total_chunks: int = None) -> str:
         """Create the prompt for OpenAI analysis."""
 
-        # Exact column names from the Excel file
-        cats = [
-            "Código Entrevista",
-            "Área de atuação",
-            "Hospital",
-            "Nome - posição institucional - Projetos",
-            "Modelos para planos de trabalho e prestação de contas",
-            "Avaliação geral Proadi e DesenvoIvimento Institucional",
-            "Relação Conass/Conasems/MS com HE e instituições parceiras",
-            "Benefícios para instituição parceira",
-            "Desafios para a participação do HE no Proadi",
-            "Sugestões",
-            "Origem dos projetos (quem demandou, tramitação e negociações)",
-            "Projetos colaborativos (participação de cada um, relacionamento HE e benefícios e desafios)",
-            "Expertise do hospital para o projeto e Inserção deste no HE",
-            "Abrangência Territorial do Projeto (definição)",
-            "Seleção e envolvimento instituições participantes no projeto",
-            "Avaliações sobre o Projeto",
-            "Monitoramento (HE e instituições participantes) e Indicadores",
-            "Riscos na implementação/dificuldades enfrentadas (adesão instituições ou profissionais, infraestrutura, outras)",
-            "Benefícios do projeto para o SUS",
-            "Incorporação de bens materiais ao SUS?",
-            "Treinamento para profissionais?",
-            "Publicações ou divulgação?",
-            "Incorporação resultados ao SUS",
-            "Longevidade e sustentabilidade possível?"
-        ]
+        chunk_info = f"[PARTE {chunk_number}/{total_chunks}]" if chunk_number else ""
 
-        chunk_info = f"[{chunk_number}/{total_chunks}]" if chunk_number else ""
+        prompt = f"""Você é um especialista em análise de entrevistas PROADI-SUS. Sua tarefa é extrair informações específicas desta entrevista{chunk_info}.
 
-        prompt = f"""IMPORTANTE: Retorne APENAS um JSON válido, sem texto adicional, sem explicações, sem markdown, sem ```json```.
-
-Analise esta entrevista PROADI-SUS{chunk_info} e extraia informações.
-
-Texto:
+TEXTO DA ENTREVISTA:
 {interview_content}
 
-Retorne EXATAMENTE este formato JSON (copie as chaves exatas):
+INSTRUÇÕES IMPORTANTES:
+1. Leia todo o texto com atenção
+2. Para cada categoria abaixo, encontre e cite EXATAMENTE o que está escrito na entrevista
+3. Use aspas para citar frases diretas quando possível
+4. Se uma informação não estiver presente, escreva "Não encontrado neste trecho"
+5. SEMPRE extraia informação real do texto - nunca invente
+
+CATEGORIAS PARA EXTRAIR:
+
+1. Código/Identificador da entrevista - Busque códigos como HIAE01, HEBPP01, etc.
+2. Hospital mencionado - Nome completo do hospital de excelência
+3. Nome e cargo do entrevistado - Quem está sendo entrevistado e sua função
+4. Área de atuação do projeto - Se é Pesquisa, Capacitação, Avaliação ou Gestão
+5. Avaliação do PROADI-SUS - Opiniões sobre o programa, impactos, benefícios
+6. Desafios enfrentados - Dificuldades, obstáculos, problemas mencionados
+7. Sugestões de melhoria - Recomendações feitas pelo entrevistado
+8. Benefícios para o SUS - Ganhos mencionados para o sistema público
+9. Projetos específicos - Nomes e descrições de projetos mencionados
+10. Parcerias e colaborações - Outros hospitais ou instituições envolvidas
+
+Responda em formato JSON válido com as chaves exatas do Excel:
+
 {{
-  "Código Entrevista": "informação encontrada ou N/A",
-  "Área de atuação": "informação encontrada ou N/A",
-  "Hospital": "informação encontrada ou N/A",
-  "Nome - posição institucional - Projetos": "informação encontrada ou N/A",
-  "Modelos para planos de trabalho e prestação de contas": "informação encontrada ou N/A",
-  "Avaliação geral Proadi e DesenvoIvimento Institucional": "informação encontrada ou N/A",
-  "Relação Conass/Conasems/MS com HE e instituições parceiras": "informação encontrada ou N/A",
-  "Benefícios para instituição parceira": "informação encontrada ou N/A",
-  "Desafios para a participação do HE no Proadi": "informação encontrada ou N/A",
-  "Sugestões": "informação encontrada ou N/A",
-  "Origem dos projetos (quem demandou, tramitação e negociações)": "informação encontrada ou N/A",
-  "Projetos colaborativos (participação de cada um, relacionamento HE e benefícios e desafios)": "informação encontrada ou N/A",
-  "Expertise do hospital para o projeto e Inserção deste no HE": "informação encontrada ou N/A",
-  "Abrangência Territorial do Projeto (definição)": "informação encontrada ou N/A",
-  "Seleção e envolvimento instituições participantes no projeto": "informação encontrada ou N/A",
-  "Avaliações sobre o Projeto": "informação encontrada ou N/A",
-  "Monitoramento (HE e instituições participantes) e Indicadores": "informação encontrada ou N/A",
-  "Riscos na implementação/dificuldades enfrentadas (adesão instituições ou profissionais, infraestrutura, outras)": "informação encontrada ou N/A",
-  "Benefícios do projeto para o SUS": "informação encontrada ou N/A",
-  "Incorporação de bens materiais ao SUS?": "informação encontrada ou N/A",
-  "Treinamento para profissionais?": "informação encontrada ou N/A",
-  "Publicações ou divulgação?": "informação encontrada ou N/A",
-  "Incorporação resultados ao SUS": "informação encontrada ou N/A",
-  "Longevidade e sustentabilidade possível?": "informação encontrada ou N/A"
+  "Código Entrevista": "informação encontrada",
+  "Hospital": "informação encontrada",
+  "Nome - posição institucional - Projetos": "informação encontrada",
+  "Área de atuação": "informação encontrada",
+  "Avaliação geral Proadi e DesenvoIvimento Institucional": "informação encontrada",
+  "Desafios para a participação do HE no Proadi": "informação encontrada",
+  "Sugestões": "informação encontrada",
+  "Benefícios do projeto para o SUS": "informação encontrada",
+  "Origem dos projetos (quem demandou, tramitação e negociações)": "informação encontrada",
+  "Projetos colaborativos (participação de cada um, relacionamento HE e benefícios e desafios)": "informação encontrada"
 }}
 
-RESPOSTA (JSON válido apenas):"""
+FOQUE EM ENCONTRAR CONTEÚDO REAL DA ENTREVISTA."""
         return prompt
 
     def _combine_chunk_analyses(self, chunk_analyses: List[Dict[str, str]]) -> Dict[str, str]:
@@ -429,17 +452,23 @@ RESPOSTA (JSON válido apenas):"""
             estimated_tokens = self._estimate_tokens(interview_content)
             logger.info(f"Estimated tokens for {filename}: {estimated_tokens}")
 
-            if estimated_tokens <= self.max_tokens_per_request - 500:  # Reserve more space for prompt
+            if estimated_tokens <= self.max_tokens_per_request - 2000:  # Reserve space for the detailed prompt
                 # Content is small enough, process normally
+                logger.info(f"📄 PROCESSING FULL CONTENT (no chunking needed)")
+                logger.info(
+                    f"📝 Content preview: {interview_content[:500]}{'...' if len(interview_content) > 500 else ''}")
+                logger.info(
+                    f"📏 Full content length: {len(interview_content)} characters")
+
                 prompt = self._create_analysis_prompt(interview_content)
 
                 response = self.client.chat.completions.create(
-                    model="gpt-4",
+                    model="gpt-4-turbo",
                     messages=[
-                        {"role": "system", "content": "You are a JSON-only analyst. Return ONLY valid JSON without any additional text, markdown, or explanations."},
+                        {"role": "system", "content": "You are an expert analyst specializing in PROADI-SUS interviews. Extract specific information accurately and return valid JSON."},
                         {"role": "user", "content": prompt}
                     ],
-                    temperature=0.3,
+                    temperature=0.1,
                     max_tokens=self.max_output_tokens
                 )
 
@@ -478,12 +507,19 @@ RESPOSTA (JSON válido apenas):"""
                     logger.info(
                         f"Analyzing chunk {i+1}/{len(chunks)} for {filename} ({chunk_tokens} tokens)")
 
+                    # LOG THE CHUNK CONTENT BEING SENT
+                    logger.info(f"📄 CHUNK {i+1} CONTENT:")
+                    logger.info(
+                        f"📝 Content: {chunk[:500]}{'...' if len(chunk) > 500 else ''}")
+                    logger.info(
+                        f"📏 Full chunk length: {len(chunk)} characters")
+
                     prompt = self._create_analysis_prompt(
                         chunk, i+1, len(chunks))
                     prompt_tokens = self._estimate_tokens(prompt)
                     total_tokens = chunk_tokens + prompt_tokens
 
-                    if total_tokens > 6000:  # Leave room for output tokens
+                    if total_tokens > 100000:  # Very generous limit for gpt-4o's 128k context
                         logger.warning(
                             f"⚠️ Chunk {i+1} might be too large: {total_tokens} tokens total")
 
@@ -495,12 +531,12 @@ RESPOSTA (JSON válido apenas):"""
 
                     try:
                         response = self.client.chat.completions.create(
-                            model="gpt-4",
+                            model="gpt-4-turbo",
                             messages=[
-                                {"role": "system", "content": "You are a JSON-only analyst. Return ONLY valid JSON without any additional text, markdown, or explanations."},
+                                {"role": "system", "content": "You are an expert analyst specializing in PROADI-SUS interviews. Extract specific information accurately and return valid JSON."},
                                 {"role": "user", "content": prompt}
                             ],
-                            temperature=0.3,
+                            temperature=0.1,
                             max_tokens=self.max_output_tokens
                         )
 
@@ -555,12 +591,12 @@ RESPOSTA (JSON válido apenas):"""
                                     shorter_chunk, i+1, len(chunks))
 
                                 response = self.client.chat.completions.create(
-                                    model="gpt-4",
+                                    model="gpt-4-turbo",
                                     messages=[
-                                        {"role": "system", "content": "You are a JSON-only analyst. Return ONLY valid JSON without any additional text, markdown, or explanations."},
+                                        {"role": "system", "content": "You are an expert analyst specializing in PROADI-SUS interviews. Extract specific information accurately and return valid JSON."},
                                         {"role": "user", "content": shorter_prompt}
                                     ],
-                                    temperature=0.3,
+                                    temperature=0.1,
                                     max_tokens=self.max_output_tokens
                                 )
 
