@@ -9,6 +9,7 @@ import os
 import sys
 import json
 import logging
+import time
 from pathlib import Path
 from typing import Dict, List, Optional, Tuple
 import pandas as pd
@@ -41,6 +42,11 @@ class InterviewAnalyzer:
         self.output_file = "Entrevistas Hospitais_Rosi.xlsx"
         self.existing_df = self._load_existing_data()
 
+        # Token and chunking settings
+        self.max_tokens_per_request = 8000  # Conservative limit to stay under 10k
+        self.chunk_overlap = 200  # Characters to overlap between chunks
+        self.request_delay = 2  # Seconds to wait between API requests
+
     def _setup_openai_client(self) -> OpenAI:
         """Setup OpenAI client with API key."""
         api_key = os.getenv("OPENAI_API_KEY")
@@ -50,6 +56,62 @@ class InterviewAnalyzer:
                 "Please set it in your .env file or environment."
             )
         return OpenAI(api_key=api_key)
+
+    def _estimate_tokens(self, text: str) -> int:
+        """Rough estimation of token count (1 token ≈ 4 characters for most text)."""
+        return len(text) // 4
+
+    def _split_interview_content(self, content: str, max_chunk_tokens: int = None) -> List[str]:
+        """Split large interview content into smaller chunks at natural boundaries."""
+        if max_chunk_tokens is None:
+            max_chunk_tokens = self.max_tokens_per_request - 2000  # Reserve space for prompt
+
+        # If content is small enough, return as single chunk
+        if self._estimate_tokens(content) <= max_chunk_tokens:
+            return [content]
+
+        chunks = []
+        # Convert tokens to approximate characters
+        max_chunk_chars = max_chunk_tokens * 4
+
+        # Split by paragraphs first
+        paragraphs = content.split('\n\n')
+        current_chunk = ""
+
+        for paragraph in paragraphs:
+            # If adding this paragraph would exceed the limit
+            if len(current_chunk) + len(paragraph) > max_chunk_chars:
+                if current_chunk:
+                    chunks.append(current_chunk.strip())
+                    # Start new chunk with overlap from previous chunk
+                    if len(current_chunk) > self.chunk_overlap:
+                        overlap = current_chunk[-self.chunk_overlap:]
+                        current_chunk = overlap + "\n\n" + paragraph
+                    else:
+                        current_chunk = paragraph
+                else:
+                    # Single paragraph is too large, split by sentences
+                    sentences = paragraph.split('. ')
+                    for sentence in sentences:
+                        if len(current_chunk) + len(sentence) > max_chunk_chars:
+                            if current_chunk:
+                                chunks.append(current_chunk.strip())
+                                current_chunk = sentence
+                            else:
+                                # Single sentence is too large, force split
+                                chunks.append(sentence[:max_chunk_chars])
+                                current_chunk = sentence[max_chunk_chars:]
+                        else:
+                            current_chunk += ". " + sentence if current_chunk else sentence
+            else:
+                current_chunk += "\n\n" + paragraph if current_chunk else paragraph
+
+        # Add the last chunk
+        if current_chunk.strip():
+            chunks.append(current_chunk.strip())
+
+        logger.info(f"Split content into {len(chunks)} chunks")
+        return chunks
 
     def _define_categories(self) -> Dict[str, str]:
         """Define categories and their descriptions for analysis."""
@@ -177,7 +239,7 @@ class InterviewAnalyzer:
             f"Found {len(processed_files)} already processed interviews")
         return processed_files
 
-    def _create_analysis_prompt(self, interview_content: str) -> str:
+    def _create_analysis_prompt(self, interview_content: str, chunk_number: int = None, total_chunks: int = None) -> str:
         """Create the prompt for OpenAI analysis."""
         column_mapping = self._get_existing_column_mapping()
         categories_text = "\n".join([
@@ -187,11 +249,15 @@ class InterviewAnalyzer:
             if excel_col
         ])
 
+        chunk_info = ""
+        if chunk_number is not None and total_chunks is not None:
+            chunk_info = f"\n\nNOTE: This is chunk {chunk_number} of {total_chunks} from a larger interview. Focus on extracting information relevant to each category from this portion."
+
         prompt = f"""
 Analyze the following PROADI-SUS interview transcript and provide insights for each category.
 For each category, provide a brief but specific assessment based on the interview content.
 If information is not available for a category, respond with "Não mencionado" or "Informação insuficiente".
-Keep the analysis in Portuguese.
+Keep the analysis in Portuguese.{chunk_info}
 
 IMPORTANT: Use the EXACT column names as keys in your JSON response. Do not modify or translate the column names.
 
@@ -206,33 +272,143 @@ Keep responses concise but informative (1-3 sentences per category) in Portugues
 """
         return prompt
 
+    def _combine_chunk_analyses(self, chunk_analyses: List[Dict[str, str]]) -> Dict[str, str]:
+        """Combine analysis results from multiple chunks into a single comprehensive analysis."""
+        if not chunk_analyses:
+            return {}
+
+        if len(chunk_analyses) == 1:
+            return chunk_analyses[0]
+
+        combined_analysis = {}
+        column_mapping = self._get_existing_column_mapping()
+
+        # Get all possible keys from all analyses
+        all_keys = set()
+        for analysis in chunk_analyses:
+            all_keys.update(analysis.keys())
+
+        for key in all_keys:
+            # Skip metadata keys
+            if key in ["interview_file", "file_size_chars", "error"]:
+                combined_analysis[key] = chunk_analyses[0].get(key, "")
+                continue
+
+            # Combine responses for each category
+            responses = []
+            for analysis in chunk_analyses:
+                response = analysis.get(key, "")
+                if response and response not in ["Não mencionado", "Informação insuficiente", ""]:
+                    responses.append(response)
+
+            if responses:
+                # If we have multiple valid responses, combine them intelligently
+                if len(responses) == 1:
+                    combined_analysis[key] = responses[0]
+                else:
+                    # For multiple responses, create a comprehensive summary
+                    unique_responses = []
+                    for response in responses:
+                        # Avoid duplicate content
+                        if not any(response.lower() in existing.lower() or existing.lower() in response.lower()
+                                   for existing in unique_responses):
+                            unique_responses.append(response)
+
+                    if len(unique_responses) == 1:
+                        combined_analysis[key] = unique_responses[0]
+                    else:
+                        combined_analysis[key] = " | ".join(unique_responses)
+            else:
+                combined_analysis[key] = "Não mencionado"
+
+        return combined_analysis
+
     def _analyze_interview_with_openai(self, interview_content: str, filename: str) -> Dict[str, str]:
-        """Analyze interview content using OpenAI API."""
+        """Analyze interview content using OpenAI API, handling large content by chunking."""
         try:
-            prompt = self._create_analysis_prompt(interview_content)
+            # Check if content needs to be chunked
+            estimated_tokens = self._estimate_tokens(interview_content)
+            logger.info(f"Estimated tokens for {filename}: {estimated_tokens}")
 
-            response = self.client.chat.completions.create(
-                model="gpt-4",
-                messages=[
-                    {"role": "system", "content": "You are an expert HR analyst specializing in technical interviews. Provide objective, detailed analysis."},
-                    {"role": "user", "content": prompt}
-                ],
-                temperature=0.3,
-                max_tokens=2000
-            )
+            if estimated_tokens <= self.max_tokens_per_request - 2000:  # Reserve space for prompt
+                # Content is small enough, process normally
+                prompt = self._create_analysis_prompt(interview_content)
 
-            analysis_text = response.choices[0].message.content.strip()
+                response = self.client.chat.completions.create(
+                    model="gpt-4",
+                    messages=[
+                        {"role": "system", "content": "You are an expert HR analyst specializing in technical interviews. Provide objective, detailed analysis."},
+                        {"role": "user", "content": prompt}
+                    ],
+                    temperature=0.3,
+                    max_tokens=2000
+                )
 
-            # Try to parse as JSON
-            try:
-                analysis_dict = json.loads(analysis_text)
-                logger.info(f"Successfully analyzed {filename}")
-                return analysis_dict
-            except json.JSONDecodeError:
-                # If not valid JSON, create a fallback structure
-                logger.warning(
-                    f"OpenAI response for {filename} was not valid JSON, using fallback")
-                return {"general_analysis": analysis_text}
+                analysis_text = response.choices[0].message.content.strip()
+
+                try:
+                    analysis_dict = json.loads(analysis_text)
+                    logger.info(f"Successfully analyzed {filename}")
+                    return analysis_dict
+                except json.JSONDecodeError:
+                    logger.warning(
+                        f"OpenAI response for {filename} was not valid JSON, using fallback")
+                    return {"general_analysis": analysis_text}
+
+            else:
+                # Content is too large, chunk it
+                logger.info(f"Content too large for {filename}, chunking...")
+                chunks = self._split_interview_content(interview_content)
+                chunk_analyses = []
+
+                for i, chunk in enumerate(chunks):
+                    logger.info(
+                        f"Analyzing chunk {i+1}/{len(chunks)} for {filename}")
+
+                    prompt = self._create_analysis_prompt(
+                        chunk, i+1, len(chunks))
+
+                    # Add delay to avoid rate limiting
+                    if i > 0:
+                        logger.info(
+                            f"Waiting {self.request_delay} seconds to avoid rate limiting...")
+                        time.sleep(self.request_delay)
+
+                    try:
+                        response = self.client.chat.completions.create(
+                            model="gpt-4",
+                            messages=[
+                                {"role": "system", "content": "You are an expert HR analyst specializing in technical interviews. Provide objective, detailed analysis."},
+                                {"role": "user", "content": prompt}
+                            ],
+                            temperature=0.3,
+                            max_tokens=2000
+                        )
+
+                        analysis_text = response.choices[0].message.content.strip(
+                        )
+
+                        try:
+                            chunk_analysis = json.loads(analysis_text)
+                            chunk_analyses.append(chunk_analysis)
+                        except json.JSONDecodeError:
+                            logger.warning(
+                                f"Chunk {i+1} response was not valid JSON")
+                            chunk_analyses.append(
+                                {"general_analysis": analysis_text})
+
+                    except Exception as e:
+                        logger.error(
+                            f"Error analyzing chunk {i+1} of {filename}: {e}")
+                        chunk_analyses.append(
+                            {"error": f"Chunk analysis failed: {str(e)}"})
+
+                # Combine all chunk analyses
+                combined_analysis = self._combine_chunk_analyses(
+                    chunk_analyses)
+                logger.info(
+                    f"Successfully analyzed {filename} using {len(chunks)} chunks")
+                return combined_analysis
 
         except Exception as e:
             logger.error(f"Error analyzing {filename} with OpenAI: {e}")
