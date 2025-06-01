@@ -43,10 +43,10 @@ class InterviewAnalyzer:
         self.existing_df = self._load_existing_data()
 
         # Token and chunking settings
-        self.max_tokens_per_request = 500  # Even smaller chunks
-        self.chunk_overlap = 30  # Minimal overlap to save space
-        self.request_delay = 10  # Longer delay to respect rate limits
-        self.max_output_tokens = 800  # Reduce output tokens
+        self.max_tokens_per_request = 250  # Much smaller chunks
+        self.chunk_overlap = 20  # Minimal overlap
+        self.request_delay = 12  # Longer delay to respect rate limits
+        self.max_output_tokens = 600  # Reduce output tokens further
 
     def _setup_openai_client(self) -> OpenAI:
         """Setup OpenAI client with API key."""
@@ -58,6 +58,31 @@ class InterviewAnalyzer:
             )
         return OpenAI(api_key=api_key)
 
+    def _clean_json_response(self, response_text: str) -> str:
+        """Clean up JSON response to handle common formatting issues."""
+        # Remove common markdown formatting
+        cleaned = response_text.strip()
+
+        # Remove ```json and ``` if present
+        if cleaned.startswith('```json'):
+            cleaned = cleaned[7:]
+        if cleaned.startswith('```'):
+            cleaned = cleaned[3:]
+        if cleaned.endswith('```'):
+            cleaned = cleaned[:-3]
+
+        # Remove any text before the first {
+        first_brace = cleaned.find('{')
+        if first_brace > 0:
+            cleaned = cleaned[first_brace:]
+
+        # Remove any text after the last }
+        last_brace = cleaned.rfind('}')
+        if last_brace >= 0:
+            cleaned = cleaned[:last_brace + 1]
+
+        return cleaned.strip()
+
     def _estimate_tokens(self, text: str) -> int:
         """Rough estimation of token count (1 token ≈ 4 characters for most text)."""
         return len(text) // 4
@@ -65,7 +90,10 @@ class InterviewAnalyzer:
     def _split_interview_content(self, content: str, max_chunk_tokens: int = None) -> List[str]:
         """Split large interview content into smaller chunks at natural boundaries."""
         if max_chunk_tokens is None:
-            max_chunk_tokens = self.max_tokens_per_request - 2000  # Reserve space for prompt
+            max_chunk_tokens = 1000  # Hard limit of 1000 tokens per chunk
+
+        # Further reduce to be very conservative
+        max_chunk_tokens = min(max_chunk_tokens, 1000)
 
         # If content is small enough, return as single chunk
         if self._estimate_tokens(content) <= max_chunk_tokens:
@@ -83,6 +111,11 @@ class InterviewAnalyzer:
             # If adding this paragraph would exceed the limit
             if len(current_chunk) + len(paragraph) > max_chunk_chars:
                 if current_chunk:
+                    # HARD ENFORCEMENT: Check token count and truncate if needed
+                    while self._estimate_tokens(current_chunk) > max_chunk_tokens:
+                        current_chunk = current_chunk[:int(
+                            len(current_chunk) * 0.9)]
+
                     chunks.append(current_chunk.strip())
                     # Start new chunk with overlap from previous chunk
                     if len(current_chunk) > self.chunk_overlap:
@@ -96,23 +129,50 @@ class InterviewAnalyzer:
                     for sentence in sentences:
                         if len(current_chunk) + len(sentence) > max_chunk_chars:
                             if current_chunk:
+                                # HARD ENFORCEMENT: Check token count
+                                while self._estimate_tokens(current_chunk) > max_chunk_tokens:
+                                    current_chunk = current_chunk[:int(
+                                        len(current_chunk) * 0.9)]
                                 chunks.append(current_chunk.strip())
                                 current_chunk = sentence
                             else:
-                                # Single sentence is too large, force split
-                                chunks.append(sentence[:max_chunk_chars])
-                                current_chunk = sentence[max_chunk_chars:]
+                                # Single sentence is too large, force split by character count
+                                # Ensure even single sentences don't exceed token limit
+                                max_sentence_chars = max_chunk_tokens * 3  # Very conservative
+                                if len(sentence) > max_sentence_chars:
+                                    chunks.append(
+                                        sentence[:max_sentence_chars])
+                                    current_chunk = sentence[max_sentence_chars:]
+                                else:
+                                    current_chunk = sentence
                         else:
                             current_chunk += ". " + sentence if current_chunk else sentence
             else:
                 current_chunk += "\n\n" + paragraph if current_chunk else paragraph
 
-        # Add the last chunk
+        # Add the last chunk with final token enforcement
         if current_chunk.strip():
+            # FINAL HARD ENFORCEMENT
+            while self._estimate_tokens(current_chunk) > max_chunk_tokens:
+                current_chunk = current_chunk[:int(len(current_chunk) * 0.9)]
             chunks.append(current_chunk.strip())
 
-        logger.info(f"Split content into {len(chunks)} chunks")
-        return chunks
+        # Final verification: check all chunks and split any that are still too large
+        verified_chunks = []
+        for chunk in chunks:
+            if self._estimate_tokens(chunk) <= max_chunk_tokens:
+                verified_chunks.append(chunk)
+            else:
+                # Force split oversized chunks
+                chunk_size = max_chunk_tokens * 3  # Conservative character estimate
+                while chunk:
+                    piece = chunk[:chunk_size]
+                    verified_chunks.append(piece)
+                    chunk = chunk[chunk_size:]
+
+        logger.info(
+            f"Split content into {len(verified_chunks)} chunks (max {max_chunk_tokens} tokens each)")
+        return verified_chunks
 
     def _define_categories(self) -> Dict[str, str]:
         """Define categories and their descriptions for analysis."""
@@ -243,9 +303,11 @@ class InterviewAnalyzer:
     def _create_analysis_prompt(self, interview_content: str, chunk_number: int = None, total_chunks: int = None) -> str:
         """Create the prompt for OpenAI analysis."""
 
-        # Abbreviated but complete categories
+        # Exact column names from the Excel file
         cats = [
-            "Código Entrevista", "Área de atuação", "Hospital",
+            "Código Entrevista",
+            "Área de atuação",
+            "Hospital",
             "Nome - posição institucional - Projetos",
             "Modelos para planos de trabalho e prestação de contas",
             "Avaliação geral Proadi e DesenvoIvimento Institucional",
@@ -269,16 +331,44 @@ class InterviewAnalyzer:
             "Longevidade e sustentabilidade possível?"
         ]
 
-        chunk_info = f"({chunk_number}/{total_chunks})" if chunk_number else ""
+        chunk_info = f"[{chunk_number}/{total_chunks}]" if chunk_number else ""
 
-        prompt = f"""Analise entrevista PROADI-SUS{chunk_info}.
-Extraia info para categorias. Use nomes EXATOS como chaves JSON.
+        prompt = f"""IMPORTANTE: Retorne APENAS um JSON válido, sem texto adicional, sem explicações, sem markdown, sem ```json```.
 
+Analise esta entrevista PROADI-SUS{chunk_info} e extraia informações.
+
+Texto:
 {interview_content}
 
-Categorias: {', '.join(cats)}
+Retorne EXATAMENTE este formato JSON (copie as chaves exatas):
+{{
+  "Código Entrevista": "informação encontrada ou N/A",
+  "Área de atuação": "informação encontrada ou N/A",
+  "Hospital": "informação encontrada ou N/A",
+  "Nome - posição institucional - Projetos": "informação encontrada ou N/A",
+  "Modelos para planos de trabalho e prestação de contas": "informação encontrada ou N/A",
+  "Avaliação geral Proadi e DesenvoIvimento Institucional": "informação encontrada ou N/A",
+  "Relação Conass/Conasems/MS com HE e instituições parceiras": "informação encontrada ou N/A",
+  "Benefícios para instituição parceira": "informação encontrada ou N/A",
+  "Desafios para a participação do HE no Proadi": "informação encontrada ou N/A",
+  "Sugestões": "informação encontrada ou N/A",
+  "Origem dos projetos (quem demandou, tramitação e negociações)": "informação encontrada ou N/A",
+  "Projetos colaborativos (participação de cada um, relacionamento HE e benefícios e desafios)": "informação encontrada ou N/A",
+  "Expertise do hospital para o projeto e Inserção deste no HE": "informação encontrada ou N/A",
+  "Abrangência Territorial do Projeto (definição)": "informação encontrada ou N/A",
+  "Seleção e envolvimento instituições participantes no projeto": "informação encontrada ou N/A",
+  "Avaliações sobre o Projeto": "informação encontrada ou N/A",
+  "Monitoramento (HE e instituições participantes) e Indicadores": "informação encontrada ou N/A",
+  "Riscos na implementação/dificuldades enfrentadas (adesão instituições ou profissionais, infraestrutura, outras)": "informação encontrada ou N/A",
+  "Benefícios do projeto para o SUS": "informação encontrada ou N/A",
+  "Incorporação de bens materiais ao SUS?": "informação encontrada ou N/A",
+  "Treinamento para profissionais?": "informação encontrada ou N/A",
+  "Publicações ou divulgação?": "informação encontrada ou N/A",
+  "Incorporação resultados ao SUS": "informação encontrada ou N/A",
+  "Longevidade e sustentabilidade possível?": "informação encontrada ou N/A"
+}}
 
-JSON válido, 1 frase/categoria, "N/A" se ausente:"""
+RESPOSTA (JSON válido apenas):"""
         return prompt
 
     def _combine_chunk_analyses(self, chunk_analyses: List[Dict[str, str]]) -> Dict[str, str]:
@@ -346,8 +436,7 @@ JSON válido, 1 frase/categoria, "N/A" se ausente:"""
                 response = self.client.chat.completions.create(
                     model="gpt-4",
                     messages=[
-                        {"role": "system",
-                            "content": "You are an expert analyst. Provide concise analysis."},
+                        {"role": "system", "content": "You are a JSON-only analyst. Return ONLY valid JSON without any additional text, markdown, or explanations."},
                         {"role": "user", "content": prompt}
                     ],
                     temperature=0.3,
@@ -356,27 +445,47 @@ JSON válido, 1 frase/categoria, "N/A" se ausente:"""
 
                 analysis_text = response.choices[0].message.content.strip()
 
+                # LOG THE RAW RESPONSE
+                logger.info(f"🔍 Raw OpenAI response for {filename}:")
+                logger.info(f"📝 Response: {analysis_text}")
+
                 try:
-                    analysis_dict = json.loads(analysis_text)
+                    # Clean the response before parsing
+                    cleaned_json = self._clean_json_response(analysis_text)
+                    logger.info(f"🧹 Cleaned JSON: {cleaned_json}")
+
+                    analysis_dict = json.loads(cleaned_json)
                     logger.info(f"Successfully analyzed {filename}")
+                    logger.info(
+                        f"📊 Extracted data keys: {list(analysis_dict.keys())}")
                     return analysis_dict
                 except json.JSONDecodeError:
                     logger.warning(
                         f"OpenAI response for {filename} was not valid JSON, using fallback")
+                    logger.warning(
+                        f"Original response: {analysis_text[:200]}...")
                     return {"general_analysis": analysis_text}
 
             else:
                 # Content is too large, chunk it
                 logger.info(f"Content too large for {filename}, chunking...")
-                chunks = self._split_interview_content(interview_content)
+                chunks = self._split_interview_content(
+                    interview_content, max_chunk_tokens=1000)
                 chunk_analyses = []
 
                 for i, chunk in enumerate(chunks):
+                    chunk_tokens = self._estimate_tokens(chunk)
                     logger.info(
-                        f"Analyzing chunk {i+1}/{len(chunks)} for {filename}")
+                        f"Analyzing chunk {i+1}/{len(chunks)} for {filename} ({chunk_tokens} tokens)")
 
                     prompt = self._create_analysis_prompt(
                         chunk, i+1, len(chunks))
+                    prompt_tokens = self._estimate_tokens(prompt)
+                    total_tokens = chunk_tokens + prompt_tokens
+
+                    if total_tokens > 6000:  # Leave room for output tokens
+                        logger.warning(
+                            f"⚠️ Chunk {i+1} might be too large: {total_tokens} tokens total")
 
                     # Add delay to avoid rate limiting
                     if i > 0:
@@ -388,8 +497,7 @@ JSON válido, 1 frase/categoria, "N/A" se ausente:"""
                         response = self.client.chat.completions.create(
                             model="gpt-4",
                             messages=[
-                                {"role": "system",
-                                    "content": "You are an expert analyst. Provide concise analysis."},
+                                {"role": "system", "content": "You are a JSON-only analyst. Return ONLY valid JSON without any additional text, markdown, or explanations."},
                                 {"role": "user", "content": prompt}
                             ],
                             temperature=0.3,
@@ -399,37 +507,57 @@ JSON válido, 1 frase/categoria, "N/A" se ausente:"""
                         analysis_text = response.choices[0].message.content.strip(
                         )
 
+                        # LOG THE RAW RESPONSE
+                        logger.info(f"🔍 Raw OpenAI response for chunk {i+1}:")
+                        logger.info(f"📝 Response: {analysis_text}")
+
                         try:
-                            chunk_analysis = json.loads(analysis_text)
+                            # Clean the response before parsing
+                            cleaned_json = self._clean_json_response(
+                                analysis_text)
+                            logger.info(
+                                f"🧹 Cleaned JSON for chunk {i+1}: {cleaned_json}")
+
+                            chunk_analysis = json.loads(cleaned_json)
                             chunk_analyses.append(chunk_analysis)
-                        except json.JSONDecodeError:
+                            logger.info(
+                                f"✅ Successfully parsed JSON for chunk {i+1}")
+                            logger.info(
+                                f"📊 Extracted data keys: {list(chunk_analysis.keys())}")
+                        except json.JSONDecodeError as json_err:
                             logger.warning(
-                                f"Chunk {i+1} response was not valid JSON")
+                                f"❌ Chunk {i+1} JSON parse error: {json_err}")
+                            logger.warning(
+                                f"Original response: {analysis_text[:200]}...")
+                            logger.warning(
+                                f"Cleaned response: {self._clean_json_response(analysis_text)[:200]}...")
+                            # Try to extract any useful info manually
                             chunk_analyses.append(
-                                {"general_analysis": analysis_text})
+                                {"parsing_error": f"Invalid JSON: {analysis_text[:100]}"})
 
                     except Exception as e:
                         error_msg = str(e)
                         logger.error(
-                            f"Error analyzing chunk {i+1} of {filename}: {e}")
+                            f"❌ Error analyzing chunk {i+1} of {filename}: {e}")
 
-                        # Check if it's a rate limit error
-                        if "rate_limit_exceeded" in error_msg or "429" in error_msg:
+                        # Check if it's a rate limit or token error
+                        if "rate_limit_exceeded" in error_msg or "429" in error_msg or "context_length_exceeded" in error_msg:
                             logger.info(
-                                f"Rate limit hit, waiting {self.request_delay * 3} seconds...")
+                                f"⏳ Token/rate limit hit, waiting {self.request_delay * 3} seconds...")
                             time.sleep(self.request_delay * 3)
-                            # Try one more time with shorter content
+                            # Try one more time with much shorter content
                             try:
-                                # Use only first half of chunk if rate limited
-                                shorter_chunk = chunk[:len(chunk)//2]
+                                # Use only first third of chunk if token limited
+                                shorter_chunk = chunk[:len(chunk)//3]
+                                logger.info(
+                                    f"🔄 Retrying chunk {i+1} with {len(shorter_chunk)} characters...")
                                 shorter_prompt = self._create_analysis_prompt(
                                     shorter_chunk, i+1, len(chunks))
 
                                 response = self.client.chat.completions.create(
                                     model="gpt-4",
                                     messages=[
-                                        {"role": "system",
-                                            "content": "You are an expert analyst. Provide concise analysis."},
+                                        {"role": "system", "content": "You are a JSON-only analyst. Return ONLY valid JSON without any additional text, markdown, or explanations."},
                                         {"role": "user", "content": shorter_prompt}
                                     ],
                                     temperature=0.3,
@@ -438,23 +566,42 @@ JSON válido, 1 frase/categoria, "N/A" se ausente:"""
 
                                 analysis_text = response.choices[0].message.content.strip(
                                 )
+
+                                # LOG THE RETRY RAW RESPONSE
+                                logger.info(
+                                    f"🔄 Retry raw OpenAI response for chunk {i+1}:")
+                                logger.info(
+                                    f"📝 Retry response: {analysis_text}")
+
                                 try:
-                                    chunk_analysis = json.loads(analysis_text)
+                                    # Clean the response before parsing
+                                    cleaned_json = self._clean_json_response(
+                                        analysis_text)
+                                    logger.info(
+                                        f"🧹 Retry cleaned JSON for chunk {i+1}: {cleaned_json}")
+
+                                    chunk_analysis = json.loads(cleaned_json)
                                     chunk_analyses.append(chunk_analysis)
                                     logger.info(
-                                        f"Successfully analyzed chunk {i+1} with shorter content")
+                                        f"✅ Successfully analyzed chunk {i+1} with shorter content")
+                                    logger.info(
+                                        f"📊 Retry extracted data keys: {list(chunk_analysis.keys())}")
                                 except json.JSONDecodeError:
+                                    logger.warning(
+                                        f"❌ Retry also failed JSON parsing for chunk {i+1}")
+                                    logger.warning(
+                                        f"Retry response: {analysis_text[:200]}...")
                                     chunk_analyses.append(
-                                        {"general_analysis": analysis_text})
+                                        {"retry_parsing_error": analysis_text[:100]})
 
                             except Exception as retry_e:
                                 logger.error(
-                                    f"Retry failed for chunk {i+1}: {retry_e}")
+                                    f"❌ Retry failed for chunk {i+1}: {retry_e}")
                                 chunk_analyses.append(
-                                    {"error": f"Chunk analysis failed: {str(retry_e)}"})
+                                    {"error": f"Both attempts failed: {str(retry_e)}"})
                         else:
                             chunk_analyses.append(
-                                {"error": f"Chunk analysis failed: {str(e)}"})
+                                {"error": f"Analysis failed: {str(e)}"})
 
                 # Combine all chunk analyses
                 combined_analysis = self._combine_chunk_analyses(
@@ -517,20 +664,46 @@ JSON válido, 1 frase/categoria, "N/A" se ausente:"""
             return
 
         try:
-            column_mapping = self._get_existing_column_mapping()
-
             # Transform results to match existing Excel structure
             excel_rows = []
             for result in results:
                 excel_row = {}
 
-                # Add the filename in the first column (IDENTIFICAÇÃO)
-                excel_row["IDENTIFICAÇÃO"] = result.get("interview_file", "")
+                # Add the filename in the first column (IDENTIFICAÇÃO or use filename)
+                excel_row["Responsável pela análise"] = result.get(
+                    "interview_file", "")
 
-                # Map internal categories to Excel column names
-                for internal_key, excel_col in column_mapping.items():
-                    excel_row[excel_col] = result.get(
-                        excel_col, result.get(internal_key, ""))
+                # Map all the exact column names from Excel
+                exact_columns = [
+                    "Código Entrevista",
+                    "Área de atuação",
+                    "Hospital",
+                    "Nome - posição institucional - Projetos",
+                    "Modelos para planos de trabalho e prestação de contas",
+                    "Avaliação geral Proadi e DesenvoIvimento Institucional",
+                    "Relação Conass/Conasems/MS com HE e instituições parceiras",
+                    "Benefícios para instituição parceira",
+                    "Desafios para a participação do HE no Proadi",
+                    "Sugestões",
+                    "Origem dos projetos (quem demandou, tramitação e negociações)",
+                    "Projetos colaborativos (participação de cada um, relacionamento HE e benefícios e desafios)",
+                    "Expertise do hospital para o projeto e Inserção deste no HE",
+                    "Abrangência Territorial do Projeto (definição)",
+                    "Seleção e envolvimento instituições participantes no projeto",
+                    "Avaliações sobre o Projeto",
+                    "Monitoramento (HE e instituições participantes) e Indicadores",
+                    "Riscos na implementação/dificuldades enfrentadas (adesão instituições ou profissionais, infraestrutura, outras)",
+                    "Benefícios do projeto para o SUS",
+                    "Incorporação de bens materiais ao SUS?",
+                    "Treinamento para profissionais?",
+                    "Publicações ou divulgação?",
+                    "Incorporação resultados ao SUS",
+                    "Longevidade e sustentabilidade possível?"
+                ]
+
+                # Copy data for each exact column name
+                for col in exact_columns:
+                    excel_row[col] = result.get(col, "N/A")
 
                 excel_rows.append(excel_row)
 

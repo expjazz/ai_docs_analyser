@@ -1,0 +1,129 @@
+2025-06-01 10:55:15,825 - INFO - Loaded existing file with 6 rows
+2025-06-01 10:55:15,825 - INFO - Starting interview analysis...
+2025-06-01 10:55:15,826 - INFO - Found 2 interview files
+2025-06-01 10:55:15,826 - INFO - Found 5 already processed interviews
+2025-06-01 10:55:15,826 - INFO - Processing Gravação da Entrevista - Gravador - 09_04_2025 - HAOC01 - Bruna e Nídia.docx...
+2025-06-01 10:55:15,827 - WARNING - Used latin-1 encoding for Gravação da Entrevista - Gravador - 09_04_2025 - HAOC01 - Bruna e Nídia.docx
+2025-06-01 10:55:15,827 - INFO - Estimated tokens for Gravação da Entrevista - Gravador - 09_04_2025 - HAOC01 - Bruna e Nídia.docx: 16299
+2025-06-01 10:55:15,827 - INFO - Content too large for Gravação da Entrevista - Gravador - 09_04_2025 - HAOC01 - Bruna e Nídia.docx, chunking...
+2025-06-01 10:55:15,827 - INFO - Split content into 6 chunks
+2025-06-01 10:55:15,827 - INFO - Analyzing chunk 1/6 for Gravação da Entrevista - Gravador - 09_04_2025 - HAOC01 - Bruna e Nídia.docx
+2025-06-01 10:55:32,376 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-01 10:55:32,380 - INFO - Analyzing chunk 2/6 for Gravação da Entrevista - Gravador - 09_04_2025 - HAOC01 - Bruna e Nídia.docx
+2025-06-01 10:55:32,380 - INFO - Waiting 10 seconds to avoid rate limiting...
+2025-06-01 10:55:56,243 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-01 10:55:56,248 - INFO - Analyzing chunk 3/6 for Gravação da Entrevista - Gravador - 09_04_2025 - HAOC01 - Bruna e Nídia.docx
+2025-06-01 10:55:56,248 - INFO - Waiting 10 seconds to avoid rate limiting...
+2025-06-01 10:56:08,603 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-01 10:56:08,607 - WARNING - Chunk 3 response was not valid JSON
+2025-06-01 10:56:08,607 - INFO - Analyzing chunk 4/6 for Gravação da Entrevista - Gravador - 09_04_2025 - HAOC01 - Bruna e Nídia.docx
+2025-06-01 10:56:08,607 - INFO - Waiting 10 seconds to avoid rate limiting...
+2025-06-01 10:56:18,825 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 429 Too Many Requests"
+2025-06-01 10:56:18,827 - INFO - Retrying request to /chat/completions in 6.606000 seconds
+2025-06-01 10:56:28,862 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-01 10:56:28,865 - WARNING - Chunk 4 response was not valid JSON
+2025-06-01 10:56:28,865 - INFO - Analyzing chunk 5/6 for Gravação da Entrevista - Gravador - 09_04_2025 - HAOC01 - Bruna e Nídia.docx
+2025-06-01 10:56:28,865 - INFO - Waiting 10 seconds to avoid rate limiting...
+2025-06-01 10:56:39,583 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 429 Too Many Requests"
+2025-06-01 10:56:39,584 - INFO - Retrying request to /chat/completions in 0.402920 seconds
+2025-06-01 10:56:40,174 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 429 Too Many Requests"
+2025-06-01 10:56:40,174 - INFO - Retrying request to /chat/completions in 0.757407 seconds
+2025-06-01 10:56:41,107 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 429 Too Many Requests"
+2025-06-01 10:56:41,107 - ERROR - Error analyzing chunk 5 of Gravação da Entrevista - Gravador - 09_04_2025 - HAOC01 - Bruna e Nídia.docx: Error code: 429 - {'error': {'message': 'Request too large for gpt-4 in organization org-uGSvxi6hqnDdr9iXzRd1jKay on tokens per min (TPM): Limit 10000, Requested 15856. The input or output tokens must be reduced in order to run successfully. Visit https://platform.openai.com/account/rate-limits to learn more.', 'type': 'tokens', 'param': None, 'code': 'rate_limit_exceeded'}}
+2025-06-01 10:56:41,107 - INFO - Rate limit hit, waiting 30 seconds...
+2025-06-01 10:57:11,379 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 429 Too Many Requests"
+2025-06-01 10:57:11,381 - INFO - Retrying request to /chat/completions in 25.770000 seconds
+2025-06-01 11:00:18,670 - INFO - Loaded existing file with 6 rows
+2025-06-01 11:00:18,671 - INFO - Starting interview analysis...
+2025-06-01 11:00:18,671 - INFO - Found 2 interview files
+2025-06-01 11:00:18,671 - INFO - Found 5 already processed interviews
+2025-06-01 11:00:18,671 - INFO - Processing Gravação da Entrevista - Gravador - 09_04_2025 - HAOC01 - Bruna e Nídia.docx...
+2025-06-01 11:00:18,672 - WARNING - Used latin-1 encoding for Gravação da Entrevista - Gravador - 09_04_2025 - HAOC01 - Bruna e Nídia.docx
+2025-06-01 11:00:18,672 - INFO - Estimated tokens for Gravação da Entrevista - Gravador - 09_04_2025 - HAOC01 - Bruna e Nídia.docx: 16299
+2025-06-01 11:00:18,672 - INFO - Content too large for Gravação da Entrevista - Gravador - 09_04_2025 - HAOC01 - Bruna e Nídia.docx, chunking...
+2025-06-01 11:00:18,672 - INFO - Split content into 6 chunks
+2025-06-01 11:00:18,672 - INFO - Analyzing chunk 1/6 for Gravação da Entrevista - Gravador - 09_04_2025 - HAOC01 - Bruna e Nídia.docx
+2025-06-01 11:00:19,161 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 400 Bad Request"
+2025-06-01 11:00:19,163 - ERROR - ❌ Error analyzing chunk 1 of Gravação da Entrevista - Gravador - 09_04_2025 - HAOC01 - Bruna e Nídia.docx: Error code: 400 - {'error': {'message': "Invalid parameter: 'response_format' of type 'json_object' is not supported with this model.", 'type': 'invalid_request_error', 'param': 'response_format', 'code': None}}
+2025-06-01 11:00:19,163 - INFO - Analyzing chunk 2/6 for Gravação da Entrevista - Gravador - 09_04_2025 - HAOC01 - Bruna e Nídia.docx
+2025-06-01 11:00:19,163 - INFO - Waiting 12 seconds to avoid rate limiting...
+2025-06-01 11:03:18,058 - INFO - Loaded existing file with 6 rows
+2025-06-01 11:03:18,058 - INFO - Starting interview analysis...
+2025-06-01 11:03:18,058 - INFO - Found 2 interview files
+2025-06-01 11:03:18,059 - INFO - Found 5 already processed interviews
+2025-06-01 11:03:18,059 - INFO - Processing Gravação da Entrevista - Gravador - 09_04_2025 - HAOC01 - Bruna e Nídia.docx...
+2025-06-01 11:03:18,060 - WARNING - Used latin-1 encoding for Gravação da Entrevista - Gravador - 09_04_2025 - HAOC01 - Bruna e Nídia.docx
+2025-06-01 11:03:18,060 - INFO - Estimated tokens for Gravação da Entrevista - Gravador - 09_04_2025 - HAOC01 - Bruna e Nídia.docx: 16299
+2025-06-01 11:03:18,060 - INFO - Content too large for Gravação da Entrevista - Gravador - 09_04_2025 - HAOC01 - Bruna e Nídia.docx, chunking...
+2025-06-01 11:03:18,060 - INFO - Split content into 6 chunks (max 1000 tokens each)
+2025-06-01 11:03:18,060 - INFO - Analyzing chunk 1/6 for Gravação da Entrevista - Gravador - 09_04_2025 - HAOC01 - Bruna e Nídia.docx (750 tokens)
+2025-06-01 11:03:24,274 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-01 11:03:24,277 - INFO - ✅ Successfully parsed JSON for chunk 1
+2025-06-01 11:03:24,278 - INFO - Analyzing chunk 2/6 for Gravação da Entrevista - Gravador - 09_04_2025 - HAOC01 - Bruna e Nídia.docx (926 tokens)
+2025-06-01 11:03:24,278 - INFO - Waiting 12 seconds to avoid rate limiting...
+2025-06-01 11:03:41,968 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-01 11:03:41,970 - INFO - ✅ Successfully parsed JSON for chunk 2
+2025-06-01 11:03:41,970 - INFO - Analyzing chunk 3/6 for Gravação da Entrevista - Gravador - 09_04_2025 - HAOC01 - Bruna e Nídia.docx (922 tokens)
+2025-06-01 11:03:41,970 - INFO - Waiting 12 seconds to avoid rate limiting...
+2025-06-01 11:04:01,765 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-01 11:04:01,771 - INFO - ✅ Successfully parsed JSON for chunk 3
+2025-06-01 11:04:01,771 - INFO - Analyzing chunk 4/6 for Gravação da Entrevista - Gravador - 09_04_2025 - HAOC01 - Bruna e Nídia.docx (994 tokens)
+2025-06-01 11:04:01,771 - INFO - Waiting 12 seconds to avoid rate limiting...
+2025-06-01 11:04:19,539 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-01 11:04:19,543 - INFO - ✅ Successfully parsed JSON for chunk 4
+2025-06-01 11:04:19,543 - INFO - Analyzing chunk 5/6 for Gravação da Entrevista - Gravador - 09_04_2025 - HAOC01 - Bruna e Nídia.docx (920 tokens)
+2025-06-01 11:04:19,543 - INFO - Waiting 12 seconds to avoid rate limiting...
+2025-06-01 11:04:37,369 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-01 11:04:37,374 - INFO - ✅ Successfully parsed JSON for chunk 5
+2025-06-01 11:04:37,374 - INFO - Analyzing chunk 6/6 for Gravação da Entrevista - Gravador - 09_04_2025 - HAOC01 - Bruna e Nídia.docx (909 tokens)
+2025-06-01 11:04:37,374 - INFO - Waiting 12 seconds to avoid rate limiting...
+2025-06-01 11:04:55,346 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-01 11:04:55,348 - INFO - ✅ Successfully parsed JSON for chunk 6
+2025-06-01 11:04:55,348 - INFO - Successfully analyzed Gravação da Entrevista - Gravador - 09_04_2025 - HAOC01 - Bruna e Nídia.docx using 6 chunks
+2025-06-01 11:04:55,348 - INFO - Processing Transcrição da entrevista corrigida 08_04_2025 - HIAE02 - Renato Tanjoni e Fernanda Pahim.docx...
+2025-06-01 11:04:55,349 - WARNING - Used latin-1 encoding for Transcrição da entrevista corrigida 08_04_2025 - HIAE02 - Renato Tanjoni e Fernanda Pahim.docx
+2025-06-01 11:04:55,349 - INFO - Estimated tokens for Transcrição da entrevista corrigida 08_04_2025 - HIAE02 - Renato Tanjoni e Fernanda Pahim.docx: 16297
+2025-06-01 11:04:55,349 - INFO - Content too large for Transcrição da entrevista corrigida 08_04_2025 - HIAE02 - Renato Tanjoni e Fernanda Pahim.docx, chunking...
+2025-06-01 11:04:55,349 - INFO - Split content into 6 chunks (max 1000 tokens each)
+2025-06-01 11:04:55,349 - INFO - Analyzing chunk 1/6 for Transcrição da entrevista corrigida 08_04_2025 - HIAE02 - Renato Tanjoni e Fernanda Pahim.docx (750 tokens)
+2025-06-01 11:04:55,510 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 429 Too Many Requests"
+2025-06-01 11:04:55,511 - INFO - Retrying request to /chat/completions in 8.076000 seconds
+2025-06-01 11:05:03,789 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 429 Too Many Requests"
+2025-06-01 11:05:03,793 - INFO - Retrying request to /chat/completions in 4.938000 seconds
+2025-06-01 11:05:14,539 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-01 11:05:14,556 - INFO - ✅ Successfully parsed JSON for chunk 1
+2025-06-01 11:05:14,556 - INFO - Analyzing chunk 2/6 for Transcrição da entrevista corrigida 08_04_2025 - HIAE02 - Renato Tanjoni e Fernanda Pahim.docx (911 tokens)
+2025-06-01 11:05:14,556 - INFO - Waiting 12 seconds to avoid rate limiting...
+2025-06-01 11:05:26,757 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 429 Too Many Requests"
+2025-06-01 11:05:26,758 - INFO - Retrying request to /chat/completions in 5.874000 seconds
+2025-06-01 11:05:38,599 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-01 11:05:38,605 - INFO - ✅ Successfully parsed JSON for chunk 2
+2025-06-01 11:05:38,606 - INFO - Analyzing chunk 3/6 for Transcrição da entrevista corrigida 08_04_2025 - HIAE02 - Renato Tanjoni e Fernanda Pahim.docx (549 tokens)
+2025-06-01 11:05:38,606 - INFO - Waiting 12 seconds to avoid rate limiting...
+2025-06-01 11:05:50,858 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 429 Too Many Requests"
+2025-06-01 11:05:50,859 - INFO - Retrying request to /chat/completions in 5.484000 seconds
+2025-06-01 11:06:02,460 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-01 11:06:02,466 - INFO - ✅ Successfully parsed JSON for chunk 3
+2025-06-01 11:06:02,466 - INFO - Analyzing chunk 4/6 for Transcrição da entrevista corrigida 08_04_2025 - HIAE02 - Renato Tanjoni e Fernanda Pahim.docx (983 tokens)
+2025-06-01 11:06:02,466 - INFO - Waiting 12 seconds to avoid rate limiting...
+2025-06-01 11:06:14,668 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 429 Too Many Requests"
+2025-06-01 11:06:14,669 - INFO - Retrying request to /chat/completions in 3.192000 seconds
+2025-06-01 11:06:24,119 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-01 11:06:24,123 - INFO - ✅ Successfully parsed JSON for chunk 4
+2025-06-01 11:06:24,123 - INFO - Analyzing chunk 5/6 for Transcrição da entrevista corrigida 08_04_2025 - HIAE02 - Renato Tanjoni e Fernanda Pahim.docx (325 tokens)
+2025-06-01 11:06:24,123 - INFO - Waiting 12 seconds to avoid rate limiting...
+2025-06-01 11:06:36,389 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 429 Too Many Requests"
+2025-06-01 11:06:36,392 - INFO - Retrying request to /chat/completions in 4.596000 seconds
+2025-06-01 11:06:41,165 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 429 Too Many Requests"
+2025-06-01 11:06:41,167 - INFO - Retrying request to /chat/completions in 0.426000 seconds
+2025-06-01 11:06:47,008 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-01 11:06:47,016 - INFO - ✅ Successfully parsed JSON for chunk 5
+2025-06-01 11:06:47,016 - INFO - Analyzing chunk 6/6 for Transcrição da entrevista corrigida 08_04_2025 - HIAE02 - Renato Tanjoni e Fernanda Pahim.docx (935 tokens)
+2025-06-01 11:06:47,016 - INFO - Waiting 12 seconds to avoid rate limiting...
+2025-06-01 11:07:04,595 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-01 11:07:04,600 - INFO - ✅ Successfully parsed JSON for chunk 6
+2025-06-01 11:07:04,600 - INFO - Successfully analyzed Transcrição da entrevista corrigida 08_04_2025 - HIAE02 - Renato Tanjoni e Fernanda Pahim.docx using 6 chunks
+2025-06-01 11:07:04,601 - INFO - Processed 2 new interviews successfully
+2025-06-01 11:07:04,689 - INFO - Results exported to Entrevistas Hospitais_Rosi.xlsx
+2025-06-01 11:07:04,689 - INFO - Added 2 new interviews. Total: 8 interviews
+2025-06-01 11:07:04,689 - INFO - Interview analysis completed successfully!
