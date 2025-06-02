@@ -358,37 +358,45 @@ TEXTO DA ENTREVISTA:
 
 INSTRUÇÕES IMPORTANTES:
 1. Leia todo o texto com atenção
-2. Para cada categoria abaixo, encontre e cite EXATAMENTE o que está escrito na entrevista
-3. Use aspas para citar frases diretas quando possível
+2. Para cada categoria abaixo, encontre e cite EXATAMENTE o que está escrito na entrevista.
+3. Analise cuidadosamente a descrição da categoria e encontre o texto da entrevista que se enquadra na descrição.
+3. Citar diretamente o texto da entrevista, sem alterações.
 4. Se uma informação não estiver presente, escreva "Não encontrado neste trecho"
 5. SEMPRE extraia informação real do texto - nunca invente
+6. Sempre extraia a informação completa, ou seja, os trechos a serem colados no excel podem ser longos, mantenha a conversação original entre entrevistador e entrevistado. Não corte enquanto o assunto não estiver acabado, cole tudo o que disser a respeito da categoria. Por exemplo, pode colar mais de um parágrafo, se for o caso. Cole o texto inteiro, não corte.
 
 CATEGORIAS PARA EXTRAIR:
 
 1. Código/Identificador da entrevista - Busque códigos como HIAE01, HEBPP01, etc.
 2. Área de atuação - Se é Pesquisa, Capacitação, Avaliação ou Gestão
-3. Hospital mencionado - Nome completo do hospital de excelência
+3. Hospital mencionado - Nome completo do hospital de excelência - há apenas 6 hospitais de excelência no Brasil, são eles:
+    - Beneficência Portuguesa - BP
+    - Hospital Israelita Albert Einstein - HIAE
+    - Hospital Sírio Libanês - HSL
+    - Hospital Moinhos de Vento - AHMV
+    - Hospital Oswaldo Cruz - HAOC
+    - Hospital do coração - HCOR
 4. Nome e cargo do entrevistado - Quem está sendo entrevistado, sua função e projetos
-5. Modelos para planos de trabalho - Como o hospital estrutura documentos para planos de trabalho e prestação de contas
-6. Avaliação geral do PROADI-SUS - Percepções sobre impacto no hospital e SUS, ganhos institucionais
-7. Relação CONASS/CONASEMS/MS - Articulação entre Ministério, CONASS, CONASEMS e hospitais
-8. Benefícios para instituição parceira - Vantagens para entidades executoras ou beneficiárias
-9. Desafios para participação do HE - Obstáculos internos e externos enfrentados
-10. Sugestões de melhoria - Recomendações para aprimorar o programa
-11. Origem dos projetos - Gênese do projeto, demandante e percurso burocrático
-12. Projetos colaborativos - Iniciativas com múltiplos HEs ou parceiros
-13. Expertise do hospital - Competência técnica e alinhamento com missão institucional
-14. Abrangência territorial - Alcance geográfico e critérios de escolha dos locais
-15. Seleção de instituições participantes - Critérios para convidar unidades de saúde
-16. Avaliações sobre o projeto - Resultados preliminares, impacto e lições aprendidas
-17. Monitoramento e indicadores - Métodos de acompanhamento e indicadores utilizados
-18. Riscos e dificuldades - Problemas práticos como rotatividade, infraestrutura
-19. Benefícios para o SUS - Ganhos para a rede pública de saúde
-20. Incorporação de bens materiais - Compra ou doação de equipamentos ao SUS
-21. Treinamento para profissionais - Estratégias de capacitação mencionadas
-22. Publicações e divulgação - Artigos, relatórios ou comunicação de resultados
-23. Incorporação de resultados ao SUS - Como produtos são integrados às rotinas do SUS
-24. Longevidade e sustentabilidade - Continuidade após financiamento PROADI-SUS
+5. Modelos para planos de trabalho - Como o hospital estrutura os planos de trabalho e os relatórios de prestação de contas, se funciona bem da forma como está sendo feito, se o formato atende as expectativas do entrevistado, como ele preenche os modelos, a matriz lógica, se há dificuldades, etc.
+6. Avaliação geral do PROADI-SUS - Percepções sobre impacto do PROADI-SUS no hospital e SUS, ganhos institucionais, o que justifica a existência do PROADI-SUS, como o entrevistado avalia o programa de forma geral, qual a sua importância, quais oportunidades e benefícios o programa traz, que tipo de ganho o programa traz, troca de conhecimento, aprendizado, apoio. O que significa desenvolvimento institucional do SUS para o entrevistado.
+7. Relação CONASS/CONASEMS/MS - Articulação entre Ministério, CONASS, CONASEMS com os hospitais de excelência e com os hospitais e instituições parceiras. Como o entrevistado avalia a relação entre essas instituições, como eles se comunicam, há reuniões, visitas, qual o formato e frequência desses encontros, etc.
+8. Benefícios para instituição parceira - Vantagens para entidades beneficiárias, os centros participantes do programa. Eles recebem apoio, treinamento, capacitação, assessoria, como o entrevistado avalia a relação dos HE com as instituições parceiras. Essas instituições são centro participantes, como hospitais, UPAS, UBS, NATS, etc.
+9. Desafios para participação do HE - Obstáculos internos e externos enfrentados para a participação do hospital de excelência no PROADI-SUS. Tempo, gestão, etc.
+10. Sugestões de melhoria - Recomendações para aprimorar o programa. O que o entrevistado sugere para melhorar o programa. Há práticas que eles já implementam, que podem ser adotadas no PROADI-SUS? Melhorar a comunicação, grupos de whatsapp, aumentar prazo,
+11. Origem dos projetos - Gênese do projeto, demandante e percurso burocrático. Quem demandou, qual a origem, o processo de tramitação e as negociações envolvidas no momento da formulação de um projeto. Quais atores participam? CONASS? CONASEMS? MS? Há uma lista de projetos prioritários? Como funcionam os contratos, os pagamentos aos envolvidos, etc.
+12. Projetos colaborativos - Iniciativas com múltiplos HEs. Quando é o caso de projetos colaborativos, como o entrevistado enxerga essa colaboração? qual a participação de cada hospital de excelência (HE) no projeto? como é o relacionamento entre os HEs? Quais os benefícios e desafios que os HEs enfrentam em um projeto colaborativo?
+13. Expertise do hospital - Competência técnica e alinhamento com missão institucional. O que o HE oferece para o projeto? Quais são as competências técnicas do HE? As áreas de atuação do HE são compatíveis com a expertise que o projeto exige?
+14. Abrangência territorial - Alcance geográfico e critérios de escolha dos locais. Quais são os critérios de escolha dos locais, dos centros participantes do projeto? Quais são os locais escolhidos?
+15. Seleção de instituições participantes - Critérios para convidar unidades de saúde, isto é, os centros participantes, como hospitais, UPAS, UBS, NATs, etc, centro de pesquisa, etc. Quais são os critérios para convidar unidades de saúde? Quais são as unidades de saúde escolhidas?
+16. Avaliações sobre o projeto - A entrevista cita algum projeto do programa PROADI-SUS em específico, se sim, quais a percepção do entrevistado sobre os resultados preliminares, impacto e lições aprendidas.
+17. Monitoramento e indicadores - Métodos de acompanhamento e indicadores utilizados. Quais são os indicadores de impacto do projeto? Quais são os métodos de acompanhamento? há monitoramento? como os HEs monitoram os centros participantes? há reuniões, visitas? qual a frequência e formato dessas visitas?
+18. Riscos e dificuldades - Problemas práticos enfrentados na implementação do projeto, como rotatividade, infraestrutura, adesão das unidades de saúde participantes, falta de profissionais, etc.
+19. Benefícios para o SUS - Ganhos, benefícios e importência do projeto para a rede pública de saúde, para o Sistema Único de Saúde de forma geral.
+20. Incorporação de bens materiais - O projeto envolveu compra ou doação de equipamentos ou bens materias ao SUS, as unidades de saúde recebem esses bens quando o projeto acaba?
+21. Treinamento para profissionais - Estratégias de capacitação mencionadas, há cursos, treinamentos, capacitação, etc dos HE para os centros participantes.
+22. Publicações e divulgação - Artigos, relatórios ou comunicação de resultados. Qual a estratégia de divulgação do projeto, como o HE divulga os resultados do projeto?
+23. Incorporação de resultados ao SUS - Como produtos são integrados às rotinas do SUS? Como o entrevistado avalia a incorporação dos resultados do projeto ao SUS? há transferência de conhecimento, aprendizado, tecnologia, etc?
+24. Longevidade e sustentabilidade - Continuidade após financiamento PROADI-SUS. O que o entrevistado avalia sobre a sustentabilidade do projeto? O que ele sugere para a sustentabilidade do projeto? Depois que o projeto acaba, como ele avalia a longevidade de seus resultados? É possível continuar o projeto mesmo sem o PROADI-SUS?
 
 Responda em formato JSON válido com as chaves exatas do Excel:
 
