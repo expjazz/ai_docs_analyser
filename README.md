@@ -1,143 +1,183 @@
-# PROADI-SUS Interview Analysis Tool
+# Interview Analysis Tool
 
-Automatically analyzes PROADI-SUS healthcare interviews using OpenAI API and exports categorized insights to Excel.
+Analyzes PROADI-SUS interviews using AI and exports categorized data to Excel.
 
-## Features
+## 🆕 New Features
 
-- 📂 Processes multiple interview files from `entrevistas/` folder
-- 🤖 Uses OpenAI GPT-4 for intelligent analysis
-- 📊 Exports results to Excel with interviews as rows, categories as columns
-- 📝 Supports multiple file formats (.txt, .md, .doc, .docx)
-- 🔍 Analyzes 24 PROADI-SUS specific categories automatically
-- 📋 Detailed logging and error handling
-- 🐍 Self-contained virtual environment with pipenv
+### OpenAI Assistant API with File Search
 
-## Prerequisites
+The tool now supports OpenAI's Assistant API with file search capabilities, providing the most comprehensive analysis by:
 
-- Python 3.10+
-- pipenv (install with `pip install pipenv`)
+- Uploading interview files to OpenAI's vector storage
+- Using semantic search to find relevant content for each category
+- Analyzing complete interviews without chunking limitations
+- Providing more accurate and comprehensive results
 
-## Setup
+## 🚀 Quick Start
 
-1. **Install pipenv** (if not already installed):
-
-   ```bash
-   pip install pipenv
-   ```
-
-2. **Install dependencies and create virtual environment:**
-
-   ```bash
-   pipenv install
-   ```
-
-3. **Install development dependencies** (optional):
-
-   ```bash
-   pipenv install --dev
-   ```
-
-4. **Set up OpenAI API key:**
-
-   Create a `.env` file in the project root:
-
-   ```bash
-   echo "OPENAI_API_KEY=your-api-key-here" > .env
-   ```
-
-   Or export it in your shell:
-
-   ```bash
-   export OPENAI_API_KEY="your-api-key-here"
-   ```
-
-5. **Add interview files:**
-   - Place interview transcripts in the `entrevistas/` folder
-   - Supported formats: .txt, .md, .doc, .docx
-
-## Usage
-
-Run the analysis in the virtual environment:
+1. **Set up environment variables** (create a `.env` file):
 
 ```bash
-pipenv run python app/main.py
+# Required for file search (RECOMMENDED method)
+OPENAI_API_KEY=your-openai-api-key-here
+USE_FILE_SEARCH=true
+
+# Alternative configurations
+USE_GEMINI=false
+USE_GPT=false
+USE_EMBEDDINGS=false
 ```
 
-Or activate the shell and run directly:
+2. **Install dependencies**:
 
 ```bash
-pipenv shell
+pip install openai pandas openpyxl python-docx docx2txt google-generativeai ollama sentence-transformers python-dotenv
+```
+
+3. **Prepare your interviews**:
+
+   - Place interview files in the `entrevistas/` folder
+   - Supported formats: `.txt`, `.md`, `.doc`, `.docx`
+
+4. **Run the analysis**:
+
+```bash
 python app/main.py
 ```
 
-The tool will:
+## 📋 Configuration Options
 
-1. Scan `entrevistas/` folder for interview files
-2. Analyze each interview using OpenAI API
-3. Export results to `interview_analysis.xlsx`
+### Analysis Methods (in order of recommendation)
 
-## Development
+#### 🔍 File Search (RECOMMENDED)
 
-The project includes development tools:
+Uses OpenAI Assistant API with file search for comprehensive analysis:
 
-- **Code formatting**: `pipenv run black app/`
-- **Linting**: `pipenv run flake8 app/`
-- **Testing**: `pipenv run pytest` (when tests are added)
+```bash
+USE_FILE_SEARCH=true
+OPENAI_API_KEY=your-key-here
+```
 
-## Analysis Categories
+**Benefits:**
 
-The tool analyzes PROADI-SUS interviews across these categories:
+- No chunking limitations
+- Semantic search across entire interviews
+- Most accurate results
+- Handles large interviews efficiently
 
-- **Código Entrevista**: Identificador único da entrevista (HE + número sequencial)
-- **Área de Atuação**: Eixo temático (Pesquisa, Capacitação, Avaliação, Gestão)
-- **Hospital**: Nome completo do hospital de excelência responsável
-- **Nome - Posição - Projetos**: Informações do entrevistado e projetos PROADI-SUS
-- **Modelos para Planos de Trabalho**: Estruturação de documentos e prestação de contas
-- **Avaliação Geral PROADI**: Percepções sobre impacto no hospital e SUS
-- **Relação CONASS/CONASEMS/MS**: Articulação entre entidades federativas
-- **Benefícios para Instituição Parceira**: Vantagens percebidas pelos executores
-- **Desafios para Participação HE**: Obstáculos internos e externos enfrentados
-- **Sugestões**: Recomendações para aprimorar o programa
-- **Origem dos Projetos**: Gênese e tramitação dos projetos
-- **Projetos Colaborativos**: Iniciativas multi-institucionais
-- **Expertise do Hospital**: Competência técnica e alinhamento institucional
-- **Abrangência Territorial**: Alcance geográfico e critérios de seleção
-- **Seleção de Instituições**: Critérios e estratégias de engajamento
-- **Avaliações sobre o Projeto**: Resultados e lições aprendidas
-- **Monitoramento e Indicadores**: Métodos de acompanhamento
-- **Riscos e Dificuldades**: Problemas práticos observados
-- **Benefícios para o SUS**: Ganhos esperados ou percebidos
-- **Incorporação de Bens Materiais**: Equipamentos/insumos doados ao SUS
-- **Treinamento para Profissionais**: Estratégias de capacitação
-- **Publicações ou Divulgação**: Artigos e comunicação de resultados
-- **Incorporação de Resultados ao SUS**: Integração às rotinas do SUS
-- **Longevidade e Sustentabilidade**: Continuidade pós-financiamento
+#### 🤖 Google Gemini
 
-## Output
+Uses Google's Gemini AI model:
 
-Results are exported to `interview_analysis.xlsx` with:
+```bash
+USE_GEMINI=true
+GEMINI_API_KEY=your-key-here
+USE_FILE_SEARCH=false
+```
 
-- Each row representing one interview
-- Each column representing one analysis category
-- Metadata columns (filename, file size)
-- Auto-adjusted column widths for readability
+#### 🧠 OpenAI GPT (Traditional)
 
-## Logging
+Uses OpenAI GPT with chunking:
 
-The tool creates `interview_analysis.log` with detailed processing information.
+```bash
+USE_GPT=true
+OPENAI_API_KEY=your-key-here
+USE_FILE_SEARCH=false
+```
 
-## Error Handling
+#### 🦙 Local Ollama
 
-- Gracefully handles missing files or folders
-- Fallback for non-JSON OpenAI responses
-- Multiple encoding support for different file types
-- Comprehensive error logging
+Uses local Ollama with DeepSeek-R1:
 
-## Virtual Environment Benefits
+```bash
+# All other options set to false
+# Requires: ollama serve && ollama pull deepseek-r1
+```
 
-Using pipenv provides:
+### Advanced Options
 
-- 🔒 Isolated dependencies
-- 📦 Reproducible builds with Pipfile.lock
-- 🛠️ Development tools included
-- 🐍 Python version management
+#### Embeddings-based Analysis
+
+```bash
+USE_EMBEDDINGS=true
+```
+
+Experimental feature that uses embeddings for semantic content matching.
+
+## 📊 Output
+
+The tool generates `Entrevistas Hospitais_Rosi.xlsx` with extracted information categorized into:
+
+- Código da entrevista
+- Área de atuação
+- Hospital
+- Nome e posição do entrevistado
+- Modelos para planos de trabalho
+- Avaliação geral do PROADI-SUS
+- Relação CONASS/CONASEMS/MS
+- Benefícios para instituição parceira
+- Desafios para participação
+- Sugestões de melhoria
+- And 14 more categories...
+
+## 🔧 Troubleshooting
+
+### File Search Issues
+
+- Ensure you have a valid OpenAI API key with Assistant API access
+- Check that interview files are in supported formats
+- Verify the `entrevistas/` folder exists and contains interview files
+
+### API Rate Limits
+
+- The tool includes automatic rate limiting and retry logic
+- For large numbers of interviews, consider processing in smaller batches
+
+### Memory Issues
+
+- File search method is most memory efficient
+- For local methods, reduce `max_tokens_per_request` if needed
+
+## 🧹 Resource Cleanup
+
+When using file search, the tool automatically:
+
+- Deletes uploaded files from OpenAI after analysis
+- Removes created assistants and vector stores
+- Cleans up temporary files
+
+## 📝 Logs
+
+Check `interview_analysis.log` for detailed processing information and any errors.
+
+## 🔒 Privacy & Security
+
+- Interview files are temporarily uploaded to OpenAI when using file search
+- Files are automatically deleted after analysis
+- No data is permanently stored on OpenAI servers
+- For maximum privacy, use local Ollama option
+
+## ⚡ Performance Comparison
+
+| Method          | Speed      | Accuracy   | Context    | Privacy    |
+| --------------- | ---------- | ---------- | ---------- | ---------- |
+| File Search     | ⭐⭐⭐⭐   | ⭐⭐⭐⭐⭐ | ⭐⭐⭐⭐⭐ | ⭐⭐⭐     |
+| Gemini          | ⭐⭐⭐⭐⭐ | ⭐⭐⭐⭐   | ⭐⭐⭐⭐   | ⭐⭐⭐     |
+| GPT Traditional | ⭐⭐⭐     | ⭐⭐⭐     | ⭐⭐⭐     | ⭐⭐⭐     |
+| Local Ollama    | ⭐⭐       | ⭐⭐⭐     | ⭐⭐⭐     | ⭐⭐⭐⭐⭐ |
+
+## 🤝 Contributing
+
+1. Fork the repository
+2. Create a feature branch
+3. Make your changes
+4. Test with both analysis approaches
+5. Submit a pull request
+
+## 📄 License
+
+[Add your license information here]
+
+---
+
+**Need help?** Check the logs in `interview_analysis.log` for detailed processing information.
