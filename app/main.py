@@ -81,10 +81,10 @@ class InterviewAnalyzer:
             self.max_tokens_per_request = 90000  # Gemini Pro has ~1M token context
             self.max_output_tokens = 8000  # Large output for comprehensive analysis
         elif self.use_gpt:
-            # Much larger chunks for GPT-4o (use most of 128k context)
-            self.max_tokens_per_request = 80000
-            # Much larger output for comprehensive analysis with GPT-4o
-            self.max_output_tokens = 8000
+            # Conservative limits for OpenAI GPT models to stay well under 30k total
+            self.max_tokens_per_request = 22000  # Input tokens - safe margin under 30k
+            # Output tokens - reasonable for comprehensive analysis
+            self.max_output_tokens = 4000
         else:
             self.max_tokens_per_request = 15000  # Much larger chunks for local DeepSeek-R1
             self.max_output_tokens = 4000  # Allow full thinking process + JSON output
@@ -186,15 +186,25 @@ class InterviewAnalyzer:
             "📤 Uploading interview files to OpenAI (purpose='assistants')...")
         interview_files = self._get_interview_files()
         uploaded_files = {}
+        max_file_size = 20 * 1024 * 1024  # 20MB limit for OpenAI files
+
         for file_path in interview_files:
             try:
+                # Check file size before uploading
+                file_size = file_path.stat().st_size
+                if file_size > max_file_size:
+                    logger.warning(
+                        f"⚠️ Skipping {file_path.name} - file too large ({file_size / 1024 / 1024:.1f}MB > 20MB)")
+                    continue
+
                 with open(file_path, 'rb') as f:
                     file_obj = self.client.files.create(
                         file=f,
                         purpose='assistants'
                     )
                 uploaded_files[file_obj.id] = file_path.name
-                logger.info(f"✅ Uploaded {file_path.name} as {file_obj.id}")
+                logger.info(
+                    f"✅ Uploaded {file_path.name} as {file_obj.id} ({file_size / 1024:.1f}KB)")
             except Exception as e:
                 logger.error(f"❌ Failed to upload {file_path.name}: {e}")
         return uploaded_files
@@ -330,7 +340,7 @@ class InterviewAnalyzer:
 
     def _create_file_search_prompt(self, filename: str) -> str:
         """Prompt for file_search assistant to extract all 24 categories from the interview file."""
-        return f"""Utilize a ferramenta file_search para encontrar e citar EXATAMENTE as falas da entrevista no arquivo '{filename}'. NÃO resuma, NÃO interprete, NÃO parafraseie. Para cada categoria abaixo, procure e copie as falas exatas. Se não encontrar, escreva 'Não encontrado'. Responda apenas em JSON válido com as chaves exatas:
+        return f"""Utilize a ferramenta file_search para encontrar informações da entrevista no arquivo '{filename}'. Para cada categoria, encontre e cite as falas mais relevantes (máximo 200 palavras por categoria). Se não encontrar, escreva 'Não encontrado'. Responda apenas em JSON válido com as chaves exatas:
 
 1. Código/Identificador da entrevista (HIAE01, HEBPP01, etc.)
 2. Área de atuação (Pesquisa, Capacitação, Avaliação, Gestão)
@@ -1048,6 +1058,15 @@ Analise todo o conteúdo do arquivo "{filename}" e extraia citações completas 
     def _analyze_interview_with_ai(self, interview_content: str, filename: str) -> Dict[str, str]:
         """Analyze interview content using traditional AI methods (non-file-search)."""
         try:
+            # Estimate tokens (rough approximation: 1 token ≈ 4 characters)
+            estimated_tokens = len(interview_content) // 4
+
+            # If content is too large, chunk it
+            if estimated_tokens > self.max_tokens_per_request - 2000:  # Reserve 2000 tokens for prompt
+                logger.info(
+                    f"📄 Content too large ({estimated_tokens} tokens), chunking {filename}...")
+                return self._analyze_interview_in_chunks(interview_content, filename)
+
             # Create a simple analysis prompt for traditional methods
             prompt = f"""Você é um especialista em análise de entrevistas PROADI-SUS. Analise esta entrevista e extraia informações específicas.
 
@@ -1143,6 +1162,152 @@ Responda em formato JSON válido com as chaves exatas:
         except Exception as e:
             logger.error(f"Error analyzing {filename} with AI: {e}")
             return {"error": f"Analysis failed: {str(e)}"}
+
+    def _analyze_interview_in_chunks(self, interview_content: str, filename: str) -> Dict[str, str]:
+        """Analyze interview content in chunks when it's too large."""
+        # Split content into chunks
+        # Convert tokens back to chars
+        max_chunk_chars = (self.max_tokens_per_request - 2000) * 4
+        chunks = []
+
+        # Split by paragraphs first to maintain context
+        paragraphs = interview_content.split('\n\n')
+        current_chunk = ""
+
+        for paragraph in paragraphs:
+            if len(current_chunk + paragraph) < max_chunk_chars:
+                current_chunk += paragraph + "\n\n"
+            else:
+                if current_chunk:
+                    chunks.append(current_chunk.strip())
+                current_chunk = paragraph + "\n\n"
+
+        if current_chunk:
+            chunks.append(current_chunk.strip())
+
+        logger.info(f"📄 Split {filename} into {len(chunks)} chunks")
+
+        # Analyze each chunk and combine results
+        combined_analysis = {}
+        column_mapping = self._get_existing_column_mapping()
+
+        # Initialize with default values
+        for excel_col in column_mapping.values():
+            combined_analysis[excel_col] = "Não encontrado"
+
+        for i, chunk in enumerate(chunks):
+            logger.info(
+                f"📄 Analyzing chunk {i+1}/{len(chunks)} for {filename}")
+            try:
+                chunk_analysis = self._analyze_single_chunk(
+                    chunk, filename, i+1)
+
+                # Merge results - if we find information in any chunk, use it
+                for key, value in chunk_analysis.items():
+                    if value and value != "Não encontrado" and value != "informação encontrada ou Não encontrado":
+                        if combined_analysis[key] == "Não encontrado":
+                            combined_analysis[key] = value
+                        else:
+                            # Combine information from multiple chunks
+                            combined_analysis[key] += f" | {value}"
+
+            except Exception as e:
+                logger.error(
+                    f"❌ Error analyzing chunk {i+1} of {filename}: {e}")
+                continue
+
+        return combined_analysis
+
+    def _analyze_single_chunk(self, chunk_content: str, filename: str, chunk_num: int) -> Dict[str, str]:
+        """Analyze a single chunk of interview content."""
+        prompt = f"""Você é um especialista em análise de entrevistas PROADI-SUS. Analise este TRECHO da entrevista '{filename}' (parte {chunk_num}) e extraia informações específicas.
+
+TRECHO DA ENTREVISTA:
+{chunk_content}
+
+INSTRUÇÕES:
+1. Para cada categoria, encontre e cite EXATAMENTE o que está escrito neste trecho
+2. Copie as falas diretas dos entrevistados, sem interpretações
+3. Se uma informação não estiver presente NESTE TRECHO, escreva "Não encontrado"
+4. Mantenha conversações completas quando relevantes
+
+Responda em formato JSON válido com as chaves exatas:
+
+{{
+  "Código Entrevista": "informação encontrada ou Não encontrado",
+  "Área de atuação": "informação encontrada ou Não encontrado",
+  "Hospital": "informação encontrada ou Não encontrado",
+  "Nome - posição institucional - Projetos": "informação encontrada ou Não encontrado",
+  "Modelos para planos de trabalho e prestação de contas": "informação encontrada ou Não encontrado",
+  "Avaliação geral Proadi e DesenvoIvimento Institucional": "informação encontrada ou Não encontrado",
+  "Relação Conass/Conasems/MS com HE e instituições parceiras": "informação encontrada ou Não encontrado",
+  "Benefícios para instituição parceira": "informação encontrada ou Não encontrado",
+  "Desafios para a participação do HE no Proadi": "informação encontrada ou Não encontrado",
+  "Sugestões": "informação encontrada ou Não encontrado",
+  "Origem dos projetos (quem demandou, tramitação e negociações)": "informação encontrada ou Não encontrado",
+  "Projetos colaborativos (participação de cada um, relacionamento HE e benefícios e desafios)": "informação encontrada ou Não encontrado",
+  "Expertise do hospital para o projeto e Inserção deste no HE": "informação encontrada ou Não encontrado",
+  "Abrangência Territorial do Projeto (definição)": "informação encontrada ou Não encontrado",
+  "Seleção e envolvimento instituições participantes no projeto": "informação encontrada ou Não encontrado",
+  "Avaliações sobre o Projeto": "informação encontrada ou Não encontrado",
+  "Monitoramento (HE e instituições participantes) e Indicadores": "informação encontrada ou Não encontrado",
+  "Riscos na implementação/dificuldades enfrentadas (adesão instituições ou profissionais, infraestrutura, outras)": "informação encontrada ou Não encontrado",
+  "Benefícios do projeto para o SUS": "informação encontrada ou Não encontrado",
+  "Incorporação de bens materiais ao SUS?": "informação encontrada ou Não encontrado",
+  "Treinamento para profissionais?": "informação encontrada ou Não encontrado",
+  "Publicações ou divulgação?": "informação encontrada ou Não encontrado",
+  "Incorporação resultados ao SUS": "informação encontrada ou Não encontrado",
+  "Longevidade e sustentabilidade possível?": "informação encontrada ou Não encontrado"
+}}"""
+
+        # Call the appropriate AI service
+        if self.use_gemini:
+            model = self.client.GenerativeModel(self.model_name)
+            response = model.generate_content(
+                prompt,
+                generation_config={
+                    "temperature": 0.1,
+                    "max_output_tokens": self.max_output_tokens
+                }
+            )
+            analysis_text = response.text.strip()
+        elif self.use_gpt:
+            response = self.client.chat.completions.create(
+                model=self.model_name,
+                messages=[
+                    {"role": "system", "content": "Você extrai informações de entrevistas. Copie trechos relevantes do texto original, não resuma ou interprete. Retorne sempre JSON válido."},
+                    {"role": "user", "content": prompt}
+                ],
+                temperature=0.1,
+                max_tokens=self.max_output_tokens
+            )
+            analysis_text = response.choices[0].message.content.strip()
+        else:
+            # Use Ollama
+            response = self.client.chat(
+                model=self.model_name,
+                messages=[
+                    {"role": "system", "content": "Você extrai informações de entrevistas. Copie trechos relevantes do texto original, não resuma ou interprete. Retorne sempre JSON válido."},
+                    {"role": "user", "content": prompt}
+                ],
+                options={
+                    "temperature": 0.1,
+                    "num_predict": self.max_output_tokens
+                }
+            )
+            analysis_text = response['message']['content'].strip()
+
+        # Parse the JSON response
+        try:
+            cleaned_json = self._extract_json_from_response(analysis_text)
+            analysis_dict = json.loads(cleaned_json)
+            analysis_dict = self._validate_and_fix_json(
+                analysis_dict, f"{filename}_chunk_{chunk_num}")
+            return analysis_dict
+        except json.JSONDecodeError as e:
+            logger.error(
+                f"JSON parsing error for {filename} chunk {chunk_num}: {e}")
+            return self._create_fallback_analysis(f"{filename}_chunk_{chunk_num}")
 
     def _create_fallback_analysis(self, filename: str) -> Dict[str, str]:
         """Create a fallback analysis structure when AI analysis fails."""
